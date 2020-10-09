@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html ng-app='myApp'>
+<head>
+    <title></title>
+    <link href="Content/css/bootstrap-rtl.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div ng-controller='menuCtrl' class="col-sm-2">
+            <div ng-repeat="menu in menus">
+                <div class="row" ng-click="menuClicked(menu)">
+                    <div class="col-sm-12">
+                        {{menu.Name}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-10">
+            <div ng-controller='advCtrl'>
+                <div infinite-scroll='loadMore()'
+                     infinite-scroll-distance='2'>
+                    <div ng-repeat="ad in ads">
+                        <h1>{{ad.Id}}-{{ad.Name}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/ng-infinite-scroll.min.js"></script>
+    <script src="Scripts/app2.js"></script>
+</body>
+</html>

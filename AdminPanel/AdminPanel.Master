@@ -1,0 +1,75 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminPanel.master.cs" Inherits="AdminPanel.AdminPanel" %>
+<%@ Import Namespace="Repository.Entity.Domain" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>پنل مدیریت سیستم</title>
+    <%--<link href="Bootstrap-3.2.0/css/bootstrap.min.css" rel="stylesheet" />--%>
+    <link href="Bootstrap-3.2.0/css/bootstrap-rtl.css" rel="stylesheet" />
+    <link href="Bootstrap-3.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="Bootstrap-3.2.0/css/simple-line-icons.css" rel="stylesheet" />
+    <link href="Bootstrap-3.2.0/css/animate.css" rel="stylesheet" />
+    <link href="Bootstrap-3.2.0/css/adminPanel.css" rel="stylesheet" />
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <img src="/images/header.png" style="width: 100%;" class="img-responsive" />
+                </div>
+                <div class="col-sm-10 col-xs-9">
+                    <hr/>
+                </div>
+                <div class="col-sm-2 col-xs-3">
+                    <h4>کاربر: <%=((User)Session["Username"]).FriendlyName%> </h4>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-3">
+                    <ol id="rightMenu" style="padding-right: 20px">
+                        <li><a href="CityList.aspx" class="btn btn-black btn-black-masterpanel">شهر ها</a></li>
+                        <li><a href="AreaList.aspx" class="btn btn-black btn-black-masterpanel">منطقه ها</a></li>
+                        <li><a href="CategoryList.aspx" class="btn btn-black btn-black-masterpanel">گروه ها</a></li>
+                        <li><a href="ProductList.aspx" class="btn btn-black btn-black-masterpanel">محصولات</a></li>
+                       <%-- <li><a href="CategoryPropList.aspx" class="btn btn-black btn-black-masterpanel">ویژگی های گروه</a></li>
+                        <li><a href="CategoryPropValueList.aspx" class="btn btn-black btn-black-masterpanel">مقادیر ویژگی های گروه</a></li>--%>
+                        <%--<li><a href="SubscribersList.aspx" class="btn btn-black btn-black-masterpanel">لیست مشترکین</a></li>
+                        <li><a href="SendToSubscribers.aspx" class="btn btn-black btn-black-masterpanel">ارسال مطلب به مشترکین</a></li>
+                        <li><a href="RatingGroupList.aspx" class="btn btn-black btn-black-masterpanel">آیتم های رای گیری</a></li>
+                        <li><a href="PostList.aspx" class="btn btn-black btn-black-masterpanel">مطالب</a></li>
+                        <li><a href="TagsList.aspx" class="btn btn-black btn-black-masterpanel">تگهای مطالب</a></li>--%>
+                        <li><a href="LinkList.aspx" class="btn btn-black btn-black-masterpanel">لینکها</a></li>
+
+                        <li><a href="#" class="btn btn-black btn-black-masterpanel">خروج</a></li>
+                    </ol>
+                </div>
+
+                <div class="col-md-9 center-text">
+                    <%--masterGeneralLabel kar nakard!--%>
+                    <asp:Label runat="server" ID="lblGeneralMessage"></asp:Label>
+                </div>
+
+                <div class="col-md-9 mainContent">
+                    <asp:ContentPlaceHolder ID="mainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+    <script src="Bootstrap-3.2.0/js/jquery.min.js"></script>
+    <script src="bootstrap-3.2.0/js/bootstrap.js"></script>
+    <script src="Bootstrap-3.2.0/js/transition.js"></script>
+</body>
+</html>

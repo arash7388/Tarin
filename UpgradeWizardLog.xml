@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="_UpgradeWizard_Files\UpgradeWizardLog.xslt"?>
+<log>
+  <event>Get project references.</event>
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\Repository.DAL\Repository.DAL.csproj" />
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\Repository.DAL\App.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="E:\Tarin\Repository.DAL\App.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="E:\Tarin\Repository.DAL\App.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="E:\Tarin\Repository.DAL\App.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="E:\Tarin\Repository.DAL\App.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="E:\Tarin\Repository.DAL\App.config" />
+  <event action="Analyze" type="Success" name="App.config" path="E:\Tarin\Repository.DAL\App.config" />
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\Repository.DAL\packages.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="E:\Tarin\Repository.DAL\packages.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="E:\Tarin\Repository.DAL\packages.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="E:\Tarin\Repository.DAL\packages.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="E:\Tarin\Repository.DAL\packages.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="E:\Tarin\Repository.DAL\packages.config" />
+  <event action="Analyze" type="Success" name="packages.config" path="E:\Tarin\Repository.DAL\packages.config" />
+  <event action="Analyze" type="Success" name="Repository.DAL" path="E:\Tarin\Repository.DAL\Repository.DAL.csproj" />
+  <event>Get project references.</event>
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\Repository.Data\Repository.Data.csproj" />
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\Repository.Data\App.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="E:\Tarin\Repository.Data\App.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="E:\Tarin\Repository.Data\App.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="E:\Tarin\Repository.Data\App.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="E:\Tarin\Repository.Data\App.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="E:\Tarin\Repository.Data\App.config" />
+  <event action="Analyze" type="Success" name="App.config" path="E:\Tarin\Repository.Data\App.config" />
+  <event action="Analyze" type="Success" name="201910031241482_setup.resx" path="E:\Tarin\Repository.Data\Migrations\201910031241482_setup.resx" />
+  <event action="Analyze" type="Success" name="201910031426004_pr-cat.resx" path="E:\Tarin\Repository.Data\Migrations\201910031426004_pr-cat.resx" />
+  <event action="Analyze" type="Success" name="201910061653442_ix.resx" path="E:\Tarin\Repository.Data\Migrations\201910061653442_ix.resx" />
+  <event action="Analyze" type="Success" name="201910111022339_color.resx" path="E:\Tarin\Repository.Data\Migrations\201910111022339_color.resx" />
+  <event action="Analyze" type="Success" name="201910111103311_worksheet.resx" path="E:\Tarin\Repository.Data\Migrations\201910111103311_worksheet.resx" />
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\Repository.Data\packages.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="E:\Tarin\Repository.Data\packages.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="E:\Tarin\Repository.Data\packages.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="E:\Tarin\Repository.Data\packages.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="E:\Tarin\Repository.Data\packages.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="E:\Tarin\Repository.Data\packages.config" />
+  <event action="Analyze" type="Success" name="packages.config" path="E:\Tarin\Repository.Data\packages.config" />
+  <event action="Analyze" type="Success" name="Repository.Data" path="E:\Tarin\Repository.Data\Repository.Data.csproj" />
+  <event>Get project references.</event>
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\Repository.Model\Repository.Entity.csproj" />
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\Repository.Model\App.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="E:\Tarin\Repository.Model\App.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="E:\Tarin\Repository.Model\App.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="E:\Tarin\Repository.Model\App.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="E:\Tarin\Repository.Model\App.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="E:\Tarin\Repository.Model\App.config" />
+  <event action="Analyze" type="Success" name="App.config" path="E:\Tarin\Repository.Model\App.config" />
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\Repository.Model\packages.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="E:\Tarin\Repository.Model\packages.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="E:\Tarin\Repository.Model\packages.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="E:\Tarin\Repository.Model\packages.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="E:\Tarin\Repository.Model\packages.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="E:\Tarin\Repository.Model\packages.config" />
+  <event action="Analyze" type="Success" name="packages.config" path="E:\Tarin\Repository.Model\packages.config" />
+  <event action="Analyze" type="Success" name="Repository.Entity" path="E:\Tarin\Repository.Model\Repository.Entity.csproj" />
+  <event>Get project references.</event>
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\AdminPanel\AdminPanel.csproj" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\AdminPanel.Master" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\AdminPanel.Master" />
+  <event action="Analyze" type="Success" name="AdminPanel.Master" path="E:\Tarin\AdminPanel\AdminPanel.Master" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\AdminPanelMain.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\AdminPanelMain.aspx" />
+  <event action="Analyze" type="Success" name="AdminPanelMain.aspx" path="E:\Tarin\AdminPanel\AdminPanelMain.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\Area.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\Area.aspx" />
+  <event action="Analyze" type="Success" name="Area.aspx" path="E:\Tarin\AdminPanel\Area.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\AreaList.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\AreaList.aspx" />
+  <event action="Analyze" type="Success" name="AreaList.aspx" path="E:\Tarin\AdminPanel\AreaList.aspx" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\index.html" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\index.html" />
+  <event action="Analyze" type="Success" name="index.html" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\index.html" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\affix.html" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\affix.html" />
+  <event action="Analyze" type="Success" name="affix.html" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\affix.html" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\alert.html" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\alert.html" />
+  <event action="Analyze" type="Success" name="alert.html" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\alert.html" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\button.html" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\button.html" />
+  <event action="Analyze" type="Success" name="button.html" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\button.html" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\carousel.html" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\carousel.html" />
+  <event action="Analyze" type="Success" name="carousel.html" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\carousel.html" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\collapse.html" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\collapse.html" />
+  <event action="Analyze" type="Success" name="collapse.html" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\collapse.html" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\dropdown.html" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\dropdown.html" />
+  <event action="Analyze" type="Success" name="dropdown.html" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\dropdown.html" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\modal.html" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\modal.html" />
+  <event action="Analyze" type="Success" name="modal.html" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\modal.html" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\popover.html" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\popover.html" />
+  <event action="Analyze" type="Success" name="popover.html" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\popover.html" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\scrollspy.html" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\scrollspy.html" />
+  <event action="Analyze" type="Success" name="scrollspy.html" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\scrollspy.html" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\tab.html" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\tab.html" />
+  <event action="Analyze" type="Success" name="tab.html" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\tab.html" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\tooltip.html" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\tooltip.html" />
+  <event action="Analyze" type="Success" name="tooltip.html" path="E:\Tarin\AdminPanel\Bootstrap-3.2.0\js\tests\visual\tooltip.html" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\Category.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\Category.aspx" />
+  <event action="Analyze" type="Success" name="Category.aspx" path="E:\Tarin\AdminPanel\Category.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\CategoryList.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\CategoryList.aspx" />
+  <event action="Analyze" type="Success" name="CategoryList.aspx" path="E:\Tarin\AdminPanel\CategoryList.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\CategoryProp.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\CategoryProp.aspx" />
+  <event action="Analyze" type="Success" name="CategoryProp.aspx" path="E:\Tarin\AdminPanel\CategoryProp.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\CategoryPropList.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\CategoryPropList.aspx" />
+  <event action="Analyze" type="Success" name="CategoryPropList.aspx" path="E:\Tarin\AdminPanel\CategoryPropList.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\CategoryPropValue.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\CategoryPropValue.aspx" />
+  <event action="Analyze" type="Success" name="CategoryPropValue.aspx" path="E:\Tarin\AdminPanel\CategoryPropValue.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\CategoryPropValueList.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\CategoryPropValueList.aspx" />
+  <event action="Analyze" type="Success" name="CategoryPropValueList.aspx" path="E:\Tarin\AdminPanel\CategoryPropValueList.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\City.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\City.aspx" />
+  <event action="Analyze" type="Success" name="City.aspx" path="E:\Tarin\AdminPanel\City.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\CityList.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\CityList.aspx" />
+  <event action="Analyze" type="Success" name="CityList.aspx" path="E:\Tarin\AdminPanel\CityList.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\Confirmation.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\Confirmation.aspx" />
+  <event action="Analyze" type="Success" name="Confirmation.aspx" path="E:\Tarin\AdminPanel\Confirmation.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\Link.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\Link.aspx" />
+  <event action="Analyze" type="Success" name="Link.aspx" path="E:\Tarin\AdminPanel\Link.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\LinkList.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\LinkList.aspx" />
+  <event action="Analyze" type="Success" name="LinkList.aspx" path="E:\Tarin\AdminPanel\LinkList.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\Login.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\Login.aspx" />
+  <event action="Analyze" type="Success" name="Login.aspx" path="E:\Tarin\AdminPanel\Login.aspx" />
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\AdminPanel\packages.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="E:\Tarin\AdminPanel\packages.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="E:\Tarin\AdminPanel\packages.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="E:\Tarin\AdminPanel\packages.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="E:\Tarin\AdminPanel\packages.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="E:\Tarin\AdminPanel\packages.config" />
+  <event action="Analyze" type="Success" name="packages.config" path="E:\Tarin\AdminPanel\packages.config" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\Product.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\Product.aspx" />
+  <event action="Analyze" type="Success" name="Product.aspx" path="E:\Tarin\AdminPanel\Product.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\ProductList.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\ProductList.aspx" />
+  <event action="Analyze" type="Success" name="ProductList.aspx" path="E:\Tarin\AdminPanel\ProductList.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\RatingGroup.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\RatingGroup.aspx" />
+  <event action="Analyze" type="Success" name="RatingGroup.aspx" path="E:\Tarin\AdminPanel\RatingGroup.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\RatingGroupList.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\RatingGroupList.aspx" />
+  <event action="Analyze" type="Success" name="RatingGroupList.aspx" path="E:\Tarin\AdminPanel\RatingGroupList.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\RatingUC.ascx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\RatingUC.ascx" />
+  <event action="Analyze" type="Success" name="RatingUC.ascx" path="E:\Tarin\AdminPanel\RatingUC.ascx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\Tag.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\Tag.aspx" />
+  <event action="Analyze" type="Success" name="Tag.aspx" path="E:\Tarin\AdminPanel\Tag.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\AdminPanel\TagsList.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\AdminPanel\TagsList.aspx" />
+  <event action="Analyze" type="Success" name="TagsList.aspx" path="E:\Tarin\AdminPanel\TagsList.aspx" />
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\AdminPanel\Web.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="E:\Tarin\AdminPanel\Web.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="E:\Tarin\AdminPanel\Web.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="E:\Tarin\AdminPanel\Web.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="E:\Tarin\AdminPanel\Web.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="E:\Tarin\AdminPanel\Web.config" />
+  <event action="Analyze" type="Success" name="Web.config" path="E:\Tarin\AdminPanel\Web.config" />
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\AdminPanel\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="E:\Tarin\AdminPanel\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="E:\Tarin\AdminPanel\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="E:\Tarin\AdminPanel\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="E:\Tarin\AdminPanel\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="E:\Tarin\AdminPanel\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Web.Debug.config" path="E:\Tarin\AdminPanel\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\AdminPanel\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="E:\Tarin\AdminPanel\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="E:\Tarin\AdminPanel\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="E:\Tarin\AdminPanel\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="E:\Tarin\AdminPanel\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="E:\Tarin\AdminPanel\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Web.Release.config" path="E:\Tarin\AdminPanel\Web.Release.config" />
+  <event action="Analyze" type="Success" name="AdminPanel" path="E:\Tarin\AdminPanel\AdminPanel.csproj" />
+  <event>Get project references.</event>
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\Shared\Shared.csproj" />
+  <event action="Analyze" type="Success" name="Shared" path="E:\Tarin\Shared\Shared.csproj" />
+  <event>Get project references.</event>
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\Common\Common.csproj" />
+  <event action="Analyze" type="Success" name="Common" path="E:\Tarin\Common\Common.csproj" />
+  <event>Get project references.</event>
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\MehranPack\MehranPack.csproj" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\Cardex.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\Cardex.aspx" />
+  <event action="Analyze" type="Success" name="Cardex.aspx" path="E:\Tarin\MehranPack\Cardex.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\Confirmation.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\Confirmation.aspx" />
+  <event action="Analyze" type="Success" name="Confirmation.aspx" path="E:\Tarin\MehranPack\Confirmation.aspx" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\Customer.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\Customer.aspx" />
+  <event action="Analyze" type="Success" name="Customer.aspx" path="E:\Tarin\MehranPack\Customer.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\CustomerList.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\CustomerList.aspx" />
+  <event action="Analyze" type="Success" name="CustomerList.aspx" path="E:\Tarin\MehranPack\CustomerList.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\GoodsGroupSupply.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\GoodsGroupSupply.aspx" />
+  <event action="Analyze" type="Success" name="GoodsGroupSupply.aspx" path="E:\Tarin\MehranPack\GoodsGroupSupply.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\GoodsSupply.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\GoodsSupply.aspx" />
+  <event action="Analyze" type="Success" name="GoodsSupply.aspx" path="E:\Tarin\MehranPack\GoodsSupply.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\Home.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\Home.aspx" />
+  <event action="Analyze" type="Success" name="Home.aspx" path="E:\Tarin\MehranPack\Home.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\InputOutput.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\InputOutput.aspx" />
+  <event action="Analyze" type="Success" name="InputOutput.aspx" path="E:\Tarin\MehranPack\InputOutput.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\InputOutputList.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\InputOutputList.aspx" />
+  <event action="Analyze" type="Success" name="InputOutputList.aspx" path="E:\Tarin\MehranPack\InputOutputList.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\IOReport.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\IOReport.aspx" />
+  <event action="Analyze" type="Success" name="IOReport.aspx" path="E:\Tarin\MehranPack\IOReport.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\Login.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\Login.aspx" />
+  <event action="Analyze" type="Success" name="Login.aspx" path="E:\Tarin\MehranPack\Login.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\Main.Master" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\Main.Master" />
+  <event action="Analyze" type="Success" name="Main.Master" path="E:\Tarin\MehranPack\Main.Master" />
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\MehranPack\packages.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="E:\Tarin\MehranPack\packages.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="E:\Tarin\MehranPack\packages.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="E:\Tarin\MehranPack\packages.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="E:\Tarin\MehranPack\packages.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="E:\Tarin\MehranPack\packages.config" />
+  <event action="Analyze" type="Success" name="packages.config" path="E:\Tarin\MehranPack\packages.config" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\Process.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\Process.aspx" />
+  <event action="Analyze" type="Success" name="Process.aspx" path="E:\Tarin\MehranPack\Process.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\ProcessCategory.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\ProcessCategory.aspx" />
+  <event action="Analyze" type="Success" name="ProcessCategory.aspx" path="E:\Tarin\MehranPack\ProcessCategory.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\ProcessCategoryList.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\ProcessCategoryList.aspx" />
+  <event action="Analyze" type="Success" name="ProcessCategoryList.aspx" path="E:\Tarin\MehranPack\ProcessCategoryList.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\ProcessList.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\ProcessList.aspx" />
+  <event action="Analyze" type="Success" name="ProcessList.aspx" path="E:\Tarin\MehranPack\ProcessList.aspx" />
+  <event action="Analyze" type="Success" name="ReportWorksheet.resx" path="E:\Tarin\MehranPack\ReportWorksheet.resx" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\UserControls\PersianCalender.ascx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\UserControls\PersianCalender.ascx" />
+  <event action="Analyze" type="Success" name="PersianCalender.ascx" path="E:\Tarin\MehranPack\UserControls\PersianCalender.ascx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\Users.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\Users.aspx" />
+  <event action="Analyze" type="Success" name="Users.aspx" path="E:\Tarin\MehranPack\Users.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\UsersList.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\UsersList.aspx" />
+  <event action="Analyze" type="Success" name="UsersList.aspx" path="E:\Tarin\MehranPack\UsersList.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\ViewSwitcher.ascx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\ViewSwitcher.ascx" />
+  <event action="Analyze" type="Success" name="ViewSwitcher.ascx" path="E:\Tarin\MehranPack\ViewSwitcher.ascx" />
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\MehranPack\Web.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="E:\Tarin\MehranPack\Web.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="E:\Tarin\MehranPack\Web.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="E:\Tarin\MehranPack\Web.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="E:\Tarin\MehranPack\Web.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="E:\Tarin\MehranPack\Web.config" />
+  <event action="Analyze" type="Success" name="Web.config" path="E:\Tarin\MehranPack\Web.config" />
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\MehranPack\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="E:\Tarin\MehranPack\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="E:\Tarin\MehranPack\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="E:\Tarin\MehranPack\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="E:\Tarin\MehranPack\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="E:\Tarin\MehranPack\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Web.Debug.config" path="E:\Tarin\MehranPack\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Assembly References" path="E:\Tarin\MehranPack\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="E:\Tarin\MehranPack\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="E:\Tarin\MehranPack\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="E:\Tarin\MehranPack\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="E:\Tarin\MehranPack\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="E:\Tarin\MehranPack\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Web.Release.config" path="E:\Tarin\MehranPack\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\Worksheet.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\Worksheet.aspx" />
+  <event action="Analyze" type="Success" name="Worksheet.aspx" path="E:\Tarin\MehranPack\Worksheet.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\WorksheetList.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\WorksheetList.aspx" />
+  <event action="Analyze" type="Success" name="WorksheetList.aspx" path="E:\Tarin\MehranPack\WorksheetList.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\WorksheetPrint.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="E:\Tarin\MehranPack\WorksheetPrint.aspx" />
+  <event action="Analyze" type="Success" name="WorksheetPrint.aspx" path="E:\Tarin\MehranPack\WorksheetPrint.aspx" />
+  <event action="Analyze" type="Success" name="MehranPack" path="E:\Tarin\MehranPack\MehranPack.csproj" />
+  <event action="Analyze" type="Success" name="Tarin" path="E:\Tarin\Tarin.sln" />
+  <event action="Upgrade" type="Success" name="Assembly References" path="E:\Tarin\MehranPack\MehranPack.csproj" />
+  <event action="Upgrade" type="Success" name="Assembly References" path="E:\Tarin\MehranPack\Web.config" />
+  <event action="Upgrade" type="Success" name="Http Handlers" path="E:\Tarin\MehranPack\Web.config" />
+  <event action="Upgrade" type="Success" name="Handlers (IIS7+)" path="E:\Tarin\MehranPack\Web.config" />
+  <event action="Upgrade" type="Success" name="Web.config" path="E:\Tarin\MehranPack\Web.config" />
+  <event action="Upgrade" type="Success" name="Register Directives" path="E:\Tarin\MehranPack\WorksheetPrint.aspx" />
+  <event action="Upgrade" type="Success" name="WorksheetPrint.aspx" path="E:\Tarin\MehranPack\WorksheetPrint.aspx" />
+  <event action="Upgrade" type="Success" name="MehranPack" path="E:\Tarin\MehranPack\MehranPack.csproj" />
+  <event action="Upgrade" type="Success" name="Tarin" path="E:\Tarin\Tarin.sln" />
+</log>

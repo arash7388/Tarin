@@ -1,0 +1,497 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F7BFE7E5-A23F-4ED4-89DD-D15D83241EDB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AdminPanel</RootNamespace>
+    <AssemblyName>AdminPanel</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Telerik.Web.UI">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for ASP.NET AJAX Q2 2014\Bin45\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Area.aspx" />
+    <Content Include="AreaList.aspx" />
+    <Content Include="Bootstrap-3.2.0\css\adminPanel.scss" />
+    <Content Include="Bootstrap-3.2.0\css\bootstrap-orig.css" />
+    <Content Include="Bootstrap-3.2.0\css\bootstrap-rtl.css" />
+    <Content Include="Bootstrap-3.2.0\css\bootstrap-theme.css" />
+    <Content Include="Bootstrap-3.2.0\css\bootstrap-theme.css.map" />
+    <Content Include="Bootstrap-3.2.0\css\bootstrap-theme.min.css" />
+    <Content Include="Bootstrap-3.2.0\css\bootstrap.css.map" />
+    <Content Include="Bootstrap-3.2.0\css\bootstrap.min-orig.css" />
+    <Content Include="Bootstrap-3.2.0\fonts\BBCNassim.eot" />
+    <Content Include="Bootstrap-3.2.0\fonts\BBCNassim.ttf" />
+    <Content Include="Bootstrap-3.2.0\fonts\BBCNassim.woff" />
+    <Content Include="Bootstrap-3.2.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Bootstrap-3.2.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Bootstrap-3.2.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Bootstrap-3.2.0\fonts\FontAwesome.otf" />
+    <Content Include="Bootstrap-3.2.0\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Bootstrap-3.2.0\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Bootstrap-3.2.0\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Bootstrap-3.2.0\fonts\Simple-Line-Icons.eot" />
+    <Content Include="Bootstrap-3.2.0\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="Bootstrap-3.2.0\fonts\Simple-Line-Icons.woff" />
+    <Content Include="Bootstrap-3.2.0\grunt\.jshintrc" />
+    <Content Include="Bootstrap-3.2.0\grunt\sauce_browsers.yml" />
+    <Content Include="Bootstrap-3.2.0\js\.jscsrc" />
+    <Content Include="Bootstrap-3.2.0\js\.jshintrc" />
+    <Content Include="Bootstrap-3.2.0\js\tests\unit\.jshintrc" />
+    <Content Include="Bootstrap-3.2.0\less\.csscomb.json" />
+    <Content Include="Bootstrap-3.2.0\less\.csslintrc" />
+    <Content Include="Bootstrap-3.2.0\less\alerts.less" />
+    <Content Include="Bootstrap-3.2.0\less\badges.less" />
+    <Content Include="Bootstrap-3.2.0\less\bootstrap.less" />
+    <Content Include="Bootstrap-3.2.0\less\breadcrumbs.less" />
+    <Content Include="Bootstrap-3.2.0\less\button-groups.less" />
+    <Content Include="Bootstrap-3.2.0\less\buttons.less" />
+    <Content Include="Bootstrap-3.2.0\less\carousel.less" />
+    <Content Include="Bootstrap-3.2.0\less\close.less" />
+    <Content Include="Bootstrap-3.2.0\less\code.less" />
+    <Content Include="Bootstrap-3.2.0\less\component-animations.less" />
+    <Content Include="Bootstrap-3.2.0\less\dropdowns.less" />
+    <Content Include="Bootstrap-3.2.0\less\forms.less" />
+    <Content Include="Bootstrap-3.2.0\less\glyphicons.less" />
+    <Content Include="Bootstrap-3.2.0\less\grid.less" />
+    <Content Include="Bootstrap-3.2.0\less\input-groups.less" />
+    <Content Include="Bootstrap-3.2.0\less\jumbotron.less" />
+    <Content Include="Bootstrap-3.2.0\less\labels.less" />
+    <Content Include="Bootstrap-3.2.0\less\list-group.less" />
+    <Content Include="Bootstrap-3.2.0\less\media.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\alerts.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\background-variant.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\border-radius.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\buttons.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\center-block.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\clearfix.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\forms.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\gradients.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\grid-framework.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\grid.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\hide-text.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\image.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\labels.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\list-group.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\nav-divider.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\nav-vertical-align.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\opacity.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\pagination.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\panels.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\progress-bar.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\reset-filter.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\resize.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\responsive-visibility.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\size.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\tab-focus.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\table-row.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\text-emphasis.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\text-overflow.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins\vendor-prefixes.less" />
+    <Content Include="Bootstrap-3.2.0\less\mixins.less" />
+    <Content Include="Bootstrap-3.2.0\less\modals.less" />
+    <Content Include="Bootstrap-3.2.0\less\navbar.less" />
+    <Content Include="Bootstrap-3.2.0\less\navs.less" />
+    <Content Include="Bootstrap-3.2.0\less\normalize.less" />
+    <Content Include="Bootstrap-3.2.0\less\pager.less" />
+    <Content Include="Bootstrap-3.2.0\less\pagination.less" />
+    <Content Include="Bootstrap-3.2.0\less\panels.less" />
+    <Content Include="Bootstrap-3.2.0\less\popovers.less" />
+    <Content Include="Bootstrap-3.2.0\less\print.less" />
+    <Content Include="Bootstrap-3.2.0\less\progress-bars.less" />
+    <Content Include="Bootstrap-3.2.0\less\responsive-embed.less" />
+    <Content Include="Bootstrap-3.2.0\less\responsive-utilities.less" />
+    <Content Include="Bootstrap-3.2.0\less\scaffolding.less" />
+    <Content Include="Bootstrap-3.2.0\less\tables.less" />
+    <Content Include="Bootstrap-3.2.0\less\theme.less" />
+    <Content Include="Bootstrap-3.2.0\less\thumbnails.less" />
+    <Content Include="Bootstrap-3.2.0\less\tooltip.less" />
+    <Content Include="Bootstrap-3.2.0\less\type.less" />
+    <Content Include="Bootstrap-3.2.0\less\utilities.less" />
+    <Content Include="Bootstrap-3.2.0\less\variables.less" />
+    <Content Include="Bootstrap-3.2.0\less\wells.less" />
+    <Content Include="AdminPanel.Master" />
+    <Content Include="CategoryProp.aspx" />
+    <Content Include="CategoryPropList.aspx" />
+    <Content Include="CategoryPropValue.aspx" />
+    <Content Include="CategoryPropValueList.aspx" />
+    <Content Include="City.aspx" />
+    <Content Include="CityList.aspx" />
+    <Content Include="images\header.png" />
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\admin-.pubxml" />
+    <None Include="Properties\PublishProfiles\Admin.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminPanelMain.aspx" />
+    <Content Include="Bootstrap-3.2.0\css\adminPanel.css">
+      <DependentUpon>adminPanel.scss</DependentUpon>
+    </Content>
+    <Content Include="Bootstrap-3.2.0\css\animate.css" />
+    <Content Include="Bootstrap-3.2.0\css\bootstrap-theme-orig.css" />
+    <Content Include="Bootstrap-3.2.0\css\bootstrap-theme.min-orig.css" />
+    <Content Include="Bootstrap-3.2.0\css\bootstrap.css" />
+    <Content Include="Bootstrap-3.2.0\css\bootstrap.min.css" />
+    <Content Include="Bootstrap-3.2.0\css\font-awesome.min.css" />
+    <Content Include="Bootstrap-3.2.0\css\jquery.min.js" />
+    <Content Include="Bootstrap-3.2.0\css\lightbox.css" />
+    <Content Include="Bootstrap-3.2.0\css\simple-line-icons.css" />
+    <Content Include="Bootstrap-3.2.0\css\templatemo_style.css" />
+    <Content Include="Bootstrap-3.2.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Bootstrap-3.2.0\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Bootstrap-3.2.0\fonts\Simple-Line-Icons.dev.svg" />
+    <Content Include="Bootstrap-3.2.0\fonts\Simple-Line-Icons.svg" />
+    <Content Include="Bootstrap-3.2.0\grunt\bs-glyphicons-data-generator.js" />
+    <Content Include="Bootstrap-3.2.0\grunt\bs-lessdoc-parser.js" />
+    <Content Include="Bootstrap-3.2.0\grunt\bs-raw-files-generator.js" />
+    <Content Include="Bootstrap-3.2.0\js\affix.js" />
+    <Content Include="Bootstrap-3.2.0\js\alert.js" />
+    <Content Include="Bootstrap-3.2.0\js\bootstrap.js" />
+    <Content Include="Bootstrap-3.2.0\js\bootstrap.min.js" />
+    <Content Include="Bootstrap-3.2.0\js\button.js" />
+    <Content Include="Bootstrap-3.2.0\js\carousel.js" />
+    <Content Include="Bootstrap-3.2.0\js\collapse.js" />
+    <Content Include="Bootstrap-3.2.0\js\custom.min.js" />
+    <Content Include="Bootstrap-3.2.0\js\dropdown.js" />
+    <Content Include="Bootstrap-3.2.0\js\jquery.gmap3.min.js" />
+    <Content Include="Bootstrap-3.2.0\js\jquery.min.js" />
+    <Content Include="Bootstrap-3.2.0\js\lightbox.js" />
+    <Content Include="Bootstrap-3.2.0\js\min\custom.min1.js" />
+    <Content Include="Bootstrap-3.2.0\js\modal.js" />
+    <Content Include="Bootstrap-3.2.0\js\popover.js" />
+    <Content Include="Bootstrap-3.2.0\js\scrollspy.js" />
+    <Content Include="Bootstrap-3.2.0\js\tab.js" />
+    <Content Include="Bootstrap-3.2.0\js\templatemo_custom.js" />
+    <Content Include="Bootstrap-3.2.0\js\tests\index.html" />
+    <Content Include="Bootstrap-3.2.0\js\tests\unit\affix.js" />
+    <Content Include="Bootstrap-3.2.0\js\tests\unit\alert.js" />
+    <Content Include="Bootstrap-3.2.0\js\tests\unit\button.js" />
+    <Content Include="Bootstrap-3.2.0\js\tests\unit\carousel.js" />
+    <Content Include="Bootstrap-3.2.0\js\tests\unit\collapse.js" />
+    <Content Include="Bootstrap-3.2.0\js\tests\unit\dropdown.js" />
+    <Content Include="Bootstrap-3.2.0\js\tests\unit\modal.js" />
+    <Content Include="Bootstrap-3.2.0\js\tests\unit\phantom.js" />
+    <Content Include="Bootstrap-3.2.0\js\tests\unit\popover.js" />
+    <Content Include="Bootstrap-3.2.0\js\tests\unit\scrollspy.js" />
+    <Content Include="Bootstrap-3.2.0\js\tests\unit\tab.js" />
+    <Content Include="Bootstrap-3.2.0\js\tests\unit\tooltip.js" />
+    <Content Include="Bootstrap-3.2.0\js\tests\vendor\jquery.min.js" />
+    <Content Include="Bootstrap-3.2.0\js\tests\vendor\qunit.css" />
+    <Content Include="Bootstrap-3.2.0\js\tests\vendor\qunit.js" />
+    <Content Include="Bootstrap-3.2.0\js\tests\visual\affix.html" />
+    <Content Include="Bootstrap-3.2.0\js\tests\visual\alert.html" />
+    <Content Include="Bootstrap-3.2.0\js\tests\visual\button.html" />
+    <Content Include="Bootstrap-3.2.0\js\tests\visual\carousel.html" />
+    <Content Include="Bootstrap-3.2.0\js\tests\visual\collapse.html" />
+    <Content Include="Bootstrap-3.2.0\js\tests\visual\dropdown.html" />
+    <Content Include="Bootstrap-3.2.0\js\tests\visual\modal.html" />
+    <Content Include="Bootstrap-3.2.0\js\tests\visual\popover.html" />
+    <Content Include="Bootstrap-3.2.0\js\tests\visual\scrollspy.html" />
+    <Content Include="Bootstrap-3.2.0\js\tests\visual\tab.html" />
+    <Content Include="Bootstrap-3.2.0\js\tests\visual\tooltip.html" />
+    <Content Include="Bootstrap-3.2.0\js\tooltip.js" />
+    <Content Include="Bootstrap-3.2.0\js\transition.js" />
+    <Content Include="Confirmation.aspx" />
+    <Content Include="Editor\PostImages\facebook.png" />
+    <Content Include="Editor\PostImages\Logo2.jpg" />
+    <Content Include="Editor\PostImages\onebit_26.png" />
+    <Content Include="Editor\PostImages\prevlabel.gif" />
+    <Content Include="Global.asax" />
+    <Content Include="Link.aspx" />
+    <Content Include="LinkList.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Category.aspx" />
+    <Content Include="CategoryList.aspx" />
+    <Content Include="Product.aspx" />
+    <Content Include="ProductList.aspx" />
+    <Content Include="RatingGroup.aspx" />
+    <Content Include="RatingGroupList.aspx" />
+    <Content Include="RatingUC.ascx" />
+    <Content Include="Tag.aspx" />
+    <Content Include="TagsList.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminPanel.Master.cs">
+      <DependentUpon>AdminPanel.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel.Master.designer.cs">
+      <DependentUpon>AdminPanel.Master</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanelMain.aspx.cs">
+      <DependentUpon>AdminPanelMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanelMain.aspx.designer.cs">
+      <DependentUpon>AdminPanelMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Area.aspx.cs">
+      <DependentUpon>Area.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Area.aspx.designer.cs">
+      <DependentUpon>Area.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AreaList.aspx.cs">
+      <DependentUpon>AreaList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AreaList.aspx.designer.cs">
+      <DependentUpon>AreaList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryProp.aspx.cs">
+      <DependentUpon>CategoryProp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoryProp.aspx.designer.cs">
+      <DependentUpon>CategoryProp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryPropList.aspx.cs">
+      <DependentUpon>CategoryPropList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoryPropList.aspx.designer.cs">
+      <DependentUpon>CategoryPropList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryPropValue.aspx.cs">
+      <DependentUpon>CategoryPropValue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoryPropValue.aspx.designer.cs">
+      <DependentUpon>CategoryPropValue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryPropValueList.aspx.cs">
+      <DependentUpon>CategoryPropValueList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoryPropValueList.aspx.designer.cs">
+      <DependentUpon>CategoryPropValueList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="City.aspx.cs">
+      <DependentUpon>City.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="City.aspx.designer.cs">
+      <DependentUpon>City.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CityList.aspx.cs">
+      <DependentUpon>CityList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CityList.aspx.designer.cs">
+      <DependentUpon>CityList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Confirmation.aspx.cs">
+      <DependentUpon>Confirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Confirmation.aspx.designer.cs">
+      <DependentUpon>Confirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Link.aspx.cs">
+      <DependentUpon>Link.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Link.aspx.designer.cs">
+      <DependentUpon>Link.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LinkList.aspx.cs">
+      <DependentUpon>LinkList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LinkList.aspx.designer.cs">
+      <DependentUpon>LinkList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Category.aspx.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Category.aspx.designer.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryList.aspx.cs">
+      <DependentUpon>CategoryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoryList.aspx.designer.cs">
+      <DependentUpon>CategoryList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Product.aspx.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Product.aspx.designer.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductList.aspx.cs">
+      <DependentUpon>ProductList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductList.aspx.designer.cs">
+      <DependentUpon>ProductList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RatingGroup.aspx.cs">
+      <DependentUpon>RatingGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RatingGroup.aspx.designer.cs">
+      <DependentUpon>RatingGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RatingGroupList.aspx.cs">
+      <DependentUpon>RatingGroupList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RatingGroupList.aspx.designer.cs">
+      <DependentUpon>RatingGroupList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RatingUC.ascx.cs">
+      <DependentUpon>RatingUC.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RatingUC.ascx.designer.cs">
+      <DependentUpon>RatingUC.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Tag.aspx.cs">
+      <DependentUpon>Tag.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tag.aspx.designer.cs">
+      <DependentUpon>Tag.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TagsList.aspx.cs">
+      <DependentUpon>TagsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TagsList.aspx.designer.cs">
+      <DependentUpon>TagsList.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{1fd18a1b-c13d-4aa5-90a8-6f583bd13c50}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository.DAL\Repository.DAL.csproj">
+      <Project>{1bb26ed0-803d-4533-93bd-1a19d03456d7}</Project>
+      <Name>Repository.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository.Model\Repository.Entity.csproj">
+      <Project>{a6f25c6b-5f23-4cec-9d05-6f02f738cfb0}</Project>
+      <Name>Repository.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1993</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1993/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

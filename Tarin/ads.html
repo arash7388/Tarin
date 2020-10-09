@@ -1,0 +1,84 @@
+﻿
+<link href="Content/css/bootstrap-rtl.css" rel="stylesheet" />
+<div class="noselect">
+    <div class="row un-pad">
+
+        <div class="col-md-2 un-pad">
+            <div class="main-menu-body">
+                <div class="menu-body has-border2">
+                    
+                    <div class="row un-pad button-menu">
+
+                        <div ng-repeat="menu in menus">
+                            <div class="row un-pad " ng-click="go(menu)" ng-class="{'first-menu-item' : $first , 'menu-item' : !$first,'is-last-item':$last}">
+                                <div class="col-md-1 un-pad text-center">
+                                    <div class="outer">
+                                        <div class="middle">
+                                            <p class="menu-item-icon"></p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-11 un-pad">
+                                    {{menu.Name}}
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 un-pad content">
+            <div class="row un-pad">
+                <div class="items-body">
+                    <div class="row un-pad first-menu-item">
+                        جدیدترین آگهی ها
+                    </div>
+                    <div class="row un-pad win-content">
+
+                        <div infinite-scroll='myPagingFunction()'
+                             infinite-scroll-disabled='busy'
+                             infinite-scroll-parent="true"
+                             infinite-scroll-immediate-check="false"
+                             infinite-scroll-distance='2'>
+                            <div ng-repeat="ad in ads">
+                                <div class="col-md-2 un-pad">
+                                    <div class="list-item-bg">
+                                        <div class="frame-size">
+                                            <div class="container">
+                                                <div class="dummy">
+                                                    <div class="element ">
+
+                                                        <img data-ng-src="data:image/png;base64,{{ad.AdvertisementPics[0].PicHigh}}" class=" img-size" />
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-border"></div>
+                                        <div class="name__div">
+                                            <p class="name_p">
+                                                {{ad.Name}}
+                                            </p>
+                                            <div class="item-border"></div>
+
+                                            <div class="area_div">
+                                                <p class="area_p">
+                                                    {{ad.Mobile}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

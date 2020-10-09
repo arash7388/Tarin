@@ -1,0 +1,142 @@
+﻿.navbar-custom {
+    /*background-color:#3d2c29;*/
+    /*background-color: #f6f6f6;*/
+    /*background: -webkit-linear-gradient(#607d8b,#607d8b);*/ /* For Safari 5.1 to 6.0 */
+    /*background: -o-linear-gradient(#607d8b,#607d8b); /* For Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient(#607d8b,#607d8b); /* For Firefox 3.6 to 15 */
+    /*background: linear-gradient(#607d8b,#607d8b);*/ /* Standard syntax */
+    background:#607D8B;
+    color: #ffffff;
+    border-radius: 0;
+    box-shadow: 0px 2px 3px grey;
+}
+
+    .navbar-custom .navbar-nav > li > a {
+        color: #fff;
+    }
+
+    .navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+        color: #ffffff;
+        background-color: transparent;
+    }
+
+    .navbar-custom .navbar-brand {
+        font-family: "entezar";
+        color: #FFFFFF;
+        font-size: 35px;
+    }
+
+@font-face {
+    font-family: "entezar";
+    src: url("../fonts/entezar/Entezar1_v2.0.1.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'yekan';
+    src: url('../fonts/yekan/yekan.eot');
+    src: url('../fonts/yekan/yekan.eot?#iefix') format('embedded-opentype'), url('../fonts/yekan/yekan.woff') format('woff'), url('../fonts/yekan/yekan.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.container-1 input#search {
+    width: 300px;
+    height: 40px;
+    background: #c4d7ea;
+    border: none;
+    font-family: "yekan";
+    font-size: 13pt;
+    float: left;
+    color: #6991b9;
+    padding-left: 45px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transition: background .55s ease;
+    -moz-transition: background .55s ease;
+    -ms-transition: background .55s ease;
+    -o-transition: background .55s ease;
+    transition: background .55s ease;
+}
+
+.container-1 {
+    width: 300px;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+}
+
+
+    .container-1 .icon {
+        position: absolute;
+        font-size: 25px;
+        left: 3px;
+        /*top: 50%;*/
+        /*margin-left: 17px;*/
+        margin-top: 1px;
+        /*z-index: 1;*/
+        color: #6991b9;
+    }
+
+    .container-1:hover .icon {
+        margin-top: 3px;
+        /*color: red;*/
+        -webkit-transform: scale(1.4); /* Safari and Chrome */
+        -moz-transform: scale(1.4); /* Firefox */
+        -ms-transform: scale(1.4); /* IE 9 */
+        -o-transform: scale(1.4); /* Opera */
+        transform: scale(1.4);
+    }
+
+    .container-1 input#search::-webkit-input-placeholder {
+        color: #6991b9;
+    }
+
+    .container-1 input#search:-moz-placeholder { /* Firefox 18- */
+        color: #6991b9;
+    }
+
+    .container-1 input#search::-moz-placeholder { /* Firefox 19+ */
+        color: #6991b9;
+    }
+
+    .container-1 input#search:-ms-input-placeholder {
+        color: #6991b9;
+    }
+
+    .container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active {
+        outline: none;
+        background: #ffffff;
+    }
+
+    .container-1 input#search:focus {
+        border-color: #6991b9;
+        box-shadow: 0 0 5px #6991b9;
+    }
+
+#main-body {
+    /*background: #fce7c9;*/
+    /*background: #f2f2f2;*/
+    background: #D2D7D3;
+}
+
+
+.hrBlue {
+  border: 1px solid #00b2ff; }
+
+.btn100 {
+    min-width: 100px;
+}
+
+.propReqValidator {
+    font-weight: bold;
+    color: red;
+
+}
+
+.drpCatStyle {
+    visibility: hidden;
+}

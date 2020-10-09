@@ -1,0 +1,26 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Tarin.Main" %>
+
+<html  ng-app="tarin">
+<head runat="server">
+    <title>ترین</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="Content/css/bootstrap-rtl.css" rel="stylesheet" />
+    <link href="Content/css/custom.css" rel="stylesheet" />
+    <script src="Scripts/jquery-2.1.4.min.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/App.js"></script>
+    <script src="Scripts/ng-infinite-scroll.js"></script>
+    <script src="Scripts/tooltip.js"></script>
+</head>
+<body style="background-image: url(/Images/bg.png); background-repeat: repeat;">
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="mainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+   
+   
+</body>
+</html>

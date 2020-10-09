@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,YAAY;EACR,WAAW,EAAC,GAAG;;AAGnB,OAAO;EACH,MAAM,EAAC,KAAK;EACZ,YAAY,EAAC,GAAG;EAChB,YAAY,EAAC,KAAK;EAClB,OAAO,EAAG,GAAG;;AAGjB,SAAS;EACL,OAAO,EAAC,cAAc",
+"sources": ["newAdv.scss"],
+"names": [],
+"file": "newAdv.css"
+}
