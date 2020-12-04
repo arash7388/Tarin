@@ -104,6 +104,10 @@
     <Compile Include="Migrations\202009120811086_empty-for-update.Designer.cs">
       <DependentUpon>202009120811086_empty-for-update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010091311212_reason.cs" />
+    <Compile Include="Migrations\202010091311212_reason.Designer.cs">
+      <DependentUpon>202010091311212_reason.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MTOContextFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -163,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009120811086_empty-for-update.resx">
       <DependentUpon>202009120811086_empty-for-update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010091311212_reason.resx">
+      <DependentUpon>202010091311212_reason.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -49,7 +49,7 @@ namespace MehranPack
         {
             Debuging.Info("Start of Main.master.cs");
 
-            if (Environment.MachineName.ToLower() == "DESKTOP-B0LRPCF".ToLower())
+            if (Environment.MachineName.ToLower() == "DESKTOP-6700VR9".ToLower())
                 Session["User"] = new UserRepository().GetById(1);
 
             if (Session["User"] == null)
@@ -289,6 +289,23 @@ namespace MehranPack
         protected void lbtnManualWorklineInput_OnClick(object sender, EventArgs e)
         {
             Response.Redirect("ManualWorklineInput.aspx");
+        }
+
+        protected void lblReworkReasons_OnClick(object sender, EventArgs e)
+        {
+            Response.RedirectToRoute("ReworkReasonList"); 
+        }
+
+        protected void lblReworkList_OnClick(object sender, EventArgs e)
+        {
+            Response.RedirectToRoute("ReworkList");
+        }
+        
+        protected void lblEsghatList_OnClick(object sender, EventArgs e)
+        {
+            var routeValues = new RouteValueDictionary();
+            routeValues.Add("Mode", "Es");
+            Response.RedirectToRoute("EsghatList", routeValues);
         }
     }
 }

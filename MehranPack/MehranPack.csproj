@@ -106,6 +106,8 @@
     <Content Include="Content\js\datatables.min.js" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
+    <Content Include="ReworkList.aspx" />
+    <Content Include="ReworkReasonList.aspx" />
     <Content Include="GoodsGroupSupply.aspx" />
     <Content Include="GoodsSupply.aspx" />
     <Content Include="InputOutput.aspx" />
@@ -122,6 +124,8 @@
     <Content Include="Scripts\jquery-1.6.3.min.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
+    <Content Include="ReworkReason.aspx" />
+    <Content Include="Rework.aspx" />
     <Content Include="WorkLine.aspx" />
     <Content Include="WorksheetReport.aspx" />
     <Content Include="WorkLineSummaryReport.aspx" />
@@ -218,6 +222,20 @@
     <Compile Include="CategoryList.aspx.designer.cs">
       <DependentUpon>CategoryList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ReworkList.aspx.cs">
+      <DependentUpon>ReworkList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReworkList.aspx.designer.cs">
+      <DependentUpon>ReworkList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReworkReasonList.aspx.cs">
+      <DependentUpon>ReworkReasonList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReworkReasonList.aspx.designer.cs">
+      <DependentUpon>ReworkReasonList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DataHandler.ashx.cs">
       <DependentUpon>DataHandler.ashx</DependentUpon>
     </Compile>
@@ -289,6 +307,20 @@
     </Compile>
     <Compile Include="ReportWorksheets.Designer.cs">
       <DependentUpon>ReportWorksheets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReworkReason.aspx.cs">
+      <DependentUpon>ReworkReason.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReworkReason.aspx.designer.cs">
+      <DependentUpon>ReworkReason.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rework.aspx.cs">
+      <DependentUpon>Rework.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rework.aspx.designer.cs">
+      <DependentUpon>Rework.aspx</DependentUpon>
     </Compile>
     <Compile Include="WorkLine.aspx.cs">
       <DependentUpon>WorkLine.aspx</DependentUpon>

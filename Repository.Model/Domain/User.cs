@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace Repository.Entity.Domain
 {
-   
+
     public class User:BaseEntity
     {
         [DisplayName("نام کاربری")]
@@ -21,5 +16,8 @@ namespace Repository.Entity.Domain
 
         [DisplayName("نوع")]
         public int Type { get; set; }
+
+        [DisplayName("رمز دوباره کاری/اسقاط")]
+        public int ReworkPassword { get; set; }
     }
 }

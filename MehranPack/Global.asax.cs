@@ -55,6 +55,15 @@ namespace MehranPack
             RouteTable.Routes.MapPageRoute("Worksheet", "Worksheet/{Id}", "~/Worksheet.aspx");
             RouteTable.Routes.MapPageRoute("WorksheetList", "WorksheetList", "~/WorksheetList.aspx");
 
+            RouteTable.Routes.MapPageRoute("ReworkReason", "ReworkReason/{Id}", "~/ReworkReason.aspx");
+            RouteTable.Routes.MapPageRoute("ReworkReasonList", "ReworkReasonList", "~/ReworkReasonList.aspx");
+
+            RouteTable.Routes.MapPageRoute("Rework", "Rework/{Id}", "~/Rework.aspx");
+            RouteTable.Routes.MapPageRoute("ReworkList", "ReworkList", "~/ReworkList.aspx");
+
+            RouteTable.Routes.MapPageRoute("Esghat", "Esghat/{Mode}/{Id}", "~/Rework.aspx");
+            RouteTable.Routes.MapPageRoute("EsghatList", "EsghatList/{Mode}", "~/ReworkList.aspx");
+
 
             RouteTable.Routes.Ignore("*.html|js|css|gif|jpg|jpeg|png|swf");
             RouteTable.Routes.EnableFriendlyUrls();

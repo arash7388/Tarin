@@ -37,6 +37,10 @@ namespace Repository.Data
         public DbSet<Worksheet> Worksheets { get; set; }
         public DbSet<WorksheetDetail> WorksheetDetails { get; set; }
         public DbSet<WorkLine> WorkLines { get; set; }
+        public DbSet<ReworkReason> ReworkReasons { get; set; }
+        public DbSet<Rework> Reworks { get; set; }
+        public DbSet<Esghat> Esghats { get; set; }
+
 
 
         //public MTOContext() :base(ConfigurationManager.ConnectionStrings["Tarin"].ToString())

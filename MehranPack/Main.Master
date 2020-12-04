@@ -26,7 +26,7 @@
             <div class="col-sm-2" style="margin-left: 10px; margin-right: 10px; margin-top: 20px">
                 <div class="row">
                     <div class="col-xs-12 text-center">
-                        <asp:Image runat="server" ID="logo" ImageUrl="Images/logo.png" CssClass="img img-responsive" />
+                        <asp:Image runat="server" ID="logo" ImageUrl="Images/logo.png" CssClass="img img-responsive" style="width: 50%;margin-right: 60px;"/>
                     </div>
                     <div class="col-xs-12 text-center">
                         <asp:Label runat="server" ID="lblCurrentUser" CssClass=""></asp:Label>
@@ -68,6 +68,12 @@
                              <asp:LinkButton runat="server" ID="lbtnWorkLineSummaryReport" CssClass="btn btn-info btn-standard" Text="گزارش خلاصه تولید " OnClick="lbtnWorkLineSummaryReport_OnClick"></asp:LinkButton>
                             <br />
                             <asp:LinkButton runat="server" ID="lbtnManualWorklineInput" CssClass="btn btn-info btn-standard" Text="ورود دستی تایمینگ " OnClick="lbtnManualWorklineInput_OnClick"></asp:LinkButton>
+                            <br />
+                            <asp:LinkButton runat="server" ID="lblReworkReasons" CssClass="btn btn-info btn-standard" Text="دلایل دوباره کاری/اسقاط " OnClick="lblReworkReasons_OnClick"></asp:LinkButton>
+                            <br />
+                            <asp:LinkButton runat="server" ID="lblReworkList" CssClass="btn btn-info btn-standard" Text="لیست دوباره کاری ها " OnClick="lblReworkList_OnClick"></asp:LinkButton>
+                            <br />
+                            <asp:LinkButton runat="server" ID="lblEsghatList" CssClass="btn btn-info btn-standard" Text="لیست اسقاط ها " OnClick="lblEsghatList_OnClick"></asp:LinkButton>
                             <br />
                             <%--<asp:LinkButton runat="server" ID="lbtnProductType" CssClass="btn btn-info btn-standard" Text="انواع جنس" OnClick="lbtnProductType_OnClick"></asp:LinkButton>
                             <br />

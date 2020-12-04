@@ -38,6 +38,9 @@ namespace Repository.DAL
         private BaseRepository<Worksheet> _workSheets;
         private BaseRepository<WorksheetDetail> _workSheetDetails;
         private BaseRepository<WorkLine> _workLines;
+        private BaseRepository<ReworkReason> _reworkReasons;
+        private BaseRepository<Rework> _reworks;
+        private BaseRepository<Esghat> _esghats;
 
         public UnitOfWork(MTOContext mtoContext)
         {
@@ -223,6 +226,30 @@ namespace Repository.DAL
             get
             {
                 return this._inputOutputs ?? (this._inputOutputs = new BaseRepository<InputOutput>(this._mtoContext));
+            }
+        }
+        
+        public BaseRepository<ReworkReason> ReworkReasons
+        {
+            get
+            {
+                return this._reworkReasons ?? (this._reworkReasons = new BaseRepository<ReworkReason>(this._mtoContext));
+            }
+        }
+
+        public BaseRepository<Rework> Reworks
+        {
+            get
+            {
+                return this._reworks ?? (this._reworks = new BaseRepository<Rework>(this._mtoContext));
+            }
+        }
+
+        public BaseRepository<Esghat> Esghats
+        {
+            get
+            {
+                return this._esghats ?? (this._esghats = new BaseRepository<Esghat>(this._mtoContext));
             }
         }
 
