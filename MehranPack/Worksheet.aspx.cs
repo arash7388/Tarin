@@ -8,10 +8,7 @@ using System.Web;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Newtonsoft.Json.Serialization;
-using Newtonsoft.Json;
 using System.Web.Script.Serialization;
-using System.Web.Script.Services;
 
 namespace MehranPack
 {
@@ -97,7 +94,7 @@ namespace MehranPack
                     txtWaxNo.Text = tobeEditedWorksheet.WaxNo.ToSafeString();
                     drpColor.SelectedValue = tobeEditedWorksheet.ColorId.ToString();
                     drpOperator.SelectedValue = tobeEditedWorksheet.OperatorId.ToString();
-
+                    txtDesc.Text = tobeEditedWorksheet.Desc;
                     var details = new List<WorksheetDetailHelper>();
 
                     foreach (WorksheetDetail d in tobeEditedWorksheet.WorksheetDetails)
@@ -186,6 +183,7 @@ namespace MehranPack
                 w.UserId = userId;
                 w.Status = -1;
                 w.WorksheetDetails = model.WorksheetDetails;
+                w.Desc = model.Desc;
 
                 uow.Worksheets.Create(w);
             }
@@ -202,6 +200,7 @@ namespace MehranPack
                 tobeEdited.ColorId = model.ColorId;
                 tobeEdited.PartNo = model.PartNo;
                 tobeEdited.WaxNo = model.WaxNo;
+                tobeEdited.Desc = model.Desc;
 
                 if(tobeEdited.OperatorId != model.OperatorId)
                 {

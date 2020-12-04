@@ -23,8 +23,6 @@ namespace Repository.Entity.Domain
         public int? OperatorId { get; set; }
 
         public virtual ICollection<WorksheetDetail> WorksheetDetails { get; set; }
-
-        
-
+        public string Desc { get; set; }
     }
 }

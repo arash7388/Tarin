@@ -128,7 +128,7 @@ cast(WorksheetId as nvarchar(10))+','+cast(productid as nvarchar(10))+','+cast(P
 FROM            WorksheetDetails AS d  
 INNER JOIN products AS p ON p.Id = d.ProductId 
 INNER JOIN categories AS cat ON cat.Id = p.ProductCategoryId
-cross join (select 100 as ProcessId,N'دوباره کاری' as ProcessName union select 200,N'اسقاط') s1
+cross join (select 1000 as ProcessId,N'دوباره کاری' as ProcessName union select 1001,N'اسقاط') s1
 
 where WorksheetId=@id
 order by ProcessId</value>

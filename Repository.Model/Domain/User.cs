@@ -18,6 +18,6 @@ namespace Repository.Entity.Domain
         public int Type { get; set; }
 
         [DisplayName("رمز دوباره کاری/اسقاط")]
-        public int ReworkPassword { get; set; }
+        public string ReworkPassword { get; set; }
     }
 }

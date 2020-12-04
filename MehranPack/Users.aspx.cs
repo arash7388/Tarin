@@ -66,6 +66,7 @@ namespace MehranPack
                     newUser.FriendlyName = newUser.Username =  txtName.Text;
                     newUser.Password = txtPassword.Text;
                     newUser.Type = drpKind.SelectedValue.ToSafeInt();
+                    newUser.ReworkPassword = txtReworkPassword.Text;
                     
                     uow.Users.Create(newUser);
                 }
@@ -78,6 +79,7 @@ namespace MehranPack
                     tobeEditedUser.FriendlyName = txtName.Text;
                     tobeEditedUser.Password = txtPassword.Text;
                     tobeEditedUser.Type = drpKind.SelectedValue.ToSafeInt();
+                    tobeEditedUser.ReworkPassword = txtReworkPassword.Text;
                 }
 
                 uow.SaveChanges();

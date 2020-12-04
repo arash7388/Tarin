@@ -44,7 +44,7 @@
             <asp:TextBox runat="server" ID="txtPart" oninput="this.value = this.value.toUpperCase()"></asp:TextBox>
         </div>
 
-         <div class="col-sm-1" align="left">
+        <div class="col-sm-1" align="left">
             موم:
         </div>
 
@@ -59,6 +59,15 @@
 
         <div class="col-sm-3">
             <asp:DropDownList runat="server" ID="drpColor"></asp:DropDownList>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-1" align="left">
+            توضیحات:
+        </div>
+        <div class="col-sm-7" >
+            <asp:TextBox runat="server" ID="txtDesc" Width="100%"></asp:TextBox>
         </div>
     </div>
 
@@ -87,7 +96,6 @@
     <hr class="hrGray" />
 
 
-
     <div class="row">
         <div class="col-md-6">
 
@@ -98,7 +106,7 @@
             <asp:Button Style="min-width: 100px !important" runat="server" ID="btnSave" Text="ذخیره" CssClass="btn btn-black btn-standard btnSubmit"></asp:Button>
             &nbsp;
             <asp:Button Style="min-width: 100px !important" runat="server" ID="btnSaveAndPrint" Text="ذخیره و چاپ" CssClass="btn btn-black btn-standard btnSubmit"></asp:Button>
-           
+
         </div>
     </div>
 
@@ -116,7 +124,7 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" onclick="cancelAdding();" >&times;</button>
+                    <button type="button" class="close" onclick="cancelAdding();">&times;</button>
                     <%--<button type="button" class="btn btn-default" onclick="cancelAdding();">انصراف</button>--%>
 
                     <h4 class="modal-title">انتخاب کالا</h4>
@@ -132,7 +140,7 @@
                             <label>شناسه</label>&nbsp;&nbsp;
                             
                             <asp:TextBox runat="server" ID="txtACode" placeholder="ACode" Width="80"></asp:TextBox>
-                            <asp:TextBox ID="txtACodeMonth" TextMode="Number" runat="server" min="1" max="12" step="1" Width="55"/>
+                            <asp:TextBox ID="txtACodeMonth" TextMode="Number" runat="server" min="1" max="12" step="1" Width="55" />
                             <asp:TextBox runat="server" ID="txtACodePrefix" placeholder="" Width="60"></asp:TextBox>
                             <br />
                         </div>
@@ -143,7 +151,7 @@
 
                             <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
                                 <ContentTemplate>
-                                    <asp:TreeView runat="server" ID="tv1" OnSelectedNodeChanged="tv1_OnSelectedNodeChanged" ></asp:TreeView>
+                                    <asp:TreeView runat="server" ID="tv1" OnSelectedNodeChanged="tv1_OnSelectedNodeChanged"></asp:TreeView>
                                 </ContentTemplate>
 
                                 <Triggers>
@@ -191,29 +199,29 @@
 
             var adr = "/DataHandler.ashx?id=" + id
 
-            if(id!=null && id!=0)
-            $.ajax({
-                type: "POST",
-                url: adr,
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data) {
-                    jQuery.each(data, function (i, row) {
+            if (id != null && id != 0)
+                $.ajax({
+                    type: "POST",
+                    url: adr,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        jQuery.each(data, function (i, row) {
 
-                        tbl.row.add([
-                            row["ProductId"],
-                            row["ProductCode"],
-                            row["ProductName"],
-                            row["ACode"],
-                            '<span><button type="button" onclick="onDeleteClicked();">حذف</button></span>'
-                        ]).draw(false);
-                    });
-                },
-                error: function (data) {
-                    alert("Error:" + data.Message);
-                }
+                            tbl.row.add([
+                                row["ProductId"],
+                                row["ProductCode"],
+                                row["ProductName"],
+                                row["ACode"],
+                                '<span><button type="button" onclick="onDeleteClicked();">حذف</button></span>'
+                            ]).draw(false);
+                        });
+                    },
+                    error: function (data) {
+                        alert("Error:" + data.Message);
+                    }
 
-            });
+                });
 
 
 
@@ -251,10 +259,11 @@
             var colorId = $("#drpColor").val();
             var partNo = $("#txtPart").val();
             var waxNo = $("#txtWaxNo").val();
+            var desc = $("#txtDesc").val();
             var date = $("#year").val() + "/" + $("#mounth").val() + "/" + $("#day").val()
-                       
+
             var allRows = tbl.rows().data();
-            var model0 = '{"OperatorId":' + operatorId + ',"ColorId":' + colorId + ',"PartNo":"' + partNo + '","WaxNo":"' + waxNo +'","Date":"' + '2020/01/01' + '","WorksheetDetails": ['
+            var model0 = '{"OperatorId":' + operatorId + ',"ColorId":' + colorId + ',"PartNo":"' + partNo + '","WaxNo":"' + waxNo + '","Desc":"' + desc +'","Date":"' + '2020/01/01' + '","WorksheetDetails": ['
             var model = model0;
 
             jQuery.each(allRows, function (i, row) {
@@ -313,7 +322,7 @@
                 return;
             }
 
-            var ACode = $("#txtACodePrefix").val() + ($("#txtACodeMonth").val().length == 1 ? '0' + $("#txtACodeMonth").val() : $("#txtACodeMonth").val()) +  $("#txtACode").val();
+            var ACode = $("#txtACodePrefix").val() + ($("#txtACodeMonth").val().length == 1 ? '0' + $("#txtACodeMonth").val() : $("#txtACodeMonth").val()) + $("#txtACode").val();
 
             $.ajax({
                 type: "POST",
@@ -325,10 +334,10 @@
                     if (data.d == "false") {
 
                         if (hasClientSideDuplicateACode(ACode)) {
-                            alert('شناسه کالا در همین کاربرگ تکرار شده است' );
+                            alert('شناسه کالا در همین کاربرگ تکرار شده است');
                             return;
                         }
-                            
+
                         $('#myModal').modal('hide');
                         var t = $('#table1').DataTable();
 
@@ -404,7 +413,7 @@
                 setTimeout(function showAgain() {
                     $("#myModal").modal();
                 }, 2200);
-                
+
             });
         }
 
@@ -413,7 +422,7 @@
             $("#myModal").modal();
 
             $("#myModal").on('hidden.bs.modal', function () {
-               
+
             });
         }
 

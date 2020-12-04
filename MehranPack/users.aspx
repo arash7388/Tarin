@@ -60,6 +60,16 @@
         </div>
        
     </div>
+
+    <div class="row" >
+         <div class="col-md-2" align="left">
+            رمز دوباره کاری/اسقاط:
+        </div>
+        <div class="col-md-10">
+            <asp:TextBox runat="server" ID="txtReworkPassword" CssClass="dropdown" Width="303"></asp:TextBox>
+        </div>
+       
+    </div>
     <hr/>
 
      <div class="row" >

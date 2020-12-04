@@ -39,14 +39,18 @@ namespace MehranPack
 
             var worksheetId = parts[0].ToSafeInt();
             var operatorId = parts[1].ToSafeInt();
-            var processId = parts[2].ToSafeInt();
+            var processId = parts[2].Replace("#","").ToSafeInt();
 
             var workLinerepo = new WorkLineRepository();
             var thisWorksheetWorkLines = workLinerepo.Get(a => a.WorksheetId == worksheetId);
 
-            var prevProcessOfThisWorksheet = thisWorksheetWorkLines.Any() ? thisWorksheetWorkLines.Where(a=>a.ProcessId != 999).Max(a => a.ProcessId) : 0;
+            var prevProcessIsEsghat = thisWorksheetWorkLines.Any() ? thisWorksheetWorkLines.Any(a => a.ProcessId == 1001) : false;
+            if (prevProcessIsEsghat)
+                return "پس از اسقاظ قادر به ثبت فرآیند دیگری نیستید";
 
-            if(prevProcessOfThisWorksheet !=999)
+            var prevProcessOfThisWorksheet = thisWorksheetWorkLines.Any() ? thisWorksheetWorkLines.Where(a=>a.ProcessId != 999 && a.ProcessId != 1000 && a.ProcessId != 1001).Max(a => a.ProcessId) : 0;
+
+            if(processId != 1000 && processId != 1001)
                if (thisWorksheetWorkLines != null && thisWorksheetWorkLines.Any())
                 if (prevProcessOfThisWorksheet != 0 && prevProcessOfThisWorksheet >= processId)
                     return "عدم رعایت ترتیب فرآیند" + "- کاربر:" + new UserRepository().GetById(operatorId)?.Username + "- کاربرگ:" + worksheetId;
@@ -60,22 +64,28 @@ namespace MehranPack
                 HttpContext.Current.Session["worksheetProcesses" + "#" + worksheetId] = wsheetProcesses;
             }
 
-            var thisWorksheetProcesses = (List<int>)HttpContext.Current.Session["worksheetProcesses" + "#" + worksheetId];
-            var indexOfPrevProcess = thisWorksheetProcesses.IndexOf(prevProcessOfThisWorksheet);
-            var indexOfNextProcess = indexOfPrevProcess + 1;
-            var nextProcessOfThisWorksheet = thisWorksheetProcesses[indexOfNextProcess];
+            if (processId != 999 && processId != 1000 && processId != 1001)
+            {
+                var thisWorksheetProcesses = (List<int>)HttpContext.Current.Session["worksheetProcesses" + "#" + worksheetId];
+                var indexOfPrevProcess = thisWorksheetProcesses.IndexOf(prevProcessOfThisWorksheet);
+                var indexOfNextProcess = indexOfPrevProcess + 1;
+                var nextProcessOfThisWorksheet = thisWorksheetProcesses[indexOfNextProcess];
 
-            if (processId != 999 && processId != nextProcessOfThisWorksheet)
-                return "عدم رعایت ترتیب فرآیند" + "- کاربر:" + new UserRepository().GetById(operatorId)?.Username + "- کاربرگ:" + worksheetId;
-
+                if(processId != nextProcessOfThisWorksheet)
+                   return "عدم رعایت ترتیب فرآیند" + "- کاربر:" + new UserRepository().GetById(operatorId)?.Username + "- کاربرگ:" + worksheetId;
+            }
            
             var uow = new UnitOfWork();
+
+            var wl = uow.WorkLines.Get(a => a.WorksheetId == worksheetId && a.OperatorId == operatorId && a.ProcessId == processId);
+            if (wl?.Count != 0)
+                return $"فرآیند با این مشخصات قبلا ثبت شده کاربر:{new UserRepository().GetById(operatorId)?.Username} ";
+
             uow.WorkLines.Create(new Repository.Entity.Domain.WorkLine()
             {
                 InsertDateTime = DateTime.Now,
                 WorksheetId = worksheetId,
                 OperatorId = operatorId,
-                //ProductId = productId,
                 ProcessId = processId
             }
             );
@@ -92,6 +102,18 @@ namespace MehranPack
                 Debuging.Error(result.ResultCode + "," + result.Message + "," + result.Message);
                 return "خطا در اضافه کردن ردیف";
             }
+        }
+
+        [WebMethod]
+        public static string CheckReworkEsghatPassword(string input)
+        {
+            var userRepo = new UserRepository();
+            var user = userRepo.Get(a => a.ReworkPassword!=null && a.ReworkPassword != "").FirstOrDefault();
+
+            if (user.ReworkPassword == input)
+                return "OK";
+
+            return "0";
         }
 
         protected void gridWorkLine_RowCommand(object sender, GridViewCommandEventArgs e)

@@ -194,15 +194,15 @@
                     </td>
                     <td style="width: 15px">
                         <asp:TextBox ID="mounth" runat="server" onkeypress="JustNum(event)" Font-Names="Tahoma"
-                            Font-Size="9pt" dir="ltr" onkeyup="changePlace(this, this.form);" Width="15px"
+                            Font-Size="9pt" dir="ltr" onkeyup="changePlace(this, this.form);" Width="17px"
                             MaxLength="2" BorderColor="White" BorderStyle="None"></asp:TextBox>
                     </td>
                     <td style="width: 5px">
                         /
                     </td>
-                    <td style="width: 15px">
+                    <td style="width: 17px">
                         <asp:TextBox ID="day" runat="server" onkeypress="JustNum(event)" Font-Names="Tahoma"
-                            Font-Size="9pt" dir="ltr" onkeyup="changePlace(this, this.form);" Width="15px"
+                            Font-Size="9pt" dir="ltr" onkeyup="changePlace(this, this.form);" Width="17px"
                             MaxLength="2" BorderColor="White" BorderStyle="None"></asp:TextBox>
                     </td>
                     <td>
@@ -211,15 +211,15 @@
                                 <td style="width: 5px">
                                     -
                                 </td>
-                                <td style="width: 15px">
+                                <td style="width: 17px">
                                     <asp:TextBox ID="hour" runat="server" Font-Names="Tahoma" Font-Size="9pt" dir="ltr"
-                                        onkeyup="changePlace(this, this.form);" Width="15px" MaxLength="2" BorderColor="White"
+                                        onkeyup="changePlace(this, this.form);" Width="17px" MaxLength="2" BorderColor="White"
                                         BorderStyle="None"></asp:TextBox>
                                 </td>
                                 <td style="font-weight: bold; font-size: 8pt; font-family: tahoma; width: 5px">
                                     :
                                 </td>
-                                <td style="width: 15px">
+                                <td style="width: 17px">
                                     <asp:TextBox ID="minute" runat="server" Font-Names="Tahoma" Font-Size="9pt" dir="ltr"
                                         onkeyup="changePlace(this, this.form);" Width="16px" MaxLength="2" BorderColor="White"
                                         BorderStyle="None"></asp:TextBox>
@@ -227,9 +227,9 @@
                                 <td style="font-weight: bold; font-size: 8pt; font-family: tahoma; width: 5px">
                                     :
                                 </td>
-                                <td style="direction: ltr; width: 15px">
+                                <td style="direction: ltr; width: 17px">
                                     <asp:TextBox ID="second" runat="server" Font-Names="Tahoma" Font-Size="9pt" dir="ltr"
-                                        Width="15px" MaxLength="2" BorderColor="White" BorderStyle="None"></asp:TextBox>
+                                        Width="17px" MaxLength="2" BorderColor="White" BorderStyle="None"></asp:TextBox>
                                 </td>
                             </tr>
                         </table>

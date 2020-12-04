@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using Common;
 using Repository.DAL;
 using Telerik.Reporting;
@@ -14,9 +10,8 @@ namespace MehranPack
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var processRepo = new ProcessRepository();
-            var finishProductionProcessId = processRepo.Get(a => a.Name == "اتمام تولید").FirstOrDefault().Id;
             CheckShamsiDateFunctions();
+
             int id;
 
             if (Page.Request.QueryString[0].ToSafeInt() == 0)
@@ -49,8 +44,6 @@ namespace MehranPack
             "where WId = @id " +
             "group by WID,[Date],PartNo,WaxNo,ColorName,OperatorId,OperatorName,ProcessId,ProcessName " +
             "order by ProcessId";
-
-            
 
             sqlDataSource.Parameters.Add("@id", System.Data.DbType.Int32, id);
             report.DataSource = sqlDataSource;

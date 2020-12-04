@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MehranPack {
-    
-    
-    public partial class Worksheet {
-        
+namespace MehranPack
+{
+
+
+    public partial class Worksheet
+    {
+
         /// <summary>
         /// ScriptManager1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace MehranPack {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
+
         /// <summary>
         /// drpOperator control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace MehranPack {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drpOperator;
-        
+
         /// <summary>
         /// dtWorksheet control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace MehranPack {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::MehranPack.UserControls.PersianCalender dtWorksheet;
-        
+
         /// <summary>
         /// txtPart control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace MehranPack {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPart;
-        
+
         /// <summary>
         /// txtWaxNo control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace MehranPack {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtWaxNo;
-        
+
         /// <summary>
         /// drpColor control.
         /// </summary>
@@ -65,7 +67,16 @@ namespace MehranPack {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drpColor;
-        
+
+        /// <summary>
+        /// txtDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDesc;
+
         /// <summary>
         /// btnSave control.
         /// </summary>
@@ -74,7 +85,7 @@ namespace MehranPack {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSave;
-        
+
         /// <summary>
         /// btnSaveAndPrint control.
         /// </summary>
@@ -83,7 +94,7 @@ namespace MehranPack {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveAndPrint;
-        
+
         /// <summary>
         /// lblResult control.
         /// </summary>
@@ -92,7 +103,7 @@ namespace MehranPack {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblResult;
-        
+
         /// <summary>
         /// txtSearchTree control.
         /// </summary>
@@ -101,7 +112,7 @@ namespace MehranPack {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSearchTree;
-        
+
         /// <summary>
         /// b1 control.
         /// </summary>
@@ -110,7 +121,7 @@ namespace MehranPack {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button b1;
-        
+
         /// <summary>
         /// txtACode control.
         /// </summary>
@@ -119,7 +130,7 @@ namespace MehranPack {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtACode;
-        
+
         /// <summary>
         /// txtACodeMonth control.
         /// </summary>
@@ -128,7 +139,7 @@ namespace MehranPack {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtACodeMonth;
-        
+
         /// <summary>
         /// txtACodePrefix control.
         /// </summary>
@@ -137,7 +148,7 @@ namespace MehranPack {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtACodePrefix;
-        
+
         /// <summary>
         /// UpdatePanel1 control.
         /// </summary>
@@ -146,7 +157,7 @@ namespace MehranPack {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
+
         /// <summary>
         /// tv1 control.
         /// </summary>
