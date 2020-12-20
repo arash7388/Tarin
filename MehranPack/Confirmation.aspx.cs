@@ -46,10 +46,9 @@ namespace MehranPack
                 }
                 else
                     result = new UnitOfWork().ExecCommand(data.RawCommand);
-
+                                
                 if (!result.IsSuccess) throw new LocalException("Error in Deleting from " + table + " with id " + id, "خطا در حذف");
                 ((Main)Page.Master).SetGeneralMessage("عملیات با موفقیت انجام شد", MessageType.Success);
-
 
                 Session["PostProcessMessage"] = new PostProcessMessage()
                 {
@@ -84,7 +83,9 @@ namespace MehranPack
     {
         public string Command { get; set; }
         public string RawCommand { get; set; }
+        public string SecondRawCommand { get; set; }
         public int Id { get; set; }
+        public int SecondId { get; set; }
         public string Msg { get; set; }
         public string Table { get; set; }
         public string RedirectAdr { get; set; }

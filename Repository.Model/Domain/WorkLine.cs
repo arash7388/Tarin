@@ -22,5 +22,11 @@ namespace Repository.Entity.Domain
         public int OperatorId { get; set; }
         public bool? Manual { get; set; }
 
+        public Rework Rework { get; set; }
+        public int? ReworkId { get; set; }
+
+        public Esghat Esghat { get; set; }
+        public int? EsghatId { get; set; }
+
     }
 }

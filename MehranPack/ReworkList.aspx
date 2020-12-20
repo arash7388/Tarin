@@ -63,7 +63,7 @@
 
                     </Columns>
                 </asp:GridView>
-                <asp:Button runat="server" ID="btnAdd" Text="جدید" CssClass="btn btn-info btn-standard" OnClick="btnAdd_Click" />
+                <%--<asp:Button runat="server" ID="btnAdd" Text="جدید" CssClass="btn btn-info btn-standard" OnClick="btnAdd_Click" />--%>
             </div>
         </div>
     </div>

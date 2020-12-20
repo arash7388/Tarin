@@ -6,6 +6,8 @@
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="main">
+    <asp:HiddenField runat="server" ID="reworkEsghatMode" />
+
     <div class="row">
         <div class="col-md-10" style="padding-right: 75px;">
             <h3 style="margin-top: 35px;">صف کارهای در حال تولید &nbsp; 
@@ -15,7 +17,7 @@
                  <asp:Label runat="server" ID="lblCurrentTime"></asp:Label>
             </h3>
         </div>
-        
+
         <div class="col-md-2 text-left">
             <img src="Images/logo.png" class="img-responsive" style="width: 110px; height: 70px; margin-top: 10px" />
         </div>
@@ -23,7 +25,7 @@
 
     <div class="row">
         <div class="col-md-10" style="padding-right: 80px;">
-            <asp:CheckBox runat="server" ID="chkShowAll" Text="نمایش کلیه تایمینگ ها(1000 رکورد آخر)" AutoPostBack="true"/>
+            <asp:CheckBox runat="server" ID="chkShowAll" Text="نمایش کلیه تایمینگ ها(1000 رکورد آخر)" AutoPostBack="true" />
         </div>
     </div>
     <div class="row">
@@ -65,7 +67,7 @@
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
 
-                   <asp:TemplateField HeaderText="دستی" InsertVisible="false">
+                    <asp:TemplateField HeaderText="دستی" InsertVisible="false">
                         <ItemTemplate>
                             <asp:CheckBox ID="CheckBox1" runat="server" Visible="true" Enabled="false" Checked='<%# Eval("Manual") %>' />
                         </ItemTemplate>
@@ -104,7 +106,7 @@
 
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" onclick="cancel();" >&times;</button>
+                    <button type="button" class="close" onclick="cancel();">&times;</button>
                     <h4 class="modal-title">ورود رمز</h4>
                 </div>
 
@@ -133,7 +135,7 @@
 
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" onclick="cancel();" >&times;</button>
+                    <button type="button" class="close" onclick="cancel();">&times;</button>
                     <h4 class="modal-title">ورود رمز</h4>
                 </div>
 
@@ -155,6 +157,66 @@
 
         </div>
     </div>
+
+    <%--Modal--%>
+    <div id="esghatReworkInputModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 runat="server" id="h3ReworkEsghat"></h3>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-1 col-sm-2">
+                            ACode:
+                        </div>
+                        <div class="col-md-3 col-sm-4">
+                            <asp:DropDownList runat="server" ID="drpACode" Height="23" Width="150"></asp:DropDownList>
+                        </div>
+                        <div class="col-md-8 col-sm-6">
+                            <asp:Label runat="server" ID="lblProductName" Height="23" Width="150"></asp:Label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-1 col-sm-2">
+                            اوپراتور:
+                        </div>
+                        <div class="col-md-3 col-sm-4">
+                            <asp:DropDownList runat="server" ID="drpOp" Height="23" Width="150"></asp:DropDownList>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-1 col-sm-2">
+                            علت:
+                        </div>
+                        <div class="col-md-3 col-sm-4">
+                            <asp:DropDownList runat="server" ID="drpReworkReason" Height="23" Width="250"></asp:DropDownList>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-1 col-sm-2">
+                            شرح:
+                        </div>
+                        <div class="col-md-7 col-sm-7">
+                            <asp:TextBox runat="server" ID="txtReworkDesc" Height="50" Width="500"></asp:TextBox>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" onclick="addReworkEsghat();">تایید</button>
+                    <button type="button" class="btn btn-default" onclick="$('#esghatReworkInputModal').modal('hide');$('#txtBarcodeInput').val('') ">انصراف</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 
 
     <script type="text/javascript">
@@ -195,9 +257,11 @@
             $("#txtBarcodeInput").on("keypress", function (e) {
 
                 if (e.keyCode == 35) {
-                    var inputTxt = $("#txtBarcodeInput").val().replace('و',',');
+                    debugger;
+                    var inputTxt = $("#txtBarcodeInput").val();
+                    inputTxt = inputTxt.replace('و', ',');
                     var inputTxt1 = '<%#Session["InputBarcode"] != null ? Session["InputBarcode"].ToString() : "" %>';
-                    var paramss = '{input:"' + inputTxt + '"}'
+                    var paramss = '{input:"' + inputTxt + '",reworkACode:"",reworkReasonId:"",reworkDesc:"",reworkEsghatMode:""}';
 
                     var parts = inputTxt.split(",");
 
@@ -296,12 +360,14 @@
                         toastr["error"](data.d).css("width", "500px");
                         setTimeout(() => { console.log("خطا در سیستم " + data.d); }, 1000);
                         $("#txtBarcodeInput").val('');
+                        $('#esghatReworkInputModal').modal('hide');
                     };
                 },
                 error: function (data) {
                     beep();
                     toastr["error"]("خطا در سیستم " + data.Message).css("width", "500px");
                     setTimeout(() => { console.log("خطا در سیستم " + data.Message); }, 1000);
+                    $('#esghatReworkInputModal').modal('hide');
                 }
             });
         }
@@ -321,11 +387,9 @@
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     if (data.d == "OK") {
-                        var inputTxt = $("#txtBarcodeInput").val().replace('و', ',').replace('#','');
-                        var paramss = '{input:"' + inputTxt + '"}'
-                        debugger;
-                        addRow(paramss);
                         $('#reworkModal').modal('hide');
+                        $('#reworkEsghatMode').val('Rework');
+                        $('#esghatReworkInputModal').modal('show');
                     }
                     else {
                         beep();
@@ -351,10 +415,9 @@
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     if (data.d == "OK") {
-                        var inputTxt = $("#txtBarcodeInput").val().replace('و', ',').replace('#', '');
-                        var paramss = '{input:"' + inputTxt + '"}'
-                        addRow(paramss);
                         $('#esghatModal').modal('hide');
+                        $('#reworkEsghatMode').val('Esghat');
+                        $('#esghatReworkInputModal').modal('show');
                     }
                     else {
                         beep();
@@ -368,6 +431,33 @@
                     return 0;
                 }
             });
+        }
+
+        $('#esghatReworkInputModal')
+            .on('show.bs.modal', function () {
+                debugger;
+                var inputText = $("#txtBarcodeInput").val().replace('و', ',').replace('#', '');
+                var reworkEsghatMode = $('#reworkEsghatMode').val();
+                if (reworkEsghatMode == 'rework')
+                    $('#h3ReworkEsghat').html('ثبت دوباره کاری');
+                else
+                    $('#h3ReworkEsghat').html('ثبت اسقاط');
+
+                $("#drpOp").val(inputText.split(",")[1]);
+                $("#ACode").val('انتخاب کنید');
+                $("#drpReworkReason").val(-1);
+                $("#txtReworkDesc").val('');
+            });
+
+        function addReworkEsghat() {
+            debugger;
+            var inputText = $("#txtBarcodeInput").val().replace('و', ',').replace('#', '');
+            var reworkACode = $('#drpACode').find(":selected").text();
+            var reworkReasonId = $("#drpReworkReason").find(":selected").val();
+            var reworkDesc = $("#txtReworkDesc").val();
+            var reworkEsghatMode = $('#reworkEsghatMode').val();
+            var paramss = '{input:"' + inputText + '",reworkACode:"' + reworkACode + '",reworkReasonId:"' + reworkReasonId + '",reworkDesc:"' + reworkDesc + '",reworkEsghatMode:"' + reworkEsghatMode + '"}';
+            addRow(paramss);
         }
 
     </script>

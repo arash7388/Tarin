@@ -29,10 +29,17 @@ namespace MehranPack
 
             Session["InputBarcode"] = txtBarcodeInput.Text;
             txtBarcodeInput.Text = "";
+
+            if (!IsPostBack)
+            {
+                BindDrpACode();
+                BindDrpOp();
+                BindDrpReason();
+            }
         }
 
         [WebMethod]
-        public static string AddRow(string input)
+        public static string AddRow(string input,string reworkACode,string reworkReasonId,string reworkDesc,string reworkEsghatMode)
         {
             //WID,OperatorID,ProcessID
             var parts = input.Replace('و' , ',').Split(',');
@@ -64,7 +71,7 @@ namespace MehranPack
                 HttpContext.Current.Session["worksheetProcesses" + "#" + worksheetId] = wsheetProcesses;
             }
 
-            if (processId != 999 && processId != 1000 && processId != 1001)
+            if (processId != 999 && processId != 1000 && processId != 1001) // 999 etmame movaghat, 1000 rework, 1001 esghat
             {
                 var thisWorksheetProcesses = (List<int>)HttpContext.Current.Session["worksheetProcesses" + "#" + worksheetId];
                 var indexOfPrevProcess = thisWorksheetProcesses.IndexOf(prevProcessOfThisWorksheet);
@@ -81,7 +88,7 @@ namespace MehranPack
             if (wl?.Count != 0)
                 return $"فرآیند با این مشخصات قبلا ثبت شده کاربر:{new UserRepository().GetById(operatorId)?.Username} ";
 
-            uow.WorkLines.Create(new Repository.Entity.Domain.WorkLine()
+            var newWorkLine = uow.WorkLines.Create(new Repository.Entity.Domain.WorkLine()
             {
                 InsertDateTime = DateTime.Now,
                 WorksheetId = worksheetId,
@@ -90,7 +97,42 @@ namespace MehranPack
             }
             );
 
+            if (reworkEsghatMode != "")
+            {
+                if (reworkEsghatMode.ToLower() == "rework")
+                {
+                    var newRework = uow.Reworks.Create(new Repository.Entity.Domain.Rework()
+                    {
+                        ACode = reworkACode.ToEnglishNumber(),
+                        InsertDateTime = DateTime.Now,
+                        OperatorId = operatorId,
+                        InsertedUserId = operatorId,  //?
+                        ReworkReasonId = reworkReasonId.ToSafeInt(),
+                        Desc = reworkDesc,
+                        Status = -1
+                    });
+
+                    newWorkLine.Rework = newRework;
+                }
+                else
+                {
+                    var newEsghat = uow.Esghats.Create(new Repository.Entity.Domain.Esghat()
+                    {
+                        ACode = reworkACode.ToEnglishNumber(),
+                        InsertDateTime = DateTime.Now,
+                        OperatorId = operatorId,
+                        InsertedUserId = operatorId,  //?
+                        ReworkReasonId = reworkReasonId.ToSafeInt(),
+                        Desc = reworkDesc,
+                        Status = -1
+                    });
+
+                    newWorkLine.Esghat = newEsghat;
+                }
+            }
+
             var result = uow.SaveChanges();
+
             if (result.IsSuccess)
             {
                 HttpContext.Current.Session[worksheetId + "#" + operatorId] = processId;
@@ -127,12 +169,18 @@ namespace MehranPack
             {
                 var data = new ConfirmData();
 
-                data.Command = "Delete";
-                data.Id = e.CommandArgument.ToSafeInt();
-                data.Msg = "آیا از حذف اطمینان دارید؟";
-                data.Table = "Worklines";
-                data.RedirectAdr = "Workline.aspx";
+                data.RawCommand = $"Delete from Worklines where Id = {e.CommandArgument.ToSafeString()}";
 
+                var wl = new WorkLineRepository().GetById(e.CommandArgument.ToSafeInt());
+                                
+                if(wl.ReworkId!=null)
+                   data.RawCommand += $" Delete from Reworks where Id = {wl.ReworkId}";
+                else if (wl.EsghatId != null)
+                    data.RawCommand += $" Delete from Esghats where Id = {wl.EsghatId}";
+
+                data.Msg = "آیا از حذف اطمینان دارید؟";
+                data.RedirectAdr = "Workline.aspx";
+                                
                 Session["ConfirmData"] = data;
                 Response.RedirectToRoute("Confirmation");
                 Response.End();
@@ -154,6 +202,45 @@ namespace MehranPack
         protected void chkShowAll_CheckedChanged(object sender, EventArgs e)
         {
             Response.Redirect("workline.aspx");
+        }
+
+        private void BindDrpOp()
+        {
+            var repo = new UserRepository();
+            var source = new List<Repository.Entity.Domain.User>();
+            source.Add(new Repository.Entity.Domain.User() { Id = -1, FriendlyName = "انتخاب کنید" });
+            source.AddRange(repo.GetAll().Where(a => a.Type == 1).ToList());
+
+            drpOp.DataSource = source;
+            drpOp.DataValueField = "Id";
+            drpOp.DataTextField = "FriendlyName";
+            drpOp.DataBind();
+        }
+
+        private void BindDrpACode()
+        {
+            var repo = new WorksheetDetailRepository();
+            var source = new List<Repository.Entity.Domain.WorksheetDetail>();
+            source.Add(new Repository.Entity.Domain.WorksheetDetail() { ACode = "انتخاب کنید" });
+            source.AddRange(repo.GetAll());
+
+            drpACode.DataSource = source;
+            drpACode.DataValueField = "ACode";
+            drpACode.DataTextField = "ACode";
+            drpACode.DataBind();
+        }
+
+        private void BindDrpReason()
+        {
+            var repo = new ReworkReasonRepository();
+            var source = new List<Repository.Entity.Domain.ReworkReason>();
+            source.Add(new Repository.Entity.Domain.ReworkReason() { Id = -1, Name = "انتخاب کنید" });
+            source.AddRange(repo.GetAll());
+
+            drpReworkReason.DataSource = source;
+            drpReworkReason.DataValueField = "Id";
+            drpReworkReason.DataTextField = "Name";
+            drpReworkReason.DataBind();
         }
     }
 }
