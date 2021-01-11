@@ -39,7 +39,9 @@ namespace Repository.Data
         public DbSet<WorkLine> WorkLines { get; set; }
         public DbSet<ReworkReason> ReworkReasons { get; set; }
         public DbSet<Rework> Reworks { get; set; }
+        public DbSet<ReworkDetail> ReworkDetails { get; set; }
         public DbSet<Esghat> Esghats { get; set; }
+        public DbSet<EsghatDetail> EsghatDetails { get; set; }
 
 
 

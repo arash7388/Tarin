@@ -665,11 +665,9 @@ namespace Repository.DAL
         {
             List<WorkLineHelper> worksheetsDetailsList = GetWorksheetDetails(whereClause);
 
-
             /////////tempppppppppppppp
             //worksheetsDetailsList = worksheetsDetailsList.Where(a => a.WorksheetId == 4137).ToList();
             //////////////////////////
-
 
             //calcing allowed time
             var operatorProcessAllowedTimeResult = from r in worksheetsDetailsList

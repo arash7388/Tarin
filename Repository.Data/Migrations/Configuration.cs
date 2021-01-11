@@ -128,6 +128,26 @@
                 context.SaveChanges();
             }
 
+            if (!context.Processes.Any(a => a.Id == 1000))
+            {
+                var cmd = "SET IDENTITY_INSERT dbo.processes ON " +
+                          "INSERT INTO dbo.processes(ID, [Name], InsertDateTime, status) VALUES(1000, N'دوباره کاری', getdate(), -1) " +
+                          "  " +
+                          " SET IDENTITY_INSERT dbo.processes off ";
+
+                context.Database.ExecuteSqlCommand(cmd);
+            }
+
+            if (!context.Processes.Any(a => a.Id == 1001))
+            {
+                var cmd = "SET IDENTITY_INSERT dbo.processes ON " +
+                          "INSERT INTO dbo.processes(ID, [Name], InsertDateTime, status) VALUES(1001, N'اسقاط', getdate(), -1) " +
+                          "  " +
+                          " SET IDENTITY_INSERT dbo.processes off ";
+
+                context.Database.ExecuteSqlCommand(cmd);
+            }
+
             var catsWithProcess = context.ProcessCategories.Select(a => a.CategoryId).Distinct();
             foreach (var cat in catsWithProcess)
             {
@@ -143,6 +163,8 @@
                 }
             }
 
+            context.SaveChanges();
+
             foreach (var cat in catsWithProcess)
             {
                 if (!context.ProcessCategories.Any(a => a.CategoryId == cat && a.ProcessId == 1000))
@@ -157,6 +179,8 @@
                 }
             }
 
+            context.SaveChanges();
+
             foreach (var cat in catsWithProcess)
             {
                 if (!context.ProcessCategories.Any(a => a.CategoryId == cat && a.ProcessId == 1001))
@@ -170,6 +194,7 @@
                     });
                 }
             }
+            context.SaveChanges();
 
             if (!context.Users.Any(a => a.Username == "inoutop"))
             {
@@ -190,25 +215,7 @@
 
             context.SaveChanges();
 
-            if (!context.Processes.Any(a => a.Id == 1000))
-            {
-                var cmd = "SET IDENTITY_INSERT dbo.processes ON " +
-                          "INSERT INTO dbo.processes(ID, [Name], InsertDateTime, status) VALUES(1000, N'دوباره کاری', getdate(), -1) " +
-                          "  " +
-                          " SET IDENTITY_INSERT dbo.processes off ";
-
-                context.Database.ExecuteSqlCommand(cmd);
-            }
-
-            if (!context.Processes.Any(a => a.Id == 1001))
-            {
-                var cmd = "SET IDENTITY_INSERT dbo.processes ON " +
-                          "INSERT INTO dbo.processes(ID, [Name], InsertDateTime, status) VALUES(1001, N'اسقاط', getdate(), -1) " +
-                          "  " +
-                          " SET IDENTITY_INSERT dbo.processes off ";
-
-                context.Database.ExecuteSqlCommand(cmd);
-            }
+            
 
             context.SaveChanges();
                         

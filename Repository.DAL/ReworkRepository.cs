@@ -18,7 +18,6 @@ namespace Repository.DAL
                          select new ReworkHelper
                          {
                              Id = r.Id,
-                             ACode = r.ACode,
                              Desc = r.Desc,
                              InsertDateTime = r.InsertDateTime,
                              InsertedUserId = r.InsertedUserId,
@@ -28,7 +27,16 @@ namespace Repository.DAL
                              ReworkReasonId = r.ReworkReasonId
                          };
 
-            return result.ToList();
+            var resultList = result.ToList();
+
+            for (int i = 0; i < resultList.Count; i++)
+            {
+                var id = resultList[i].Id;
+                resultList[i].ReworkDetails = DBContext.ReworkDetails.Where(a => a.ReworkId == id).ToList();
+                resultList[i].ACode = string.Join(",", resultList[i].ReworkDetails?.Select(a => a.ACode));
+            }
+
+            return resultList.ToList();
         }
 
         public class ReworkHelper : Rework
@@ -36,6 +44,7 @@ namespace Repository.DAL
             public string OpName { get; set; }
             public string UserName { get; set; }
             public string ReasonName { get; set; }
+            public string ACode { get; set; }
 
 
         }

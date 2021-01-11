@@ -38,7 +38,7 @@ namespace MehranPack
                         if (toBeEditedEs != null)
                         {
                             txtDesc.Text = toBeEditedEs.Desc;
-                            drpACode.SelectedValue = toBeEditedEs.ACode;
+                            //drpACode.SelectedValue = toBeEditedEs.ACode;
                             drpOp.SelectedValue = toBeEditedEs.OperatorId.ToSafeString();
                             drpReason.SelectedValue = toBeEditedEs.ReworkReasonId.ToSafeString();
                         }
@@ -61,7 +61,7 @@ namespace MehranPack
                         if (toBeEditedRework != null)
                         {
                             txtDesc.Text = toBeEditedRework.Desc;
-                            drpACode.SelectedValue = toBeEditedRework.ACode;
+                            //drpACode.SelectedValue = toBeEditedRework.ACode;
                             drpOp.SelectedValue = toBeEditedRework.OperatorId.ToSafeString();
                             drpReason.SelectedValue = toBeEditedRework.ReworkReasonId.ToSafeString();
                         }
@@ -146,7 +146,7 @@ namespace MehranPack
             {
                 var newRework = new Repository.Entity.Domain.Rework();
 
-                newRework.ACode = drpACode.SelectedValue.ToSafeString();
+                //newRework.ACode = drpACode.SelectedValue.ToSafeString();
                 newRework.OperatorId = drpOp.SelectedValue.ToSafeInt();
                 newRework.ReworkReasonId = drpReason.SelectedValue.ToSafeInt();
                 newRework.Desc = txtDesc.Text;
@@ -159,7 +159,7 @@ namespace MehranPack
                 var repo = uow.Reworks;
                 var tobeEditedRework = repo.GetById(Page.RouteData.Values["Id"].ToSafeInt());
 
-                tobeEditedRework.ACode = drpACode.SelectedValue.ToSafeString();
+                //tobeEditedRework.ACode = drpACode.SelectedValue.ToSafeString();
                 tobeEditedRework.OperatorId = drpOp.SelectedValue.ToSafeInt();
                 tobeEditedRework.ReworkReasonId = drpReason.SelectedValue.ToSafeInt();
                 tobeEditedRework.Desc = txtDesc.Text;
@@ -173,7 +173,7 @@ namespace MehranPack
             {
                 var newEsghat = new Repository.Entity.Domain.Esghat();
 
-                newEsghat.ACode = drpACode.SelectedValue.ToSafeString();
+                //newEsghat.ACode = drpACode.SelectedValue.ToSafeString();
                 newEsghat.OperatorId = drpOp.SelectedValue.ToSafeInt();
                 newEsghat.ReworkReasonId = drpReason.SelectedValue.ToSafeInt();
                 newEsghat.Desc = txtDesc.Text;
@@ -186,7 +186,7 @@ namespace MehranPack
                 var repo = uow.Esghats;
                 var tobeEditedEsghat = repo.GetById(Page.RouteData.Values["Id"].ToSafeInt());
 
-                tobeEditedEsghat.ACode = drpACode.SelectedValue.ToSafeString();
+                //tobeEditedEsghat.ACode = drpACode.SelectedValue.ToSafeString();
                 tobeEditedEsghat.OperatorId = drpOp.SelectedValue.ToSafeInt();
                 tobeEditedEsghat.ReworkReasonId = drpReason.SelectedValue.ToSafeInt();
                 tobeEditedEsghat.Desc = txtDesc.Text;

@@ -24,14 +24,13 @@ namespace MehranPack
             Telerik.Reporting.SqlDataSource sqlDataSource = new Telerik.Reporting.SqlDataSource();
             sqlDataSource.ConnectionString = "Tarin";
             sqlDataSource.SelectCommand =
-            "select WID,[Date],PartNo,WaxNo,ColorName,OperatorId,OperatorName,ProcessId,ProcessName from (" +
+            "select WID,[Date],PartNo,WaxNo,ColorName,OperatorId,OperatorName,ProcessId,ProcessName,[Desc] from (" +
             "SELECT distinct w.Id WID, dbo.shamsidate(w.Date) as [Date] ,w.PartNo,w.WaxNo,c.Name ColorName, u.FriendlyName OperatorName," +
-            //" d.ProductId,p.Code PCode, cat.Name + ' ' + p.Name PName" +
             "    pro.Name ProcessName," +
             "    pro.Id ProcessId," +
             "    cat.Id CatId," +
-            "    u.Id OperatorId " +
-            //"    pcat.[order] " +
+            "    u.Id OperatorId, " +
+            "    w.[Desc] as [Desc] " +
             "FROM worksheets w " +
             "join Colors c on c.Id = w.ColorId " +
             "join Users u on u.Id = w.OperatorId " +
@@ -42,7 +41,7 @@ namespace MehranPack
             "join Processes pro on pro.Id = pcat.ProcessId" +
             ") s1 " +
             "where WId = @id " +
-            "group by WID,[Date],PartNo,WaxNo,ColorName,OperatorId,OperatorName,ProcessId,ProcessName " +
+            "group by WID,[Date],PartNo,WaxNo,ColorName,OperatorId,OperatorName,ProcessId,ProcessName,[Desc] " +
             "order by ProcessId";
 
             sqlDataSource.Parameters.Add("@id", System.Data.DbType.Int32, id);

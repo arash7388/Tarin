@@ -1,11 +1,16 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Main.Master" CodeBehind="WorkLine.aspx.cs" Inherits="MehranPack.WorkLine" ClientIDMode="Static" %>
 
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+
 <asp:Content runat="server" ContentPlaceHolderID="head">
     <title>صف کارهای در حال تولید</title>
     <meta content="Automation" />
+    <link href="Content/css/select2.css" rel="stylesheet" />
+    <script src="Content/js/select2.js"></script>
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="main">
+
     <asp:HiddenField runat="server" ID="reworkEsghatMode" />
 
     <div class="row">
@@ -28,6 +33,7 @@
             <asp:CheckBox runat="server" ID="chkShowAll" Text="نمایش کلیه تایمینگ ها(1000 رکورد آخر)" AutoPostBack="true" />
         </div>
     </div>
+
     <div class="row">
 
         <div class="col-md-12 text-center" style="padding-right: 45px;">
@@ -170,33 +176,60 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-1 col-sm-2">
-                            ACode:
+                            فرآیند قبلی:
                         </div>
                         <div class="col-md-3 col-sm-4">
-                            <asp:DropDownList runat="server" ID="drpACode" Height="23" Width="150"></asp:DropDownList>
-                        </div>
-                        <div class="col-md-8 col-sm-6">
-                            <asp:Label runat="server" ID="lblProductName" Height="23" Width="150"></asp:Label>
+                            <asp:DropDownList runat="server" ID="drpPrevProcess" Height="23" Width="150" Enabled="false"></asp:DropDownList>
                         </div>
                     </div>
+
+                    <div id="rowsContainer">
+                        <div class="row" id="row0">
+                            <div class="col-md-1 col-sm-2">
+                                ACode:
+                            </div>
+                            <div class="col-md-3 col-sm-4">
+                                <%--<asp:DropDownList runat="server" ID="drpACode" Height="23" Width="150"></asp:DropDownList>--%>
+
+                                <select id="#multiAcodeDD0" class="multiDropDown" name="acodes[]" <%--multiple="multiple"--%> style="min-width: 120px">
+                                </select>
+                            </div>
+
+                            <div class="col-md-1 col-sm-2">
+                                علت:
+                            </div>
+
+                            <div class="col-md-3 col-sm-4">
+                                <asp:DropDownList runat="server" ID="drpReworkReason0" CssClass="drpRR" Height="23" Width="126"></asp:DropDownList>
+                            </div>
+
+                            <%--<div class="col-md-8 col-sm-6">
+                            <asp:Label runat="server" ID="lblProductName" Height="23" Width="150"></asp:Label>
+                        </div>--%>
+                        </div>
+
+                    </div>
+
+
+                    <button type="button" id="btn0" onclick="addNewAcodeReasonRow()">+ </button>
 
                     <div class="row">
                         <div class="col-md-1 col-sm-2">
                             اوپراتور:
                         </div>
                         <div class="col-md-3 col-sm-4">
-                            <asp:DropDownList runat="server" ID="drpOp" Height="23" Width="150"></asp:DropDownList>
+                            <asp:DropDownList runat="server" ID="drpOp" Height="23" Width="150" Enabled="false"></asp:DropDownList>
                         </div>
                     </div>
 
-                    <div class="row">
+                    <%--<div class="row">
                         <div class="col-md-1 col-sm-2">
                             علت:
                         </div>
                         <div class="col-md-3 col-sm-4">
                             <asp:DropDownList runat="server" ID="drpReworkReason" Height="23" Width="250"></asp:DropDownList>
                         </div>
-                    </div>
+                    </div>--%>
 
                     <div class="row">
                         <div class="col-md-1 col-sm-2">
@@ -257,11 +290,10 @@
             $("#txtBarcodeInput").on("keypress", function (e) {
 
                 if (e.keyCode == 35) {
-                    debugger;
                     var inputTxt = $("#txtBarcodeInput").val();
                     inputTxt = inputTxt.replace('و', ',');
                     var inputTxt1 = '<%#Session["InputBarcode"] != null ? Session["InputBarcode"].ToString() : "" %>';
-                    var paramss = '{input:"' + inputTxt + '",reworkACode:"",reworkReasonId:"",reworkDesc:"",reworkEsghatMode:""}';
+                    var paramss = '{input:"' + inputTxt + '",reworkACodes:"",reworkReasonId:"",reworkDesc:"",reworkEsghatMode:""}';
 
                     var parts = inputTxt.split(",");
 
@@ -335,7 +367,6 @@
         });
 
         function beep() {
-            debugger;
             var snd = new Audio("data:audio/wav;base64,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qJrx4KOQjahZxWbcZgztj2c49nKmkId44S71j0c8eV9yDK6uPRzx5X18eDvjvQ6yKo9ZSS6l//8elePK/Lf//IInrOF/FvDoADYAGBMGb7FtErm5MXMlmPAJQVgWta7Zx2go+8xJ0UiCb8LHHdftWyLJE0QIAIsI+UbXu67dZMjmgDGCGl1H+vpF4NSDckSIkk7Vd+sxEhBQMRU8j/12UIRhzSaUdQ+rQU5kGeFxm+hb1oh6pWWmv3uvmReDl0UnvtapVaIzo1jZbf/pD6ElLqSX+rUmOQNpJFa/r+sa4e/pBlAABoAAAAA3CUgShLdGIxsY7AUABPRrgCABdDuQ5GC7DqPQCgbbJUAoRSUj+NIEig0YfyWUho1VBBBA//uQZB4ABZx5zfMakeAAAAmwAAAAF5F3P0w9GtAAACfAAAAAwLhMDmAYWMgVEG1U0FIGCBgXBXAtfMH10000EEEEEECUBYln03TTTdNBDZopopYvrTTdNa325mImNg3TTPV9q3pmY0xoO6bv3r00y+IDGid/9aaaZTGMuj9mpu9Mpio1dXrr5HERTZSmqU36A3CumzN/9Robv/Xx4v9ijkSRSNLQhAWumap82WRSBUqXStV/YcS+XVLnSS+WLDroqArFkMEsAS+eWmrUzrO0oEmE40RlMZ5+ODIkAyKAGUwZ3mVKmcamcJnMW26MRPgUw6j+LkhyHGVGYjSUUKNpuJUQoOIAyDvEyG8S5yfK6dhZc0Tx1KI/gviKL6qvvFs1+bWtaz58uUNnryq6kt5RzOCkPWlVqVX2a/EEBUdU1KrXLf40GoiiFXK///qpoiDXrOgqDR38JB0bw7SoL+ZB9o1RCkQjQ2CBYZKd/+VJxZRRZlqSkKiws0WFxUyCwsKiMy7hUVFhIaCrNQsKkTIsLivwKKigsj8XYlwt/WKi2N4d//uQRCSAAjURNIHpMZBGYiaQPSYyAAABLAAAAAAAACWAAAAApUF/Mg+0aohSIRobBAsMlO//Kk4soosy1JSFRYWaLC4qZBYWFRGZdwqKiwkNBVmoWFSJkWFxX4FFRQWR+LsS4W/rFRb/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////VEFHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAU291bmRib3kuZGUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMjAwNGh0dHA6Ly93d3cuc291bmRib3kuZGUAAAAAAAAAACU=");
             snd.play();
         }
@@ -348,7 +379,6 @@
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
-                    debugger;
                     if (data.d == "OK") {
                         $("#txtBarcodeInput").val('');
                         toastr["success"]("ردیف با موفقیت اضافه شد")
@@ -435,30 +465,153 @@
 
         $('#esghatReworkInputModal')
             .on('show.bs.modal', function () {
-                debugger;
+                cloneCount = 0;
+
                 var inputText = $("#txtBarcodeInput").val().replace('و', ',').replace('#', '');
                 var reworkEsghatMode = $('#reworkEsghatMode').val();
-                if (reworkEsghatMode == 'rework')
+
+                if (reworkEsghatMode == 'Rework')
                     $('#h3ReworkEsghat').html('ثبت دوباره کاری');
                 else
                     $('#h3ReworkEsghat').html('ثبت اسقاط');
 
                 $("#drpOp").val(inputText.split(",")[1]);
-                $("#ACode").val('انتخاب کنید');
-                $("#drpReworkReason").val(-1);
+                //$("#drpReworkReason0").val(-1);
                 $("#txtReworkDesc").val('');
+                
+                var paramsss = '{worksheetId:' + inputText.split(",")[0] + ',operatorId:' + inputText.split(",")[1] + '}'
+                $.ajax({
+                    url: '<%= ResolveUrl("~/workline.aspx/GetLastProcessOfWorksheet") %>',
+                    type: "POST",
+                    data: paramsss,
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        debugger;
+                        $("#drpPrevProcess").val(data.d);
+                        loadACodes(inputText.split(",")[0]);
+                    },
+                    error: function (data) {
+                        debugger;
+                        beep();
+                        toastr["error"]("خطا در سیستم " + data.Message).css("width", "500px");
+                        setTimeout(() => { console.log("خطا در سیستم " + data.Message); }, 1000);
+                        return 0;
+                    }
+                });
             });
 
         function addReworkEsghat() {
             debugger;
             var inputText = $("#txtBarcodeInput").val().replace('و', ',').replace('#', '');
-            var reworkACode = $('#drpACode').find(":selected").text();
-            var reworkReasonId = $("#drpReworkReason").find(":selected").val();
+            //var reworkACode = $('#drpACode').find(":selected").text();
+            var reworkACodes = $('#multiAcodeDD0').find(":selected");
+
+            var selectedCodes = "";
+            for (var i = 0; i < reworkACodes.length; i++) {
+                selectedCodes += "," + reworkACodes[i].value;
+            }
+
+            if (selectedCodes == "" || selectedCodes == ",") {
+                toastr["error"]("هیچ کد کالایی انتخاب نشده ");
+                return;
+            }
+
+            selectedCodes = selectedCodes.substring(1, selectedCodes.length - 1);
+
+            var reworkReasonId = $("#drpReworkReason0").find(":selected").val();
+
+            if (reworkReasonId == "") {
+                toastr["error"]("هیچ علتی انتخاب نشده ");
+                return;
+            }
+
             var reworkDesc = $("#txtReworkDesc").val();
             var reworkEsghatMode = $('#reworkEsghatMode').val();
-            var paramss = '{input:"' + inputText + '",reworkACode:"' + reworkACode + '",reworkReasonId:"' + reworkReasonId + '",reworkDesc:"' + reworkDesc + '",reworkEsghatMode:"' + reworkEsghatMode + '"}';
+            var paramss = '{input:"' + inputText + '",reworkACodes:"' + selectedCodes + '",reworkReasonId:"' + reworkReasonId + '",reworkDesc:"' + reworkDesc + '",reworkEsghatMode:"' + reworkEsghatMode + '"}';
             addRow(paramss);
         }
 
+
+        $(document).ready(function () {
+            $('#multiAcodeDD0').select2({
+                width: '120px'
+            });
+        });
+
+        function loadACodes(worksheetId, acodeSelectId) {
+            debugger;
+            if (acodeSelectId ==undefined || acodeSelectId == '')
+                acodeSelectId = 'multiAcodeDD0';
+
+            var paramss = '{worksheetId:' + worksheetId + '}';
+
+            $.ajax({
+                url: '<%= ResolveUrl("~/workline.aspx/GetRelatedACodes") %>',
+                type: "POST",
+                data: paramss,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    debugger;
+                    var res = data.d.replace(/\"/g, '').replace('[', '').replace(']', '').split(",");
+
+                    $('#' + acodeSelectId).empty();
+                    $('#' + acodeSelectId).select2('destroy');
+
+                    $('#' + acodeSelectId).select2({
+                        width: '120px'
+                    });
+
+                    $('#' + acodeSelectId).val(null).trigger("change");
+
+                    for (var i = 0; i < res.length; i++) {
+                        var data = {
+                            id: res[i],
+                            text: res[i]
+                        };
+
+                        var newOption = new Option(data.text, data.id, false, false);
+                        $('#' + acodeSelectId).append(newOption).trigger('change');
+                    }
+                },
+                error: function (data) {
+                    debugger;
+                    beep();
+                    toastr["error"]("خطا در سیستم " + data.Message).css("width", "500px");
+                    setTimeout(() => { console.log("خطا در سیستم " + data.Message); }, 1000);
+                    return 0;
+                }
+            });
+        }
+
+        function addNewAcodeReasonRow() {
+            debugger;
+            cloneCount++;
+            var newRow = $("#row0").clone(true).attr('id', 'row' + cloneCount);
+
+            newRow.appendTo("#rowsContainer");
+
+            $("#row" + cloneCount).append('<button type="button" onclick="deleteRow(this);">-</button>');
+
+            var newMultiACode = newRow.find('.multiDropDown')[0];
+            newMultiACode.id = 'multiAcodeDD' + cloneCount;
+
+            $('#' + newMultiACode.id).select2({
+                width: '120px'
+            });
+
+            loadACodes($("#txtBarcodeInput").val().replace('و', ',').replace('#', '').split(',')[0], newMultiACode.id);
+
+            var newReason = newRow.find('.drpRR')[0];
+            newReason.id = 'drpReworkReason' + cloneCount;
+
+
+        }
+
+        function deleteRow(item) {
+            debugger;
+            item.parentElement.remove();
+        }
     </script>
 </asp:Content>

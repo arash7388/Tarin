@@ -18,7 +18,6 @@ namespace Repository.DAL
                          select new EsghatHelper
                          {
                              Id = r.Id,
-                             ACode = r.ACode,
                              Desc = r.Desc,
                              InsertDateTime = r.InsertDateTime,
                              InsertedUserId = r.InsertedUserId,
@@ -27,8 +26,16 @@ namespace Repository.DAL
                              ReasonName = reason.Name,
                              ReworkReasonId = r.ReworkReasonId
                          };
+            var resultList = result.ToList();
 
-            return result.ToList();
+            for (int i = 0; i < resultList.Count; i++)
+            {
+                var id = resultList[i].Id;
+                resultList[i].EsghatDetails = DBContext.EsghatDetails.Where(a => a.EsghatId == id).ToList();
+                resultList[i].ACode = string.Join(",", resultList[i].EsghatDetails?.Select(a => a.ACode));
+            }
+
+            return resultList.ToList();
         }
 
         public class EsghatHelper : Esghat
@@ -36,6 +43,7 @@ namespace Repository.DAL
             public string OpName { get; set; }
             public string UserName { get; set; }
             public string ReasonName { get; set; }
+            public string ACode { get; set; }
 
 
         }

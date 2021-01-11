@@ -92,10 +92,11 @@ namespace MehranPack
             // For other kinds of errors give the user some information
             // but stay on the default page
             Response.Write("<div dir=\"rtl\" style=\"padding: 20px;font-family=Iransans;color:red;font-weight:bold;\"><h2>متاسفانه خطایی در سیستم روی داده است</h2>\n");
-            Response.Write(
-                "<p>" + exc.Message + "<br/>" + exc.InnerException!= null ? exc.InnerException.Message : "" + "<br/>" +
-                  exc.InnerException?.InnerException != null ? exc.InnerException?.InnerException?.Message : "" +
-                "</p>\n");
+            Response.Write("<p dir=\"ltr\">Exception: " + exc.Message  + "</p>\n");
+            Response.Write("<p dir=\"ltr\">InnerException1: " + exc.InnerException?.Message + "</p>\n");
+            Response.Write("<p dir=\"ltr\">InnerException2: " + exc.InnerException?.InnerException?.Message + "</p>\n");
+            Response.Write("<p dir=\"ltr\">InnerException3: " + exc.InnerException?.InnerException?.InnerException?.Message + "</p>\n");
+            
             Response.Write("</br/> بازگشت به  <a href='Home.aspx'>" + "صفحه اصلی</a></div>\n");
 
            // Clear the error from the server

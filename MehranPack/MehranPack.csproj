@@ -103,7 +103,9 @@
     <Content Include="Category.aspx" />
     <Content Include="CategoryList.aspx" />
     <Content Include="Content\css\datatables.min.css" />
+    <Content Include="Content\css\select2.css" />
     <Content Include="Content\js\datatables.min.js" />
+    <Content Include="Content\js\select2.js" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="ReworkList.aspx" />

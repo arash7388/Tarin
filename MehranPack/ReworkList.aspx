@@ -43,14 +43,14 @@
                         </asp:BoundField>
                       
 
-                        <asp:TemplateField ShowHeader="False">
+                       <%-- <asp:TemplateField ShowHeader="False">
                             <ItemTemplate>
                                 <asp:LinkButton ID="btnEdit" runat="server" CausesValidation="false" CommandName="Edit"
                                     Text="ویرایش" CommandArgument='<%# Eval("Id") %>' />
                                 <asp:Image runat="server" ImageUrl="Images/Edit16.png" />
                             </ItemTemplate>
                             <ItemStyle Width="80"></ItemStyle>
-                        </asp:TemplateField>
+                        </asp:TemplateField>--%>
 
                         <asp:TemplateField ShowHeader="False">
                             <ItemTemplate>

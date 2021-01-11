@@ -41,11 +41,13 @@ namespace MehranPack
             this.table1 = new Telerik.Reporting.Table();
             this.textBox18 = new Telerik.Reporting.TextBox();
             this.barcode1 = new Telerik.Reporting.Barcode();
+            this.textBox16 = new Telerik.Reporting.TextBox();
+            this.textBox17 = new Telerik.Reporting.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // pageHeaderSection1
             // 
-            this.pageHeaderSection1.Height = Telerik.Reporting.Drawing.Unit.Cm(2.5D);
+            this.pageHeaderSection1.Height = Telerik.Reporting.Drawing.Unit.Cm(2.7D);
             this.pageHeaderSection1.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
             this.textBox4,
             this.textBox5,
@@ -59,7 +61,9 @@ namespace MehranPack
             this.textBox3,
             this.textBox2,
             this.textBox15,
-            this.textBox1});
+            this.textBox1,
+            this.textBox16,
+            this.textBox17});
             this.pageHeaderSection1.Name = "pageHeaderSection1";
             this.pageHeaderSection1.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             // 
@@ -75,7 +79,7 @@ namespace MehranPack
             this.textBox4.Style.BorderStyle.Right = Telerik.Reporting.Drawing.BorderType.None;
             this.textBox4.Style.BorderStyle.Top = Telerik.Reporting.Drawing.BorderType.None;
             this.textBox4.Style.Font.Bold = true;
-            this.textBox4.Style.Font.Name = "IRANSansWeb";
+            this.textBox4.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox4.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox4.StyleName = "borderAll";
             this.textBox4.Value = "= Fields.Date";
@@ -85,18 +89,18 @@ namespace MehranPack
             this.textBox5.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(1.453D), Telerik.Reporting.Drawing.Unit.Inch(0.315D));
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.465D), Telerik.Reporting.Drawing.Unit.Inch(0.2D));
-            this.textBox5.Style.Font.Name = "IRANSansWeb";
+            this.textBox5.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox5.Value = "تاریخ";
             // 
             // textBox6
             // 
             this.textBox6.Anchoring = Telerik.Reporting.AnchoringStyles.Top;
             this.textBox6.Culture = new System.Globalization.CultureInfo("fa-IR");
-            this.textBox6.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(3.307D), Telerik.Reporting.Drawing.Unit.Cm(0.684D));
+            this.textBox6.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(3.307D), Telerik.Reporting.Drawing.Unit.Inch(0.269D));
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.984D), Telerik.Reporting.Drawing.Unit.Inch(0.4D));
             this.textBox6.Style.Font.Bold = true;
-            this.textBox6.Style.Font.Name = "IRANSansWeb";
+            this.textBox6.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox6.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(14D);
             this.textBox6.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox6.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
@@ -107,7 +111,7 @@ namespace MehranPack
             this.textBox8.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(1.453D), Telerik.Reporting.Drawing.Unit.Inch(0.079D));
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.621D), Telerik.Reporting.Drawing.Unit.Inch(0.2D));
-            this.textBox8.Style.Font.Name = "IRANSansWeb";
+            this.textBox8.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox8.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(10D);
             this.textBox8.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(10D);
             this.textBox8.Value = "شماره";
@@ -124,7 +128,7 @@ namespace MehranPack
             this.textBox9.Style.BorderStyle.Right = Telerik.Reporting.Drawing.BorderType.None;
             this.textBox9.Style.BorderStyle.Top = Telerik.Reporting.Drawing.BorderType.None;
             this.textBox9.Style.Font.Bold = true;
-            this.textBox9.Style.Font.Name = "IRANSansWeb";
+            this.textBox9.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox9.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(10D);
             this.textBox9.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(10D);
             this.textBox9.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
@@ -136,7 +140,7 @@ namespace MehranPack
             this.textBox10.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(6.772D), Telerik.Reporting.Drawing.Unit.Inch(0.157D));
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.416D), Telerik.Reporting.Drawing.Unit.Inch(0.2D));
-            this.textBox10.Style.Font.Name = "IRANSansWeb";
+            this.textBox10.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox10.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(2D);
             this.textBox10.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(2D);
             this.textBox10.Value = "اپراتور";
@@ -153,7 +157,7 @@ namespace MehranPack
             this.textBox11.Style.BorderStyle.Right = Telerik.Reporting.Drawing.BorderType.None;
             this.textBox11.Style.BorderStyle.Top = Telerik.Reporting.Drawing.BorderType.None;
             this.textBox11.Style.Font.Bold = true;
-            this.textBox11.Style.Font.Name = "IRANSansWeb";
+            this.textBox11.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox11.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox11.StyleName = "borderAll";
             this.textBox11.Value = "= Fields.OperatorName";
@@ -163,7 +167,7 @@ namespace MehranPack
             this.textBox13.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(6.732D), Telerik.Reporting.Drawing.Unit.Inch(0.372D));
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.391D), Telerik.Reporting.Drawing.Unit.Inch(0.2D));
-            this.textBox13.Style.Font.Name = "IRANSansWeb";
+            this.textBox13.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox13.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(6D);
             this.textBox13.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(5D);
             this.textBox13.Value = "رنگ";
@@ -179,7 +183,7 @@ namespace MehranPack
             this.textBox12.Style.BorderStyle.Right = Telerik.Reporting.Drawing.BorderType.None;
             this.textBox12.Style.BorderStyle.Top = Telerik.Reporting.Drawing.BorderType.None;
             this.textBox12.Style.Font.Bold = true;
-            this.textBox12.Style.Font.Name = "IRANSansWeb";
+            this.textBox12.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox12.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox12.Value = "= Fields.ColorName";
             // 
@@ -188,7 +192,7 @@ namespace MehranPack
             this.textBox3.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(1.457D), Telerik.Reporting.Drawing.Unit.Inch(0.566D));
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.748D), Telerik.Reporting.Drawing.Unit.Inch(0.2D));
-            this.textBox3.Style.Font.Name = "IRANSansWeb";
+            this.textBox3.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox3.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(6D);
             this.textBox3.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(5D);
             this.textBox3.Value = "پارت تولید";
@@ -205,7 +209,7 @@ namespace MehranPack
             this.textBox2.Style.BorderStyle.Right = Telerik.Reporting.Drawing.BorderType.None;
             this.textBox2.Style.BorderStyle.Top = Telerik.Reporting.Drawing.BorderType.None;
             this.textBox2.Style.Font.Bold = true;
-            this.textBox2.Style.Font.Name = "IRANSansWeb";
+            this.textBox2.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox2.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox2.Value = "= Fields.PartNo";
             // 
@@ -214,7 +218,7 @@ namespace MehranPack
             this.textBox15.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(6.732D), Telerik.Reporting.Drawing.Unit.Inch(0.599D));
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.673D), Telerik.Reporting.Drawing.Unit.Inch(0.2D));
-            this.textBox15.Style.Font.Name = "IRANSansWeb";
+            this.textBox15.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox15.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(6D);
             this.textBox15.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(5D);
             this.textBox15.Value = "پارت موم";
@@ -231,7 +235,7 @@ namespace MehranPack
             this.textBox1.Style.BorderStyle.Right = Telerik.Reporting.Drawing.BorderType.None;
             this.textBox1.Style.BorderStyle.Top = Telerik.Reporting.Drawing.BorderType.None;
             this.textBox1.Style.Font.Bold = true;
-            this.textBox1.Style.Font.Name = "IRANSansWeb";
+            this.textBox1.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox1.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox1.Value = "= Fields.WaxNo";
             // 
@@ -249,7 +253,7 @@ namespace MehranPack
             this.textBox14.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Mm(157D), Telerik.Reporting.Drawing.Unit.Mm(5D));
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Mm(29.56D), Telerik.Reporting.Drawing.Unit.Mm(6D));
-            this.textBox14.Style.Font.Name = "IRANSansWeb";
+            this.textBox14.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox14.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(11D);
             this.textBox14.Value = "= Fields.ProcessName";
             // 
@@ -278,6 +282,7 @@ namespace MehranPack
             this.textBox7.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Mm(1D), Telerik.Reporting.Drawing.Unit.Mm(2D));
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Mm(44D), Telerik.Reporting.Drawing.Unit.Mm(6D));
+            this.textBox7.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox7.Value = "= Now()";
             // 
             // sqlDataSource2
@@ -338,6 +343,7 @@ namespace MehranPack
             // 
             this.textBox18.Name = "textBox18";
             this.textBox18.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Mm(52.61D), Telerik.Reporting.Drawing.Unit.Mm(11.77D));
+            this.textBox18.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox18.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
             this.textBox18.StyleName = "";
             this.textBox18.Value = "= Fields.ProductName + \' \' + Fields.ProcessName";
@@ -356,6 +362,32 @@ namespace MehranPack
             this.barcode1.Style.BorderWidth.Default = Telerik.Reporting.Drawing.Unit.Point(5D);
             this.barcode1.StyleName = "";
             this.barcode1.Value = "= Fields.Barcode";
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(6.732D), Telerik.Reporting.Drawing.Unit.Inch(0.827D));
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(0.673D), Telerik.Reporting.Drawing.Unit.Inch(0.2D));
+            this.textBox16.Style.Font.Name = "Microsoft Sans Serif";
+            this.textBox16.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(6D);
+            this.textBox16.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(5D);
+            this.textBox16.Value = "توضیحات";
+            // 
+            // textBox17
+            // 
+            this.textBox17.CanGrow = false;
+            this.textBox17.Culture = new System.Globalization.CultureInfo("fa-IR");
+            this.textBox17.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(0.236D), Telerik.Reporting.Drawing.Unit.Inch(0.827D));
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(6.436D), Telerik.Reporting.Drawing.Unit.Inch(0.2D));
+            this.textBox17.Style.BorderStyle.Bottom = Telerik.Reporting.Drawing.BorderType.None;
+            this.textBox17.Style.BorderStyle.Left = Telerik.Reporting.Drawing.BorderType.None;
+            this.textBox17.Style.BorderStyle.Right = Telerik.Reporting.Drawing.BorderType.None;
+            this.textBox17.Style.BorderStyle.Top = Telerik.Reporting.Drawing.BorderType.None;
+            this.textBox17.Style.Font.Bold = true;
+            this.textBox17.Style.Font.Name = "Microsoft Sans Serif";
+            this.textBox17.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
+            this.textBox17.Value = "= Fields.[Desc]";
             // 
             // ReportWorksheets
             // 
@@ -408,5 +440,7 @@ namespace MehranPack
         private Telerik.Reporting.TextBox textBox7;
         private Telerik.Reporting.TextBox textBox15;
         private Telerik.Reporting.TextBox textBox1;
+        private Telerik.Reporting.TextBox textBox16;
+        private Telerik.Reporting.TextBox textBox17;
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Common;
+using Newtonsoft.Json;
 using Repository.DAL;
+using Repository.Entity.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,12 +36,13 @@ namespace MehranPack
             {
                 BindDrpACode();
                 BindDrpOp();
+                BindDrpPrevProcess();
                 BindDrpReason();
             }
         }
 
         [WebMethod]
-        public static string AddRow(string input,string reworkACode,string reworkReasonId,string reworkDesc,string reworkEsghatMode)
+        public static string AddRow(string input,string reworkACodes,string reworkReasonId,string reworkDesc,string reworkEsghatMode)
         {
             //WID,OperatorID,ProcessID
             var parts = input.Replace('و' , ',').Split(',');
@@ -84,9 +87,12 @@ namespace MehranPack
            
             var uow = new UnitOfWork();
 
-            var wl = uow.WorkLines.Get(a => a.WorksheetId == worksheetId && a.OperatorId == operatorId && a.ProcessId == processId);
-            if (wl?.Count != 0)
-                return $"فرآیند با این مشخصات قبلا ثبت شده کاربر:{new UserRepository().GetById(operatorId)?.Username} ";
+            if (processId != 999 && processId != 1000 && processId != 1001)
+            {
+                var wl = uow.WorkLines.Get(a => a.WorksheetId == worksheetId && a.OperatorId == operatorId && a.ProcessId == processId);
+                if (wl?.Count != 0)
+                    return $"فرآیند با این مشخصات قبلا ثبت شده کاربر:{new UserRepository().GetById(operatorId)?.Username} ";
+            }
 
             var newWorkLine = uow.WorkLines.Create(new Repository.Entity.Domain.WorkLine()
             {
@@ -97,13 +103,38 @@ namespace MehranPack
             }
             );
 
+            var acodes = reworkACodes.Split(',');
+
             if (reworkEsghatMode != "")
             {
                 if (reworkEsghatMode.ToLower() == "rework")
                 {
                     var newRework = uow.Reworks.Create(new Repository.Entity.Domain.Rework()
                     {
-                        ACode = reworkACode.ToEnglishNumber(),
+                        InsertDateTime = DateTime.Now,
+                        OperatorId = operatorId,
+                        InsertedUserId = operatorId,  //?
+                        ReworkReasonId = reworkReasonId.ToSafeInt(),
+                        Desc = reworkDesc,
+                        Status = -1,
+                    });
+
+                    if(acodes.Any())
+                    {
+                        newRework.ReworkDetails = new List<ReworkDetail>();
+
+                        acodes.ToList().ForEach(a =>
+                        {
+                            newRework.ReworkDetails.Add(new ReworkDetail { ACode = a });
+                        });
+                    }
+
+                    newWorkLine.Rework = newRework;
+                }
+                else
+                {
+                    var newEsghat = uow.Esghats.Create(new Repository.Entity.Domain.Esghat()
+                    {
                         InsertDateTime = DateTime.Now,
                         OperatorId = operatorId,
                         InsertedUserId = operatorId,  //?
@@ -112,20 +143,15 @@ namespace MehranPack
                         Status = -1
                     });
 
-                    newWorkLine.Rework = newRework;
-                }
-                else
-                {
-                    var newEsghat = uow.Esghats.Create(new Repository.Entity.Domain.Esghat()
+                    if (acodes.Any())
                     {
-                        ACode = reworkACode.ToEnglishNumber(),
-                        InsertDateTime = DateTime.Now,
-                        OperatorId = operatorId,
-                        InsertedUserId = operatorId,  //?
-                        ReworkReasonId = reworkReasonId.ToSafeInt(),
-                        Desc = reworkDesc,
-                        Status = -1
-                    });
+                        newEsghat.EsghatDetails = new List<EsghatDetail>();
+
+                        acodes.ToList().ForEach(a =>
+                        {
+                            newEsghat.EsghatDetails.Add(new EsghatDetail { ACode = a });
+                        });
+                    }
 
                     newWorkLine.Esghat = newEsghat;
                 }
@@ -147,6 +173,17 @@ namespace MehranPack
         }
 
         [WebMethod]
+        public static string GetLastProcessOfWorksheet(int worksheetId,int operatorId)
+        {
+            var result = (string)HttpContext.Current.Session[worksheetId + "#" + operatorId];
+            
+            if(string.IsNullOrWhiteSpace(result) || result=="999" || result == "1000" || result == "1001")
+                return new WorkLineRepository().Get(a => a.WorksheetId == worksheetId && a.ProcessId != 999 && a.ProcessId != 1000 && a.ProcessId != 1001).OrderByDescending(a => a.Id).FirstOrDefault()?.ProcessId.ToString();
+
+            return "";
+        }
+
+        [WebMethod]
         public static string CheckReworkEsghatPassword(string input)
         {
             var userRepo = new UserRepository();
@@ -156,6 +193,15 @@ namespace MehranPack
                 return "OK";
 
             return "0";
+        }
+
+        [WebMethod]
+        public static string GetRelatedACodes(int worksheetId)
+        {
+            var repo = new WorksheetDetailRepository();
+            var source = repo.Get(a=>a.WorksheetId== worksheetId).Select(a => a.ACode).Distinct();
+
+            return JsonConvert.SerializeObject(source);
         }
 
         protected void gridWorkLine_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -217,6 +263,16 @@ namespace MehranPack
             drpOp.DataBind();
         }
 
+        private void BindDrpPrevProcess()
+        {
+            var source = new ProcessRepository().GetAll();
+            
+            drpPrevProcess.DataSource = source;
+            drpPrevProcess.DataValueField = "Id";
+            drpPrevProcess.DataTextField = "Name";
+            drpPrevProcess.DataBind();
+        }
+                
         private void BindDrpACode()
         {
             var repo = new WorksheetDetailRepository();
@@ -224,10 +280,10 @@ namespace MehranPack
             source.Add(new Repository.Entity.Domain.WorksheetDetail() { ACode = "انتخاب کنید" });
             source.AddRange(repo.GetAll());
 
-            drpACode.DataSource = source;
-            drpACode.DataValueField = "ACode";
-            drpACode.DataTextField = "ACode";
-            drpACode.DataBind();
+            //drpACode.DataSource = source;
+            //drpACode.DataValueField = "ACode";
+            //drpACode.DataTextField = "ACode";
+            //drpACode.DataBind();
         }
 
         private void BindDrpReason()
@@ -237,10 +293,10 @@ namespace MehranPack
             source.Add(new Repository.Entity.Domain.ReworkReason() { Id = -1, Name = "انتخاب کنید" });
             source.AddRange(repo.GetAll());
 
-            drpReworkReason.DataSource = source;
-            drpReworkReason.DataValueField = "Id";
-            drpReworkReason.DataTextField = "Name";
-            drpReworkReason.DataBind();
+            drpReworkReason0.DataSource = source;
+            drpReworkReason0.DataValueField = "Id";
+            drpReworkReason0.DataTextField = "Name";
+            drpReworkReason0.DataBind();
         }
     }
 }

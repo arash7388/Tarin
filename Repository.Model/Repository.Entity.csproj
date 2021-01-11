@@ -61,6 +61,8 @@
     <Compile Include="Domain\RatingGroup.cs" />
     <Compile Include="Domain\RatingItem.cs" />
     <Compile Include="Domain\Esghat.cs" />
+    <Compile Include="Domain\EsghatDetail.cs" />
+    <Compile Include="Domain\ReworkDetail.cs" />
     <Compile Include="Domain\Rework.cs" />
     <Compile Include="Domain\ReworkReason.cs" />
     <Compile Include="Domain\Tag.cs" />

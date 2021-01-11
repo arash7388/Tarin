@@ -8,8 +8,6 @@ namespace Repository.Entity.Domain
 {
     public class Rework:BaseEntity
     {
-        public string ACode { get; set; }
-
         public User Operator { get; set; }
         public int? OperatorId { get; set; }
 
@@ -20,6 +18,8 @@ namespace Repository.Entity.Domain
 
         public User InsertedUser { get; set; }
         public int InsertedUserId { get; set; }
+
+        public ICollection<ReworkDetail> ReworkDetails { get; set; }
 
     }
 }
