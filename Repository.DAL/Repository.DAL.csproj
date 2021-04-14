@@ -45,6 +45,7 @@
     <Compile Include="BaseRepository.cs" />
     <Compile Include="CategoryPropRepository.cs" />
     <Compile Include="CategoryPropValueRepository.cs" />
+    <Compile Include="MemberRepository.cs" />
     <Compile Include="CityRepository.cs" />
     <Compile Include="InputOutputDetailRepository.cs" />
     <Compile Include="InputOutputRepository.cs" />

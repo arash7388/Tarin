@@ -30,7 +30,7 @@
 
     <div class="row">
         <div class="col-md-10" style="padding-right: 80px;">
-            <asp:CheckBox runat="server" ID="chkShowAll" Text="نمایش کلیه تایمینگ ها(1000 رکورد آخر)" AutoPostBack="true" />
+            <asp:CheckBox runat="server" ID="chkShowAll" Text="نمایش کلیه تایمینگ ها(100 ردیف آخر)" AutoPostBack="true" />
         </div>
     </div>
 
@@ -127,8 +127,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" onclick="checkReworkPassword();">تایید</button>
-                    <button type="button" class="btn btn-default" onclick="cancel();">انصراف</button>
+                    <button type="button" class="btn btn-default btn-standard btn-success" onclick="checkReworkPassword();">تایید</button>
+                    <button type="button" class="btn btn-default btn-standard btn-danger" onclick="cancel();">انصراف</button>
                 </div>
             </div>
 
@@ -156,8 +156,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" onclick="checkEsghatPassword();">تایید</button>
-                    <button type="button" class="btn btn-default" onclick="cancel();">انصراف</button>
+                    <button type="button" class="btn btn-default btn-standard btn-success" onclick="checkEsghatPassword();">تایید</button>
+                    <button type="button" class="btn btn-default btn-standard btn-danger" onclick="cancel();">انصراف</button>
                 </div>
             </div>
 
@@ -189,13 +189,13 @@
                                 ACode:
                             </div>
                             <div class="col-md-3 col-sm-4">
-                                <%--<asp:DropDownList runat="server" ID="drpACode" Height="23" Width="150"></asp:DropDownList>--%>
+                                <asp:DropDownList runat="server" ID="multiAcodeDD0" class="multiDropDown" Height="23" Width="150"></asp:DropDownList>
 
-                                <select id="#multiAcodeDD0" class="multiDropDown" name="acodes[]" <%--multiple="multiple"--%> style="min-width: 120px">
-                                </select>
+                                <%--<select id="#multiAcodeDD0" class="multiDropDown" name="acodes[]" multiple="multiple" style="min-width: 120px">
+                                </select>--%>
                             </div>
 
-                            <div class="col-md-1 col-sm-2">
+                            <div class="col-md-1 col-sm-2 col-md-offset-1 col-sm-offset-1">
                                 علت:
                             </div>
 
@@ -242,8 +242,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" onclick="addReworkEsghat();">تایید</button>
-                    <button type="button" class="btn btn-default" onclick="$('#esghatReworkInputModal').modal('hide');$('#txtBarcodeInput').val('') ">انصراف</button>
+                    <button type="button" class="btn btn-default btn-standard btn-success" onclick="addReworkEsghat();">تایید</button>
+                    <button type="button" class="btn btn-default btn-standard btn-danger" onclick="$('#esghatReworkInputModal').modal('hide');$('#txtBarcodeInput').val('') ">انصراف</button>
                 </div>
             </div>
 
@@ -290,10 +290,11 @@
             $("#txtBarcodeInput").on("keypress", function (e) {
 
                 if (e.keyCode == 35) {
+                    debugger;
                     var inputTxt = $("#txtBarcodeInput").val();
                     inputTxt = inputTxt.replace('و', ',');
                     var inputTxt1 = '<%#Session["InputBarcode"] != null ? Session["InputBarcode"].ToString() : "" %>';
-                    var paramss = '{input:"' + inputTxt + '",reworkACodes:"",reworkReasonId:"",reworkDesc:"",reworkEsghatMode:""}';
+                    var paramss = '{input:"' + inputTxt + '",reworkACodes:"",reworkReasons:"",reworkDesc:"",reworkEsghatMode:"",reworkEsghatPrevProcessId:""}';
 
                     var parts = inputTxt.split(",");
 
@@ -395,6 +396,7 @@
                 },
                 error: function (data) {
                     beep();
+                    debugger;
                     toastr["error"]("خطا در سیستم " + data.Message).css("width", "500px");
                     setTimeout(() => { console.log("خطا در سیستم " + data.Message); }, 1000);
                     $('#esghatReworkInputModal').modal('hide');
@@ -467,6 +469,12 @@
             .on('show.bs.modal', function () {
                 cloneCount = 0;
 
+                try {$("#row1").remove();} catch (e) {}
+                try {$("#row2").remove();} catch (e) {}
+                try {$("#row3").remove();} catch (e) {}
+                try {$("#row4").remove();} catch (e) {}
+                try {$("#row5").remove();} catch (e) {}
+                                
                 var inputText = $("#txtBarcodeInput").val().replace('و', ',').replace('#', '');
                 var reworkEsghatMode = $('#reworkEsghatMode').val();
 
@@ -476,7 +484,6 @@
                     $('#h3ReworkEsghat').html('ثبت اسقاط');
 
                 $("#drpOp").val(inputText.split(",")[1]);
-                //$("#drpReworkReason0").val(-1);
                 $("#txtReworkDesc").val('');
                 
                 var paramsss = '{worksheetId:' + inputText.split(",")[0] + ',operatorId:' + inputText.split(",")[1] + '}'
@@ -504,8 +511,9 @@
         function addReworkEsghat() {
             debugger;
             var inputText = $("#txtBarcodeInput").val().replace('و', ',').replace('#', '');
-            //var reworkACode = $('#drpACode').find(":selected").text();
-            var reworkACodes = $('#multiAcodeDD0').find(":selected");
+
+
+            var reworkACodes = $('.multiDropDown').find(":selected");
 
             var selectedCodes = "";
             for (var i = 0; i < reworkACodes.length; i++) {
@@ -517,26 +525,37 @@
                 return;
             }
 
-            selectedCodes = selectedCodes.substring(1, selectedCodes.length - 1);
+            selectedCodes = selectedCodes.substring(1, selectedCodes.length);
 
-            var reworkReasonId = $("#drpReworkReason0").find(":selected").val();
 
-            if (reworkReasonId == "") {
+            var reworkReasons = $('.drpRR').find(":selected");
+
+            var selectedReasons = "";
+            for (var i = 0; i < reworkReasons.length; i++) {
+                selectedReasons += "," + reworkReasons[i].value;
+            }
+
+            selectedReasons = selectedReasons.substring(1, selectedReasons.length);
+
+            if (selectedReasons == "" || selectedReasons == ",") {
                 toastr["error"]("هیچ علتی انتخاب نشده ");
                 return;
             }
 
             var reworkDesc = $("#txtReworkDesc").val();
             var reworkEsghatMode = $('#reworkEsghatMode').val();
-            var paramss = '{input:"' + inputText + '",reworkACodes:"' + selectedCodes + '",reworkReasonId:"' + reworkReasonId + '",reworkDesc:"' + reworkDesc + '",reworkEsghatMode:"' + reworkEsghatMode + '"}';
+            var reworkEsghatPrevProcessId = $('#drpPrevProcess').find(":selected").val();
+
+            var paramss = '{input:"' + inputText + '",reworkACodes:"' + selectedCodes + '",reworkReasons:"' + selectedReasons + '",reworkDesc:"' + reworkDesc + '",reworkEsghatMode:"' + reworkEsghatMode + '","reworkEsghatPrevProcessId":"' + reworkEsghatPrevProcessId + '"}';
+
             addRow(paramss);
         }
 
 
         $(document).ready(function () {
-            $('#multiAcodeDD0').select2({
-                width: '120px'
-            });
+            //$('#multiAcodeDD0').select2({
+            //    width: '120px'
+            //});
         });
 
         function loadACodes(worksheetId, acodeSelectId) {
@@ -556,23 +575,52 @@
                     debugger;
                     var res = data.d.replace(/\"/g, '').replace('[', '').replace(']', '').split(",");
 
-                    $('#' + acodeSelectId).empty();
-                    $('#' + acodeSelectId).select2('destroy');
+                    if (acodeSelectId == 'multiAcodeDD0') {
+                        var element = $('.multiDropDown');
 
-                    $('#' + acodeSelectId).select2({
-                        width: '120px'
-                    });
+                        if (element != undefined) {
+                            element.empty();
+                            //element.select2('destroy');
+                        }
 
-                    $('#' + acodeSelectId).val(null).trigger("change");
+                        //element.select2({
+                        //    width: '150px'
+                        //});
 
-                    for (var i = 0; i < res.length; i++) {
-                        var data = {
-                            id: res[i],
-                            text: res[i]
-                        };
+                        element.val(null).trigger("change");
 
-                        var newOption = new Option(data.text, data.id, false, false);
-                        $('#' + acodeSelectId).append(newOption).trigger('change');
+                        for (var i = 0; i < res.length; i++) {
+                            var data = {
+                                id: res[i],
+                                text: res[i]
+                            };
+
+                            var newOption = new Option(data.text, data.id, false, false);
+                            element.append(newOption).trigger('change');
+                        }
+                    }
+                    else {
+
+
+
+                        $('#' + acodeSelectId).empty();
+                        //$('#' + acodeSelectId).select2('destroy');
+
+                        //$('#' + acodeSelectId).select2({
+                        //    width: '120px'
+                        //});
+
+                        //$('#' + acodeSelectId).val(null).trigger("change");
+
+                        for (var i = 0; i < res.length; i++) {
+                            var data = {
+                                id: res[i],
+                                text: res[i]
+                            };
+
+                            var newOption = new Option(data.text, data.id, false, false);
+                            $('#' + acodeSelectId).append(newOption).trigger('change');
+                        }
                     }
                 },
                 error: function (data) {
@@ -597,9 +645,9 @@
             var newMultiACode = newRow.find('.multiDropDown')[0];
             newMultiACode.id = 'multiAcodeDD' + cloneCount;
 
-            $('#' + newMultiACode.id).select2({
-                width: '120px'
-            });
+            //$('#' + newMultiACode.id).select2({
+            //    width: '150px'
+            //});
 
             loadACodes($("#txtBarcodeInput").val().replace('و', ',').replace('#', '').split(',')[0], newMultiACode.id);
 

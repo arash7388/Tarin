@@ -14,7 +14,6 @@ namespace Repository.DAL
             var result = from r in DBContext.Esghats
                          join op in DBContext.Users on r.OperatorId equals op.Id
                          join u in DBContext.Users on r.InsertedUserId equals u.Id
-                         join reason in DBContext.ReworkReasons on r.ReworkReasonId equals reason.Id
                          select new EsghatHelper
                          {
                              Id = r.Id,
@@ -23,16 +22,23 @@ namespace Repository.DAL
                              InsertedUserId = r.InsertedUserId,
                              OperatorId = r.OperatorId,
                              OpName = op.FriendlyName,
-                             ReasonName = reason.Name,
-                             ReworkReasonId = r.ReworkReasonId
                          };
             var resultList = result.ToList();
 
             for (int i = 0; i < resultList.Count; i++)
             {
                 var id = resultList[i].Id;
+                var allReasons = DBContext.ReworkReasons.ToList();
+
                 resultList[i].EsghatDetails = DBContext.EsghatDetails.Where(a => a.EsghatId == id).ToList();
-                resultList[i].ACode = string.Join(",", resultList[i].EsghatDetails?.Select(a => a.ACode));
+
+                foreach(var d in resultList[i].EsghatDetails)
+                {
+                    d.ReworkReason = allReasons.FirstOrDefault(a => a.Id == d.ReworkReasonId);
+                }
+
+                resultList[i].ACode =  string.Join(",", resultList[i].EsghatDetails?.Select(a => a.ACode));
+                resultList[i].ReasonName = string.Join(",", resultList[i].EsghatDetails?.Select(a => a.ReworkReason.Name));
             }
 
             return resultList.ToList();

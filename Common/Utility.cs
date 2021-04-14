@@ -147,6 +147,16 @@ namespace Common
             return converted;
         }
 
+        public static long ToSafeLong(this object objNumber)
+        {
+            long converted = 0;
+
+            if (objNumber != null)
+                Int64.TryParse(objNumber.ToString(), out converted);
+
+            return converted;
+        }
+
         public static int ToSafeInt(this string objStr)
         {
             int converted = 0;

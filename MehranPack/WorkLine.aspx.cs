@@ -42,7 +42,7 @@ namespace MehranPack
         }
 
         [WebMethod]
-        public static string AddRow(string input,string reworkACodes,string reworkReasonId,string reworkDesc,string reworkEsghatMode)
+        public static string AddRow(string input,string reworkACodes,string reworkReasons, string reworkDesc,string reworkEsghatMode,string reworkEsghatPrevProcessId)
         {
             //WID,OperatorID,ProcessID
             var parts = input.Replace('و' , ',').Split(',');
@@ -56,11 +56,19 @@ namespace MehranPack
 
             var prevProcessIsEsghat = thisWorksheetWorkLines.Any() ? thisWorksheetWorkLines.Any(a => a.ProcessId == 1001) : false;
             if (prevProcessIsEsghat)
-                return "پس از اسقاظ قادر به ثبت فرآیند دیگری نیستید";
+                return "پس از اسقاط قادر به ثبت فرآیند دیگری نیستید";
 
-            var prevProcessOfThisWorksheet = thisWorksheetWorkLines.Any() ? thisWorksheetWorkLines.Where(a=>a.ProcessId != 999 && a.ProcessId != 1000 && a.ProcessId != 1001).Max(a => a.ProcessId) : 0;
+            var actualPrevProcess = thisWorksheetWorkLines.Any() ? thisWorksheetWorkLines.OrderByDescending(a => a.Id).FirstOrDefault().ProcessId : 0;
+            //var breforePrevProcessOfThisWorksheet = thisWorksheetWorkLines.Any() ? thisWorksheetWorkLines.Where(a=>a.ProcessId != 999 && a.ProcessId != 1000 && a.ProcessId != 1001 && a.ProcessId != 1002).Max(a => a.ProcessId) : 0;
+            var prevProcessOfThisWorksheet = thisWorksheetWorkLines.Any() ? thisWorksheetWorkLines.Where(a=>a.ProcessId != 999 && a.ProcessId != 1000 && a.ProcessId != 1001 && a.ProcessId != 1002).Max(a => a.ProcessId) : 0;
 
-            if(processId != 1000 && processId != 1001)
+            
+            if(actualPrevProcess==1002 && prevProcessOfThisWorksheet == processId)
+            {
+                //after launch previous process can be continued
+            }
+            else
+            if(processId != 1000 && processId != 1001 && processId != 1002)
                if (thisWorksheetWorkLines != null && thisWorksheetWorkLines.Any())
                 if (prevProcessOfThisWorksheet != 0 && prevProcessOfThisWorksheet >= processId)
                     return "عدم رعایت ترتیب فرآیند" + "- کاربر:" + new UserRepository().GetById(operatorId)?.Username + "- کاربرگ:" + worksheetId;
@@ -74,14 +82,14 @@ namespace MehranPack
                 HttpContext.Current.Session["worksheetProcesses" + "#" + worksheetId] = wsheetProcesses;
             }
 
-            if (processId != 999 && processId != 1000 && processId != 1001) // 999 etmame movaghat, 1000 rework, 1001 esghat
+            if (processId != 999 && processId != 1000 && processId != 1001 && processId != 1002) // 999 etmame movaghat, 1000 rework, 1001 esghat,1002 nahar
             {
                 var thisWorksheetProcesses = (List<int>)HttpContext.Current.Session["worksheetProcesses" + "#" + worksheetId];
                 var indexOfPrevProcess = thisWorksheetProcesses.IndexOf(prevProcessOfThisWorksheet);
                 var indexOfNextProcess = indexOfPrevProcess + 1;
                 var nextProcessOfThisWorksheet = thisWorksheetProcesses[indexOfNextProcess];
 
-                if(processId != nextProcessOfThisWorksheet)
+                if(processId != nextProcessOfThisWorksheet && !(actualPrevProcess == 1002 && prevProcessOfThisWorksheet == processId))
                    return "عدم رعایت ترتیب فرآیند" + "- کاربر:" + new UserRepository().GetById(operatorId)?.Username + "- کاربرگ:" + worksheetId;
             }
            
@@ -90,8 +98,25 @@ namespace MehranPack
             if (processId != 999 && processId != 1000 && processId != 1001)
             {
                 var wl = uow.WorkLines.Get(a => a.WorksheetId == worksheetId && a.OperatorId == operatorId && a.ProcessId == processId);
-                if (wl?.Count != 0)
+                if (wl?.Count != 0 && !(actualPrevProcess == 1002 && prevProcessOfThisWorksheet == processId))
                     return $"فرآیند با این مشخصات قبلا ثبت شده کاربر:{new UserRepository().GetById(operatorId)?.Username} ";
+            }
+            else
+            {
+                var intReworkEsghatPrevProcessId = reworkEsghatPrevProcessId.ToSafeInt();
+
+                if (processId == 1000)
+                {
+                    var rw = uow.Reworks.Get(a => a.WorksheetId == worksheetId && a.PrevProcessId == intReworkEsghatPrevProcessId);
+                    if (rw?.Count != 0)
+                        return "برای این فرآیند قبلا دوباره کاری ثبت شده است";
+                }
+                else if (processId == 1001)
+                {
+                    var rw = uow.Esghats.Get(a => a.WorksheetId == worksheetId && a.PrevProcessId == intReworkEsghatPrevProcessId);
+                    if (rw?.Count != 0)
+                        return "برای این فرآیند قبلا اسقاط ثبت شده است";
+                }
             }
 
             var newWorkLine = uow.WorkLines.Create(new Repository.Entity.Domain.WorkLine()
@@ -104,6 +129,10 @@ namespace MehranPack
             );
 
             var acodes = reworkACodes.Split(',');
+            var reasons = reworkReasons.Split(',');
+
+            if (acodes.Contains("-1"))
+                return "علت انتخاب نشده";
 
             if (reworkEsghatMode != "")
             {
@@ -114,8 +143,9 @@ namespace MehranPack
                         InsertDateTime = DateTime.Now,
                         OperatorId = operatorId,
                         InsertedUserId = operatorId,  //?
-                        ReworkReasonId = reworkReasonId.ToSafeInt(),
                         Desc = reworkDesc,
+                        PrevProcessId = reworkEsghatPrevProcessId.ToSafeInt(),
+                        WorksheetId = worksheetId,
                         Status = -1,
                     });
 
@@ -123,10 +153,11 @@ namespace MehranPack
                     {
                         newRework.ReworkDetails = new List<ReworkDetail>();
 
-                        acodes.ToList().ForEach(a =>
+                        for (int i = 0; i < acodes.Length; i++)
                         {
-                            newRework.ReworkDetails.Add(new ReworkDetail { ACode = a });
-                        });
+                            newRework.ReworkDetails.Add(new ReworkDetail { ACode = acodes[i], ReworkReasonId = reasons[i].ToSafeInt() });
+                        }
+                        
                     }
 
                     newWorkLine.Rework = newRework;
@@ -138,8 +169,9 @@ namespace MehranPack
                         InsertDateTime = DateTime.Now,
                         OperatorId = operatorId,
                         InsertedUserId = operatorId,  //?
-                        ReworkReasonId = reworkReasonId.ToSafeInt(),
                         Desc = reworkDesc,
+                        PrevProcessId = reworkEsghatPrevProcessId.ToSafeInt(),
+                        WorksheetId = worksheetId,
                         Status = -1
                     });
 
@@ -147,10 +179,10 @@ namespace MehranPack
                     {
                         newEsghat.EsghatDetails = new List<EsghatDetail>();
 
-                        acodes.ToList().ForEach(a =>
+                        for (int i = 0; i < acodes.Length; i++)
                         {
-                            newEsghat.EsghatDetails.Add(new EsghatDetail { ACode = a });
-                        });
+                            newEsghat.EsghatDetails.Add(new EsghatDetail { ACode = acodes[i], ReworkReasonId = reasons[i].ToSafeInt() });
+                        }
                     }
 
                     newWorkLine.Esghat = newEsghat;
@@ -175,12 +207,12 @@ namespace MehranPack
         [WebMethod]
         public static string GetLastProcessOfWorksheet(int worksheetId,int operatorId)
         {
-            var result = (string)HttpContext.Current.Session[worksheetId + "#" + operatorId];
+            var result = HttpContext.Current.Session[worksheetId + "#" + operatorId].ToSafeString();
             
             if(string.IsNullOrWhiteSpace(result) || result=="999" || result == "1000" || result == "1001")
                 return new WorkLineRepository().Get(a => a.WorksheetId == worksheetId && a.ProcessId != 999 && a.ProcessId != 1000 && a.ProcessId != 1001).OrderByDescending(a => a.Id).FirstOrDefault()?.ProcessId.ToString();
 
-            return "";
+            return result;
         }
 
         [WebMethod]

@@ -1,0 +1,140 @@
+﻿@font-face {
+    font-family: 'BKoodak';
+    src: url('/Content/fonts/IRANSansWeb.eot');
+    src: local('BKoodak'), url('/Content/fonts/IRANSansWeb.woff') format('woff'), url('/Content/fonts/IRANSansWeb.ttf') format('truetype'), url('IRANSansWeb.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.btn-blue {
+	font-size:16px;
+	font-family:Arial;
+	font-weight:normal;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+	border:1px solid #337fed;
+	padding:9px 18px;
+	text-decoration:none;
+	background:-moz-linear-gradient( center top, #3d94f6 27%, #1e62d0 78% );
+	background:-ms-linear-gradient( top, #3d94f6 27%, #1e62d0 78% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6', endColorstr='#1e62d0');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(27%, #3d94f6), color-stop(78%, #1e62d0) );
+	background-color:#3d94f6;
+	color:#ffffff;
+	display:inline-block;
+	text-shadow:1px 1px 0px #1570cd;
+ 	-webkit-box-shadow:inset 1px 1px 0px 0px #97c4fe;
+ 	-moz-box-shadow:inset 1px 1px 0px 0px #97c4fe;
+ 	box-shadow:inset 1px 1px 0px 0px #97c4fe;
+}.btn-blue:hover {
+	background:-moz-linear-gradient( center top, #1e62d0 27%, #3d94f6 78% );
+	background:-ms-linear-gradient( top, #1e62d0 27%, #3d94f6 78% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d94f6');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(27%, #1e62d0), color-stop(78%, #3d94f6) );
+	background-color:#1e62d0;
+}.btn-blue:active {
+	position:relative;
+	top:1px;
+}
+
+ .userPhoto{
+    width:80%;
+    height:80%;
+ border: 1px solid;
+ }
+
+ .btnMainRight{
+     margin-top:20px;
+ }
+
+ .letter{
+     color:black;
+ }
+
+  .letterSubject:hover{
+      
+ }
+
+  .master-alert{
+      //padding-left:500px;
+      padding-top:5px;
+      padding-bottom:5px;
+      padding-right:5px;
+      display:block;
+  }
+  
+  @media (min-width: 768px) {
+  .master-alert {
+     padding-left:500px;
+  }
+  }
+
+  .hasAtt{
+      width:30%;
+      height:30%;
+
+  }
+
+  .logo{
+      width:60%;
+  }
+
+  .txtNormal{
+      font-size:small;
+         height: 23px;
+  }
+
+  .panel-body-custom{
+padding:3px;
+  }
+
+  .drpNormal{
+      font-size:small;
+      height:25px;
+      padding:0;
+  }
+
+  #orderContainer input[type='checkbox']{
+      margin-left:5px;
+      margin-top:2px;
+  }
+
+   #orderContainer .row{
+       margin-bottom:2px;
+   }
+
+   .btnMainRight a{
+       margin-bottom:2px;
+       min-width: 180px;
+   }
+
+   .hrBlue{
+       border: 1px solid rgb(0, 178, 255);
+   }
+
+   .btn-standard{
+       min-width:100px;
+   }
+
+   .paddingTop0{
+       padding-top:0;
+   }
+
+   .btn50{
+       min-width:50px;
+   }
+   .dateUC td{
+       padding: 0px !important;
+       line-height: 0.1 !important;
+       vertical-align: middle !important;
+       font-family : "Bkoodak";
+   }
+
+#panelAddNewPC .row{
+    margin-top:5px;
+}
+
+.btnMainRight a{
+    height:31px;
+}

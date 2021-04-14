@@ -9,6 +9,7 @@ using Repository.Data;
 using Repository.Data.Enum;
 using Repository.Data.Migrations;
 using Repository.Entity.Domain;
+using Repository.Entity.Domain.Tashim;
 
 namespace Repository.DAL
 {
@@ -41,6 +42,7 @@ namespace Repository.DAL
         private BaseRepository<ReworkReason> _reworkReasons;
         private BaseRepository<Rework> _reworks;
         private BaseRepository<Esghat> _esghats;
+        private BaseRepository<Member> _members;
 
         public UnitOfWork(MTOContext mtoContext)
         {
@@ -250,6 +252,14 @@ namespace Repository.DAL
             get
             {
                 return this._esghats ?? (this._esghats = new BaseRepository<Esghat>(this._mtoContext));
+            }
+        }
+
+        public BaseRepository<Member> Members
+        {
+            get
+            {
+                return this._members ?? (this._members = new BaseRepository<Member>(this._mtoContext));
             }
         }
 

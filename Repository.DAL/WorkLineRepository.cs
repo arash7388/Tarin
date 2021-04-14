@@ -51,7 +51,7 @@ namespace Repository.DAL
             return res;
         }
 
-        public List<WorkLineHelper> GetAllWorkLines()//top 1000 ones
+        public List<WorkLineHelper> GetAllWorkLines()//top 100 ones
         {
             var result = from wl in DBContext.WorkLines
                          join pro in DBContext.Processes on wl.ProcessId equals pro.Id
@@ -69,12 +69,11 @@ namespace Repository.DAL
                              Manual = wl.Manual ?? false
                          };
 
-            var res = result.Take(1000).ToList();
+            var res = result.Take(100).ToList();
 
             foreach (WorkLineHelper item in res)
             {
                 var dt = Common.Utility.CastToFaDateTime(item.InsertDateTime);
-                //dt = dt.Substring(11, dt.Length - 11);
                 item.PersianDateTime = dt;
             }
 
@@ -666,7 +665,7 @@ namespace Repository.DAL
             List<WorkLineHelper> worksheetsDetailsList = GetWorksheetDetails(whereClause);
 
             /////////tempppppppppppppp
-            //worksheetsDetailsList = worksheetsDetailsList.Where(a => a.WorksheetId == 4137).ToList();
+            //worksheetsDetailsList = worksheetsDetailsList.Where(a => a.WorksheetId == 5246).ToList();
             //////////////////////////
 
             //calcing allowed time
@@ -702,9 +701,12 @@ namespace Repository.DAL
                                                          };
 
             var operatorProcessAllowedTimeResultInADayList = operatorProcessAllowedTimeResultInADay.ToList();
+            var launchRecords = operatorProcessAllowedTimeResultInADayList.Where(a => a.ProcessId == 1002).ToList();
+
+            launchRecords.ForEach(l=>l.ProcessTime = 60);
 
             //////////tempppppp
-            //workLinesSelectList = workLinesSelect.Where(a => a.WorksheetId == 4137).ToList();
+            //workLinesSelectList = workLinesSelectList.Where(a => a.WorksheetId == 5246).ToList();
             ///////////////////////
 
             SetDateProps(workLinesSelectList);

@@ -13,6 +13,7 @@ namespace Repository.Data
 
     using Repository.Data.Migrations;
     using Repository.Entity.Domain;
+    using Repository.Entity.Domain.Tashim;
 
     public class MTOContext : DbContext
     {
@@ -42,13 +43,15 @@ namespace Repository.Data
         public DbSet<ReworkDetail> ReworkDetails { get; set; }
         public DbSet<Esghat> Esghats { get; set; }
         public DbSet<EsghatDetail> EsghatDetails { get; set; }
+        public DbSet<Member> Members { get; set; }
 
 
 
         //public MTOContext() :base(ConfigurationManager.ConnectionStrings["Tarin"].ToString())
-        public MTOContext() :base("Tarin")
+        //public MTOContext() :base("Data Source=.;Initial Catalog=Tashim;Integrated Security=SSPI;MultipleActiveResultSets=true;")
+        public MTOContext() :base("Data Source=DESKTOP-6700VR9\\SQLEXPRESS;Initial Catalog=Tashim;Integrated Security=SSPI;MultipleActiveResultSets=true;")
         //attentionnnnnnnnnnnnnn MultipleActiveResultSets=true should be added 
-        //public MTOContext() :base("Data Source=DESKTOP-B0LRPCF\\SQLEXPRESS;Initial Catalog=Anaraki;Integrated Security=true;MultipleActiveResultSets=true")
+        //public MTOContext() :base("Tarin")
         {
             //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MTOContext>());
 

@@ -40,7 +40,7 @@ namespace MehranPack
                             txtDesc.Text = toBeEditedEs.Desc;
                             //drpACode.SelectedValue = toBeEditedEs.ACode;
                             drpOp.SelectedValue = toBeEditedEs.OperatorId.ToSafeString();
-                            drpReason.SelectedValue = toBeEditedEs.ReworkReasonId.ToSafeString();
+                            //drpReason.SelectedValue = toBeEditedEs.ReworkReasonId.ToSafeString();
                         }
                     }
                 }
@@ -63,7 +63,7 @@ namespace MehranPack
                             txtDesc.Text = toBeEditedRework.Desc;
                             //drpACode.SelectedValue = toBeEditedRework.ACode;
                             drpOp.SelectedValue = toBeEditedRework.OperatorId.ToSafeString();
-                            drpReason.SelectedValue = toBeEditedRework.ReworkReasonId.ToSafeString();
+                            //drpReason.SelectedValue = toBeEditedRework.ReworkReasonId.ToSafeString();
                         }
                     }
                 }
@@ -148,7 +148,7 @@ namespace MehranPack
 
                 //newRework.ACode = drpACode.SelectedValue.ToSafeString();
                 newRework.OperatorId = drpOp.SelectedValue.ToSafeInt();
-                newRework.ReworkReasonId = drpReason.SelectedValue.ToSafeInt();
+                //newRework.ReworkReasonId = drpReason.SelectedValue.ToSafeInt();
                 newRework.Desc = txtDesc.Text;
                 newRework.InsertedUserId = ((User)Session["User"]).Id;
 
@@ -161,7 +161,7 @@ namespace MehranPack
 
                 //tobeEditedRework.ACode = drpACode.SelectedValue.ToSafeString();
                 tobeEditedRework.OperatorId = drpOp.SelectedValue.ToSafeInt();
-                tobeEditedRework.ReworkReasonId = drpReason.SelectedValue.ToSafeInt();
+                //tobeEditedRework.ReworkReasonId = drpReason.SelectedValue.ToSafeInt();
                 tobeEditedRework.Desc = txtDesc.Text;
             }
         }
@@ -175,7 +175,7 @@ namespace MehranPack
 
                 //newEsghat.ACode = drpACode.SelectedValue.ToSafeString();
                 newEsghat.OperatorId = drpOp.SelectedValue.ToSafeInt();
-                newEsghat.ReworkReasonId = drpReason.SelectedValue.ToSafeInt();
+                //newEsghat.ReworkReasonId = drpReason.SelectedValue.ToSafeInt();
                 newEsghat.Desc = txtDesc.Text;
                 newEsghat.InsertedUserId = ((User)Session["User"]).Id;
 
@@ -188,7 +188,7 @@ namespace MehranPack
 
                 //tobeEditedEsghat.ACode = drpACode.SelectedValue.ToSafeString();
                 tobeEditedEsghat.OperatorId = drpOp.SelectedValue.ToSafeInt();
-                tobeEditedEsghat.ReworkReasonId = drpReason.SelectedValue.ToSafeInt();
+                //tobeEditedEsghat.ReworkReasonId = drpReason.SelectedValue.ToSafeInt();
                 tobeEditedEsghat.Desc = txtDesc.Text;
             }
         }

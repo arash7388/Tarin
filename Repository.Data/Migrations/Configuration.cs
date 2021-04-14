@@ -148,6 +148,16 @@
                 context.Database.ExecuteSqlCommand(cmd);
             }
 
+            if (!context.Processes.Any(a => a.Id == 1002))
+            {
+                var cmd = "SET IDENTITY_INSERT dbo.processes ON " +
+                          "INSERT INTO dbo.processes(ID, [Name], InsertDateTime, status) VALUES(1002, N'نهار', getdate(), -1) " +
+                          "  " +
+                          " SET IDENTITY_INSERT dbo.processes off ";
+
+                context.Database.ExecuteSqlCommand(cmd);
+            }
+
             var catsWithProcess = context.ProcessCategories.Select(a => a.CategoryId).Distinct();
             foreach (var cat in catsWithProcess)
             {
@@ -196,6 +206,22 @@
             }
             context.SaveChanges();
 
+            foreach (var cat in catsWithProcess)
+            {
+                if (!context.ProcessCategories.Any(a => a.CategoryId == cat && a.ProcessId == 1002))
+                {
+                    context.ProcessCategories.Add(new ProcessCategory
+                    {
+                        CategoryId = cat,
+                        ProcessId = 1002,
+                        Order = 1002,
+                        ProcessTime = 60
+                    });
+                }
+            }
+
+            context.SaveChanges();
+
             if (!context.Users.Any(a => a.Username == "inoutop"))
             {
                 context.Users.Add(new User()
@@ -209,17 +235,11 @@
                 context.SaveChanges();
             }
 
-            var systematicProcesses = context.Processes.Where(a => a.Id == 99 || a.Id == 999 || a.Id == 1000 || a.Id == 1001).ToList();
+            var systematicProcesses = context.Processes.Where(a => a.Id == 99 || a.Id == 999 || a.Id == 1000 || a.Id == 1001 || a.Id == 1002).ToList();
 
             systematicProcesses.ForEach(a => a.Systematic = true);
 
             context.SaveChanges();
-
-            
-
-            context.SaveChanges();
-                        
-            
         }
     }
 }

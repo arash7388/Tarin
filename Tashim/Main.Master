@@ -1,0 +1,94 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Tashim.Main" %>
+
+<%@ Import Namespace="Common" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>تسهیم کالا</title>
+    <meta content="Automation" />
+    <link href="/Content/css/bootstrap-rtl.css" rel="stylesheet" />
+    <link href="/Content/css/custom.css" rel="stylesheet" />
+    <link href="/Content/toastr.min.css" rel="stylesheet" />
+
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+    <script src="/Scripts/bootstrap-rtl.js"></script>
+    <script src="/Scripts/toastr.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body style="background-image: url(/Images/bg1.jpg); background-repeat: repeat; font-family:BKoodak">
+    <form id="form1" runat="server">
+        <asp:HiddenField runat="server" ID="hfUserId" />
+        <div class="row">
+            <div class="col-sm-2" style="margin-left: 10px; margin-right: 10px; margin-top: 20px">
+                <div class="row">
+                    <%--<div class="col-xs-12 text-center">
+                        <asp:Image runat="server" ID="logo" ImageUrl="Images/logo.png" CssClass="img img-responsive" style="width: 50%;margin-right: 60px;"/>
+                    </div>--%>
+                    <div class="col-xs-12 text-center">
+                        <asp:Label runat="server" ID="lblCurrentUser" CssClass=""></asp:Label>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <div class="btnMainRight" id="mainMenuDiv" runat="server">
+                             <asp:LinkButton runat="server" ID="lbtnMembers" CssClass="btn btn-info btn-standard" Text="اعضا " OnClick="lbtnMembers_OnClick"></asp:LinkButton>
+                            <br />
+                            <%-- <asp:LinkButton runat="server" ID="lbtnProducts" CssClass="btn btn-info btn-standard" Text="محصول " OnClick="lbtnProducts_OnClick"></asp:LinkButton>
+                            <br />
+                            <asp:LinkButton runat="server" ID="lbtnCustomers" CssClass="btn btn-info btn-standard" Text="مشتریان" OnClick="lbtnCustomers_OnClick"></asp:LinkButton>
+                            <br />
+                            <asp:LinkButton runat="server" ID="lbtnIn" CssClass="btn btn-info btn-standard" Text="ورود کالا" OnClick="lbtnIn_OnClick" Visible="false"></asp:LinkButton>
+                             <asp:LinkButton runat="server" ID="lbtnOut" CssClass="btn btn-info btn-standard" Text="خروج کالا" OnClick="lbtnOut_OnClick" Visible="false"></asp:LinkButton>
+                             <asp:LinkButton runat="server" ID="lbtnReportIn" CssClass="btn btn-info btn-standard" Text="گزارش ورود کالا" OnClick="lbtnRepIn_OnClick" Visible="false"></asp:LinkButton>
+                             <asp:LinkButton runat="server" ID="lbtnReportOut" CssClass="btn btn-info btn-standard" Text="گزارش خروج کالا " OnClick="lbtnRepOut_OnClick" Visible="false"></asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="lbtnCardex" CssClass="btn btn-info btn-standard" Text="کاردکس کالا " OnClick="lbtnCardex_OnClick" Visible="false"></asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="lbtnGoodsSupply" CssClass="btn btn-info btn-standard" Text="موجودی کالا " OnClick="lbtnGoodsSupply_OnClick" Visible="false"></asp:LinkButton>
+                             <asp:LinkButton runat="server" ID="lbtnGoodsGroupSupply" CssClass="btn btn-info btn-standard" Text="موجودی گروه کالا " OnClick="lbtnGoodsGroupSupply_OnClick" Visible="false"></asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="lbtnUsers" CssClass="btn btn-info btn-standard" Text="کاربران " OnClick="lbtnUsers_OnClick"></asp:LinkButton>
+                            <br />
+                            <asp:LinkButton runat="server" ID="lbtnProcess" CssClass="btn btn-info btn-standard" Text="فرآیندها " OnClick="lbtnProcesses_OnClick"></asp:LinkButton>
+                            <br />
+                             <asp:LinkButton runat="server" ID="lbtnProcessCat" CssClass="btn btn-info btn-standard" Text="فرآیندهای محصول " OnClick="lbtnProcessCat_OnClick"></asp:LinkButton>
+                            <br />
+                            <asp:LinkButton runat="server" ID="lbtnWorksheets" CssClass="btn btn-info btn-standard" Text="کاربرگ" OnClick="lbtnWorksheets_OnClick"></asp:LinkButton>
+                            <br />
+                            <asp:LinkButton runat="server" ID="lbtnWorkLines" CssClass="btn btn-info btn-standard" Text="صف کارهای تولید " OnClick="lbtnWorkLines_OnClick"></asp:LinkButton>
+                            <br />
+                            <asp:LinkButton runat="server" ID="lbtnWorksheetReport" CssClass="btn btn-info btn-standard" Text="گزارش کاربرگ ها " OnClick="lbtnWorksheetReport_OnClick"></asp:LinkButton>
+                            <br />
+                           <asp:LinkButton runat="server" ID="lbtnWorkLineReport" CssClass="btn btn-info btn-standard" Text="گزارش تولید " OnClick="lbtnWorkLineReport_OnClick"></asp:LinkButton>
+                            <br />
+                             <asp:LinkButton runat="server" ID="lbtnWorkLineSummaryReport" CssClass="btn btn-info btn-standard" Text="گزارش خلاصه تولید " OnClick="lbtnWorkLineSummaryReport_OnClick"></asp:LinkButton>
+                            <br />
+                            <asp:LinkButton runat="server" ID="lbtnManualWorklineInput" CssClass="btn btn-info btn-standard" Text="ورود دستی تایمینگ " OnClick="lbtnManualWorklineInput_OnClick"></asp:LinkButton>
+                            <br />
+                            <asp:LinkButton runat="server" ID="lblReworkReasons" CssClass="btn btn-info btn-standard" Text="دلایل دوباره کاری/اسقاط " OnClick="lblReworkReasons_OnClick"></asp:LinkButton>
+                            <br />
+                            <asp:LinkButton runat="server" ID="lblReworkList" CssClass="btn btn-info btn-standard" Text="لیست دوباره کاری ها " OnClick="lblReworkList_OnClick"></asp:LinkButton>
+                            <br />
+                            <asp:LinkButton runat="server" ID="lblEsghatList" CssClass="btn btn-info btn-standard" Text="لیست اسقاط ها " OnClick="lblEsghatList_OnClick"></asp:LinkButton>
+                            <br />--%>
+                            <asp:LinkButton runat="server" ID="lbtnExit" CssClass="btn btn-info btn-standard" Text="خروج" OnClick="lbtnExit_OnClick"></asp:LinkButton>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-9" style="margin-top: 20px;">
+                <asp:Label runat="server" ID="generalMessage"></asp:Label>
+                <asp:ContentPlaceHolder ID="main" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+
+        </div>
+        
+    </form>
+</body>
+</html>

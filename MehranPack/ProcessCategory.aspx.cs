@@ -26,7 +26,7 @@ namespace MehranPack
 
                     foreach (ProcessCategoryHelper pc in tobeEditedPC)
                     {
-                        if(pc.ProcessId!=999 && pc.ProcessId!=1000 && pc.ProcessId != 1001)
+                        if(pc.ProcessId!=999 && pc.ProcessId!=1000 && pc.ProcessId != 1001 && pc.ProcessId != 1002)
                         details.Add(new ProcessCategoryHelper()
                         {
                             Id = pc.Id,
@@ -81,7 +81,7 @@ namespace MehranPack
 
         private void BindDrpProcess()
         {
-            var source = new ProcessRepository().GetAll().Where(a=>a.Id!=999 && a.Id != 1000 && a.Id != 1001).ToList();
+            var source = new ProcessRepository().GetAll().Where(a=>a.Id!=999 && a.Id != 1000 && a.Id != 1001 && a.Id != 1002).ToList();
             drpProcesses.DataSource = source;
             drpProcesses.DataValueField = "Id";
             drpProcesses.DataTextField = "Name";
@@ -171,11 +171,24 @@ namespace MehranPack
 
                         uow.ProcessCategories.Create(newPC);
                     }
+
+                    if (!((List<ProcessCategoryHelper>)Session["GridSource"]).Any(a => a.ProcessId == 1002)) //nahar
+                    {
+                        var newPC = new Repository.Entity.Domain.ProcessCategory()
+                        {
+                            CategoryId = drpCat.SelectedValue.ToSafeInt(),
+                            ProcessId = 1002,
+                            Order = 1002,
+                            ProcessTime = 60
+                        };
+
+                        uow.ProcessCategories.Create(newPC);
+                    }
                 }
                 else
                 {
                     var repo = uow.ProcessCategories;
-                    var exsitedPCs = repo.Get(a => a.CategoryId == catId && a.ProcessId!=999 && a.ProcessId != 1000 && a.ProcessId != 1001).ToList();
+                    var exsitedPCs = repo.Get(a => a.CategoryId == catId && a.ProcessId!=999 && a.ProcessId != 1000 && a.ProcessId != 1001 && a.ProcessId != 1002).ToList();
 
                     foreach (Repository.Entity.Domain.ProcessCategory item in exsitedPCs)
                     {
@@ -244,7 +257,7 @@ namespace MehranPack
                 if (gridSource != null && gridSource.Any() && gridSource.Any(a => a.ProcessId == drpProcesses.SelectedValue.ToSafeInt()))
                     throw new LocalException("duplicate process", "فرآیند نباید تکراری باشد");
 
-                var maxOrder = gridSource.Any() ? gridSource.Where(a => a.ProcessId != 999 && a.ProcessId != 1000 && a.ProcessId != 1001).Max(a => a.Order) : 0;
+                var maxOrder = gridSource.Any() ? gridSource.Where(a => a.ProcessId != 999 && a.ProcessId != 1000 && a.ProcessId != 1001 && a.ProcessId != 1002).Max(a => a.Order) : 0;
 
                 if (txtOrder.Text.ToSafeInt() - maxOrder != 1)
                     throw new LocalException("invalid order(other than +1)", $"ترتیب ها باید پشت سر هم ثبت شوند. ترتیب قابل قبول بعدی {maxOrder + 1} است ");

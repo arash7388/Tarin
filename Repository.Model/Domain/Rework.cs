@@ -11,15 +11,17 @@ namespace Repository.Entity.Domain
         public User Operator { get; set; }
         public int? OperatorId { get; set; }
 
-        public ReworkReason ReworkReason { get; set; }
-        public int ReworkReasonId { get; set; }
-
         public string Desc { get; set; }
 
         public User InsertedUser { get; set; }
         public int InsertedUserId { get; set; }
 
         public ICollection<ReworkDetail> ReworkDetails { get; set; }
+
+        public Worksheet Worksheet { get; set; }
+        public int? WorksheetId { get; set; }
+
+        public int PrevProcessId { get; set; }
 
     }
 }
