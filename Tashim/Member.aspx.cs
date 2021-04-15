@@ -68,7 +68,7 @@ namespace Tashim
                         Name = txtName.Text,
                         Type = Convert.ToByte(drpType.SelectedValue),
                         ShareAmount = txtShareAmount.Text.ToSafeLong(),
-                        ShareCount = txtShareAmount.Text.ToSafeLong() / 2000
+                        ShareCount = txtShareAmount.Text.ToSafeLong() / 20000
 
                     };
 
@@ -81,7 +81,7 @@ namespace Tashim
                     toBeEditedMember.Name = txtName.Text;
                     toBeEditedMember.Type = Convert.ToByte(drpType.SelectedValue);
                     toBeEditedMember.ShareAmount = txtShareAmount.Text.ToSafeLong();
-                    toBeEditedMember.ShareCount = txtShareAmount.Text.ToSafeLong() / 2000;
+                    toBeEditedMember.ShareCount = txtShareAmount.Text.ToSafeLong() / 20000;
                 }
                 
                 u.SaveChanges();

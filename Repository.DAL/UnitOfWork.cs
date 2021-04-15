@@ -43,6 +43,8 @@ namespace Repository.DAL
         private BaseRepository<Rework> _reworks;
         private BaseRepository<Esghat> _esghats;
         private BaseRepository<Member> _members;
+        private BaseRepository<ShareDivision> _shareDivisions;
+        private BaseRepository<ShareDivisionDetail> _shareDivisionDetails;
 
         public UnitOfWork(MTOContext mtoContext)
         {
@@ -260,6 +262,22 @@ namespace Repository.DAL
             get
             {
                 return this._members ?? (this._members = new BaseRepository<Member>(this._mtoContext));
+            }
+        }
+
+        public BaseRepository<ShareDivision> ShareDivisions
+        {
+            get
+            {
+                return this._shareDivisions ?? (this._shareDivisions = new BaseRepository<ShareDivision>(this._mtoContext));
+            }
+        }
+
+        public BaseRepository<ShareDivisionDetail> ShareDivisionDetails
+        {
+            get
+            {
+                return this._shareDivisionDetails ?? (this._shareDivisionDetails = new BaseRepository<ShareDivisionDetail>(this._mtoContext));
             }
         }
 

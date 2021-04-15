@@ -9,28 +9,46 @@ using System.Web.UI.WebControls;
 
 namespace Tashim
 {
-    public partial class MemberList : System.Web.UI.Page
+    public partial class ShareDivList : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                MemberRepository repo = new MemberRepository();
-                
-                gridList.DataSource = repo.GetAll().OrderBy(a=>Convert.ToInt64(a.Code)).ToList();
+                ShareDivRepository repo = new ShareDivRepository();
+
+                //1, "مهرو پلاک"
+                //2, "لیتوگراف"
+                //3, "چاپ سیلک"
+
+                gridList.DataSource = repo.GetAll().OrderByDescending(a => a.InsertDateTime).Select(a => new
+                {
+                    ShareAmount = a.Amount,
+                    a.DeleteDateTime,
+                    a.Id,
+                    a.InsertDateTime,
+                    a.Status,
+                    a.Type,
+                    TypeDesc = a.Type == 1 ? "مهرو پلاک" : (a.Type == 2 ? "لیتوگراف" : (a.Type == 3 ? "چاپ سیلک" : (a.Type == 4 ? "همه" : ""))),
+                    a.UpdateDateTime,
+                    PersianInsertDateTime = Convert.ToDateTime(a.InsertDateTime).ToFaDate()
+                }).ToList();
 
                 gridList.DataBind();
                 Session["Result"] = gridList.DataSource;
-
-                txtSum.Text = repo.GetAll().Sum(a => a.ShareAmount).ToSafeString().ToFaGString();
             }
         }
+
+        //protected string GetPersianDate(object input)
+        //{
+        //    return input.ToSafeString() != string.Empty ? DateTime.Parse(input.ToSafeString()).ToFaDate() : "";
+        //}
 
         protected void gridList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "Edit")
             {
-                Response.Redirect("Member.aspx?Id=" + e.CommandArgument);
+                Response.Redirect("ShareDiv.aspx?Id=" + e.CommandArgument);
             }
             else
             if (e.CommandName == "Delete")
@@ -40,8 +58,8 @@ namespace Tashim
                 data.Command = "Delete";
                 data.Id = e.CommandArgument.ToSafeInt();
                 data.Msg = "آیا از حذف اطمینان دارید؟";
-                data.Table = "Members";
-                data.RedirectAdr = "MemberList.aspx";
+                data.Table = "ShareDivisions";
+                data.RedirectAdr = "ShareDivList.aspx";
 
                 Session["ConfirmData"] = data;
                 Response.Redirect("Confirmation.aspx");
@@ -51,7 +69,7 @@ namespace Tashim
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Member.aspx");
+            Response.Redirect("ShareDiv.aspx");
         }
 
         protected void gridList_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -65,8 +83,7 @@ namespace Tashim
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Cells[3].Text = e.Row.Cells[3].Text.ToSafeDecimal().ToString("#,##0");
-                e.Row.Cells[4].Text = e.Row.Cells[4].Text.ToSafeDecimal().ToString("#,##0");
+                e.Row.Cells[2].Text = e.Row.Cells[2].Text.ToSafeDecimal().ToString("#,##0");
             }
         }
     }

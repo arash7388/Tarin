@@ -112,6 +112,13 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ShareDivList.aspx.cs">
+      <DependentUpon>ShareDivList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShareDivList.aspx.designer.cs">
+      <DependentUpon>ShareDivList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ShareDiv.aspx.cs">
       <DependentUpon>ShareDiv.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -195,6 +202,7 @@
     <Content Include="App_Data\RadCaptcha\Y.wav" />
     <Content Include="App_Data\RadCaptcha\Z.wav" />
     <Content Include="Login.aspx" />
+    <Content Include="ShareDivList.aspx" />
     <Content Include="ShareDiv.aspx" />
     <Content Include="Member.aspx" />
     <Content Include="Confirmation.aspx" />

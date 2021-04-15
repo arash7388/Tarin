@@ -44,6 +44,8 @@ namespace Repository.Data
         public DbSet<Esghat> Esghats { get; set; }
         public DbSet<EsghatDetail> EsghatDetails { get; set; }
         public DbSet<Member> Members { get; set; }
+        public DbSet<ShareDivision> ShareDivisions{ get; set; }
+        public DbSet<ShareDivisionDetail> ShareDivisionDetails{ get; set; }
 
 
 

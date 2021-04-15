@@ -12,7 +12,7 @@
         <div class="col-md-10">
             <hr class="hrBlue" />
                 <asp:GridView runat="server" AutoGenerateColumns="False" Width="512px" ID="gridList" CssClass="table table-bordered table-striped" DataKeyNames="Id"
-                OnRowCommand="gridList_RowCommand" AllowPaging="True" PageSize="50" OnPageIndexChanging="gridList_OnPageIndexChanging">
+                OnRowCommand="gridList_RowCommand" AllowPaging="True" PageSize="50" OnPageIndexChanging="gridList_OnPageIndexChanging" OnRowDataBound="gridList_RowDataBound">
                 <PagerStyle CssClass="gridPagerStyle" HorizontalAlign="Center" Wrap="False" />
                     
                 <Columns>

@@ -49,8 +49,8 @@ namespace Tashim
         {
             Debuging.Info("Start of Main.master.cs");
 
-            //if (Environment.MachineName.ToLower() == "DESKTOP-6700VR9".ToLower())
-            //    Session["User"] = new UserRepository().GetById(1);
+            if (Environment.MachineName.ToLower() == "DESKTOP-6700VR9".ToLower())
+                Session["User"] = new UserRepository().GetById(1);
 
             if (Session["User"] == null)
                 Response.Redirect("Login.aspx");
@@ -135,9 +135,9 @@ namespace Tashim
 
         }
 
-        protected void lbtnCustomers_OnClick(object sender, EventArgs e)
+        protected void lbtnShareDivList_OnClick(object sender, EventArgs e)
         {
-            Response.RedirectToRoute("CustomerList");
+            Response.Redirect("ShareDivList.aspx");
         }
 
         protected void lbtnExit_OnClick(object sender, EventArgs e)
@@ -161,9 +161,9 @@ namespace Tashim
             Response.RedirectToRoute("PaymentList");
         }
 
-        protected void lbtnPaymentsReport_OnClick(object sender, EventArgs e)
+        protected void lbtnShareDiv_OnClick(object sender, EventArgs e)
         {
-            Response.RedirectToRoute("PaymentsReport");
+            Response.Redirect("Sharediv.aspx");
         }
 
         protected void lbtnInOut_OnClick(object sender, EventArgs e)

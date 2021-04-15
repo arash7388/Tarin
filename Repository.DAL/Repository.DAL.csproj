@@ -45,6 +45,8 @@
     <Compile Include="BaseRepository.cs" />
     <Compile Include="CategoryPropRepository.cs" />
     <Compile Include="CategoryPropValueRepository.cs" />
+    <Compile Include="ShareDivDetailRepository.cs" />
+    <Compile Include="ShareDivRepository.cs" />
     <Compile Include="MemberRepository.cs" />
     <Compile Include="CityRepository.cs" />
     <Compile Include="InputOutputDetailRepository.cs" />

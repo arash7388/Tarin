@@ -39,11 +39,11 @@
                         <div class="btnMainRight" id="mainMenuDiv" runat="server">
                              <asp:LinkButton runat="server" ID="lbtnMembers" CssClass="btn btn-info btn-standard" Text="اعضا " OnClick="lbtnMembers_OnClick"></asp:LinkButton>
                             <br />
-                            <%-- <asp:LinkButton runat="server" ID="lbtnProducts" CssClass="btn btn-info btn-standard" Text="محصول " OnClick="lbtnProducts_OnClick"></asp:LinkButton>
+                             <asp:LinkButton runat="server" ID="lbtnShareDiv" CssClass="btn btn-info btn-standard" Text="تقسیم سود " OnClick="lbtnShareDiv_OnClick"></asp:LinkButton>
                             <br />
-                            <asp:LinkButton runat="server" ID="lbtnCustomers" CssClass="btn btn-info btn-standard" Text="مشتریان" OnClick="lbtnCustomers_OnClick"></asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="lbtnShareDivList" CssClass="btn btn-info btn-standard" Text="سودهای تقسیم شده" OnClick="lbtnShareDivList_OnClick"></asp:LinkButton>
                             <br />
-                            <asp:LinkButton runat="server" ID="lbtnIn" CssClass="btn btn-info btn-standard" Text="ورود کالا" OnClick="lbtnIn_OnClick" Visible="false"></asp:LinkButton>
+                            <%--<asp:LinkButton runat="server" ID="lbtnIn" CssClass="btn btn-info btn-standard" Text="ورود کالا" OnClick="lbtnIn_OnClick" Visible="false"></asp:LinkButton>
                              <asp:LinkButton runat="server" ID="lbtnOut" CssClass="btn btn-info btn-standard" Text="خروج کالا" OnClick="lbtnOut_OnClick" Visible="false"></asp:LinkButton>
                              <asp:LinkButton runat="server" ID="lbtnReportIn" CssClass="btn btn-info btn-standard" Text="گزارش ورود کالا" OnClick="lbtnRepIn_OnClick" Visible="false"></asp:LinkButton>
                              <asp:LinkButton runat="server" ID="lbtnReportOut" CssClass="btn btn-info btn-standard" Text="گزارش خروج کالا " OnClick="lbtnRepOut_OnClick" Visible="false"></asp:LinkButton>

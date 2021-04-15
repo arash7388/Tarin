@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.UI.WebControls;
 using Common;
 using Repository.DAL;
 
@@ -16,15 +17,13 @@ namespace Tashim
 
                 if (Request.QueryString["Id"] != null)
                 {
-                    MemberRepository repo = new MemberRepository();
-                    var toBeEditedMember = repo.GetById(Request.QueryString["Id"].ToSafeInt());
+                    ShareDivRepository repo = new ShareDivRepository();
+                    var toBeEditedShareDiv = repo.GetById(Request.QueryString["Id"].ToSafeInt());
 
-                    if (toBeEditedMember != null)
+                    if (toBeEditedShareDiv != null)
                     {
-                        txtCode.Text = toBeEditedMember.Code;
-                        txtName.Text = toBeEditedMember.Name;
-                        drpType.SelectedValue = toBeEditedMember.Type.ToString();
-                        txtShareAmount.Text = toBeEditedMember.ShareAmount.ToString();
+                        txtShareAmount.Text = toBeEditedShareDiv.Amount.ToSafeString();
+                        drpType.SelectedValue = toBeEditedShareDiv.Type.ToString();
                     }
                 }
             }
@@ -32,13 +31,13 @@ namespace Tashim
 
         private void BinddrpType()
         {
-            List<KeyValuePair<int, string>> source = new List<KeyValuePair<int,string>>();
-            source.Add(new KeyValuePair<int, string> (-1, "انتخاب کنید"));
+            List<KeyValuePair<int, string>> source = new List<KeyValuePair<int, string>>();
+            source.Add(new KeyValuePair<int, string>(-1, "انتخاب کنید"));
 
-            source.Add(new KeyValuePair<int, string> (1, "مهرو پلاک"));
-            source.Add(new KeyValuePair<int, string> (2, "لیتوگراف"));
-            source.Add(new KeyValuePair<int, string> (3, "چاپ سیلک"));
-            source.Add(new KeyValuePair<int, string> (4, "همه"));
+            source.Add(new KeyValuePair<int, string>(1, "مهرو پلاک"));
+            source.Add(new KeyValuePair<int, string>(2, "لیتوگراف"));
+            source.Add(new KeyValuePair<int, string>(3, "چاپ سیلک"));
+            source.Add(new KeyValuePair<int, string>(4, "همه"));
 
             drpType.DataSource = source;
             drpType.DataValueField = "Key";
@@ -50,41 +49,59 @@ namespace Tashim
         {
             try
             {
-                if (txtCode.Text==string.Empty) throw new LocalException("Code is empty","کد را وارد نمایید");
-                if (txtName.Text==string.Empty) throw new LocalException("Name is empty","نام را وارد نمایید");
-                if (drpType.SelectedValue=="-1") throw new LocalException("Type is empty","نوع را وارد نمایید");
-                if (txtShareAmount.Text == string.Empty) throw new LocalException("Share is empty","سهم را وارد نمایید");
-                
+                if (drpType.SelectedValue == "-1") throw new LocalException("Type is empty", "نوع را وارد نمایید");
+                if (txtShareAmount.Text == string.Empty) throw new LocalException("Share is empty", "مبلغ سود را وارد نمایید");
+
 
                 UnitOfWork u = new UnitOfWork();
 
-                if (Request.QueryString["Id"]==null)
+                if (Request.QueryString["Id"] == null)
                 {
-                    if(u.Members.Get(a=>a.Code==txtCode.Text).Any())
-                        throw new LocalException("Duplicate code", "کد تکراری است");
-
-                    var newMember = new Repository.Entity.Domain.Tashim.Member()
+                    var newShareDivision = new Repository.Entity.Domain.Tashim.ShareDivision()
                     {
-                        Code = txtCode.Text,
-                        Name = txtName.Text,
                         Type = Convert.ToByte(drpType.SelectedValue),
-                        ShareAmount = txtShareAmount.Text.ToSafeLong(),
-                        ShareCount = txtShareAmount.Text.ToSafeLong() / 2000
-
+                        Amount = txtShareAmount.Text.ToSafeLong(),
                     };
 
-                    u.Members.Create(newMember);
+                    var memberRepo = new MemberRepository();
+
+                    List<Repository.Entity.Domain.Tashim.Member> relatedMembers = null;
+                    
+                    if (drpType.SelectedValue != "4")
+                    {
+                        var selectedType = Convert.ToInt32(drpType.SelectedValue);
+                        relatedMembers = memberRepo.Get(m => m.Type == selectedType).ToList();
+                    }
+                    else
+                    {
+                        relatedMembers = memberRepo.GetAll().ToList();
+                    }
+
+                    var newProfit = txtShareAmount.Text.ToSafeLong();//to be divided value
+                    var sum = relatedMembers.Sum(m => m.ShareAmount);
+                    var ratio = newProfit / sum;
+
+                    newShareDivision.ShareDivisionDetails = new List<Repository.Entity.Domain.Tashim.ShareDivisionDetail>();
+
+                    foreach (Repository.Entity.Domain.Tashim.Member member in relatedMembers)
+                    {
+                        var newDetail = new Repository.Entity.Domain.Tashim.ShareDivisionDetail
+                        {
+                            MemberId = member.Id,
+                            ShareAmount = ratio * member.ShareAmount
+                        };
+
+                        newShareDivision.ShareDivisionDetails.Add(newDetail);
+                    }
+
+                    u.ShareDivisions.Create(newShareDivision);
                 }
-                else
-                {
-                    var toBeEditedMember = u.Members.GetById(Request.QueryString["Id"].ToSafeInt());
-                    toBeEditedMember.Code = txtCode.Text;
-                    toBeEditedMember.Name = txtName.Text;
-                    toBeEditedMember.Type = Convert.ToByte(drpType.SelectedValue);
-                    toBeEditedMember.ShareAmount = txtShareAmount.Text.ToSafeLong();
-                    toBeEditedMember.ShareCount = txtShareAmount.Text.ToSafeLong() / 2000;
-                }
-                
+                //else
+                //{
+                //    var toBeEditedItem = u.ShareDivisions.GetById(Request.QueryString["Id"].ToSafeInt());
+                //    toBeEditedItem.Type = Convert.ToByte(drpType.SelectedValue);
+                //}
+
                 u.SaveChanges();
 
                 lblResult.InnerText = "اطلاعات با موفقیت ذخیره شد";
@@ -102,10 +119,18 @@ namespace Tashim
 
         private void ClearControls()
         {
-            txtName.Text = "";
             drpType.SelectedIndex = 0;
-            txtCode.Text = "";
             txtShareAmount.Text = "";
+        }
+
+        protected void gridList_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+
+        }
+
+        protected void gridList_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            
         }
     }
 }

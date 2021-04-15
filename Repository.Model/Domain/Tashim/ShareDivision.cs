@@ -12,5 +12,7 @@ namespace Repository.Entity.Domain.Tashim
         public byte Type { get; set; }
         public long Amount { get; set; }
 
+        public ICollection<ShareDivisionDetail> ShareDivisionDetails { get; set; }
+
     }
 }

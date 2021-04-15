@@ -67,6 +67,7 @@
     <Compile Include="Domain\ReworkReason.cs" />
     <Compile Include="Domain\Tag.cs" />
     <Compile Include="Domain\Category.cs" />
+    <Compile Include="Domain\Tashim\ShareDivisionDetail.cs" />
     <Compile Include="Domain\Tashim\ShareDivision.cs" />
     <Compile Include="Domain\Tashim\Member.cs" />
     <Compile Include="Domain\User.cs" />

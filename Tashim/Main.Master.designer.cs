@@ -69,6 +69,24 @@ namespace Tashim
         protected global::System.Web.UI.WebControls.LinkButton lbtnMembers;
 
         /// <summary>
+        /// lbtnShareDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnShareDiv;
+
+        /// <summary>
+        /// lbtnShareDivList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnShareDivList;
+
+        /// <summary>
         /// lbtnExit control.
         /// </summary>
         /// <remarks>

@@ -112,6 +112,10 @@
     <Compile Include="Migrations\202104140535512_memberedit.Designer.cs">
       <DependentUpon>202104140535512_memberedit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104141339190_shareDiv.cs" />
+    <Compile Include="Migrations\202104141339190_shareDiv.Designer.cs">
+      <DependentUpon>202104141339190_shareDiv.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MTOContextFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -177,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104140535512_memberedit.resx">
       <DependentUpon>202104140535512_memberedit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104141339190_shareDiv.resx">
+      <DependentUpon>202104141339190_shareDiv.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
