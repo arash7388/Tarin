@@ -11,18 +11,18 @@
     <div class="row">
         <div class="col-md-10">
             <hr class="hrBlue" />
-                <asp:GridView runat="server" AutoGenerateColumns="False" Width="512px" ID="gridList" CssClass="table table-bordered table-striped" DataKeyNames="Id"
+            <asp:GridView runat="server" AutoGenerateColumns="False" Width="512px" ID="gridList" CssClass="table table-bordered table-striped" DataKeyNames="Id"
                 OnRowCommand="gridList_RowCommand" AllowPaging="True" PageSize="50" OnPageIndexChanging="gridList_OnPageIndexChanging" OnRowDataBound="gridList_RowDataBound">
                 <PagerStyle CssClass="gridPagerStyle" HorizontalAlign="Center" Wrap="False" />
-                    
+
                 <Columns>
                     <asp:BoundField DataField="Id" HeaderText="شناسه">
                         <ControlStyle BorderColor="#FFFF99" BorderStyle="Solid" />
                         <HeaderStyle HorizontalAlign="Left" />
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
-                    
-                     <asp:BoundField DataField="Code" HeaderText="کد">
+
+                    <asp:BoundField DataField="Code" HeaderText="کد">
                         <ControlStyle BorderColor="#FFFF99" BorderStyle="Solid" />
                         <HeaderStyle HorizontalAlign="Left" />
                         <ItemStyle HorizontalAlign="Center" />
@@ -33,6 +33,21 @@
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
 
+                    <%--<asp:BoundField DataField="HasPriority" HeaderText="اولویت بالا" ReadOnly="True">
+                        <ControlStyle BorderColor="#FFFF99" BorderStyle="Solid" />
+                        <HeaderStyle HorizontalAlign="Left" />
+                        <ItemStyle HorizontalAlign="Center" />
+                    </asp:BoundField>--%>
+
+                   <%-- <asp:TemplateField HeaderText="Select">
+                        <ItemTemplate>
+                            <asp:CheckBox ID="cbSelect"
+                                CssClass="gridCB" runat="server"></asp:CheckBox>
+                        </ItemTemplate>
+                    </asp:TemplateField>--%>
+
+                    
+
                     <asp:BoundField DataField="ShareAmount" HeaderText="مبلغ سهام">
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
@@ -42,6 +57,12 @@
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
+
+                    <asp:TemplateField HeaderText="اولویت بالا">
+                        <ItemTemplate>
+                            <asp:CheckBox runat="server" Checked='<%# Convert.ToBoolean(Eval("HasPriority")??false) %>'/>
+                        </ItemTemplate>
+                    </asp:TemplateField>
 
                     <asp:TemplateField ShowHeader="False">
                         <ItemTemplate>
@@ -68,6 +89,9 @@
             <asp:Button runat="server" ID="btnAdd" Text="جدید" CssClass="btn btn-black" OnClick="btnAdd_Click" />
         </div>
     </div>
+
+    
+
     <hr class="hrBlue" />
     <div class="row">
         <div class="col-md-1 text-left">

@@ -24,6 +24,33 @@ namespace Tashim
         protected global::System.Web.UI.WebControls.TextBox txtShareAmount;
 
         /// <summary>
+        /// txtSharePercent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSharePercent;
+
+        /// <summary>
+        /// txtEqualPercent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEqualPercent;
+
+        /// <summary>
+        /// txtPrPercent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPrPercent;
+
+        /// <summary>
         /// drpType control.
         /// </summary>
         /// <remarks>

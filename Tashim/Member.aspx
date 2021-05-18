@@ -38,6 +38,15 @@
        
     </div>
     
+     <div class="row" >
+         <div class="col-md-2" align="left">
+            اولویت بالا :
+        </div>
+        <div class="col-md-10">
+            <asp:CheckBox runat="server" ID="chkHasPriority" Height="23" Width="303"></asp:CheckBox>
+        </div>
+       
+    </div>
 
     <div class="row" >
          <div class="col-md-2" align="left">

@@ -50,8 +50,8 @@ namespace Repository.Data
 
 
         //public MTOContext() :base(ConfigurationManager.ConnectionStrings["Tarin"].ToString())
-        //public MTOContext() :base("Data Source=.;Initial Catalog=Tashim;Integrated Security=SSPI;MultipleActiveResultSets=true;")
-        public MTOContext() :base("Data Source=DESKTOP-6700VR9\\SQLEXPRESS;Initial Catalog=Tashim;Integrated Security=SSPI;MultipleActiveResultSets=true;")
+        public MTOContext() :base("Data Source=.;Initial Catalog=Tashim;Integrated Security=SSPI;MultipleActiveResultSets=true;")
+        //public MTOContext() :base("Data Source=DESKTOP-6700VR9\\SQLEXPRESS;Initial Catalog=Tashim;Integrated Security=SSPI;MultipleActiveResultSets=true;")
         //attentionnnnnnnnnnnnnn MultipleActiveResultSets=true should be added 
         //public MTOContext() :base("Tarin")
         {

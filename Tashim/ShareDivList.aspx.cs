@@ -31,7 +31,10 @@ namespace Tashim
                     a.Type,
                     TypeDesc = a.Type == 1 ? "مهرو پلاک" : (a.Type == 2 ? "لیتوگراف" : (a.Type == 3 ? "چاپ سیلک" : (a.Type == 4 ? "همه" : ""))),
                     a.UpdateDateTime,
-                    PersianInsertDateTime = Convert.ToDateTime(a.InsertDateTime).ToFaDate()
+                    PersianInsertDateTime = Convert.ToDateTime(a.InsertDateTime).ToFaDate(),
+                    a.SharePercent,
+                    a.EqualPercent,
+                    a.PriorityPercent
                 }).ToList();
 
                 gridList.DataBind();
@@ -50,8 +53,7 @@ namespace Tashim
             {
                 Response.Redirect("ShareDiv.aspx?Id=" + e.CommandArgument);
             }
-            else
-            if (e.CommandName == "Delete")
+            else if (e.CommandName == "Delete")
             {
                 var data = new ConfirmData();
 
@@ -64,6 +66,10 @@ namespace Tashim
                 Session["ConfirmData"] = data;
                 Response.Redirect("Confirmation.aspx");
                 Response.End();
+            }
+            else if (e.CommandName == "Print")
+            {
+                Response.Redirect($"ShareDivPrint.aspx?id={e.CommandArgument.ToSafeInt()}");
             }
         }
 

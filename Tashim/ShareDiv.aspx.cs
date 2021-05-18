@@ -52,6 +52,17 @@ namespace Tashim
                 if (drpType.SelectedValue == "-1") throw new LocalException("Type is empty", "نوع را وارد نمایید");
                 if (txtShareAmount.Text == string.Empty) throw new LocalException("Share is empty", "مبلغ سود را وارد نمایید");
 
+                if (txtSharePercent.Text.ToSafeString() != "" && !int.TryParse(txtSharePercent.Text, out int _))
+                    throw new LocalException("", "درصد سهام باید عدد بین 0 تا صد باشد");
+
+                if(txtEqualPercent.Text.ToSafeString() != "" && !int.TryParse(txtEqualPercent.Text, out int _))
+                    throw new LocalException("", "درصد مساوی باید عدد بین 0 تا صد باشد");
+
+                if(txtPrPercent.Text.ToSafeString() != "" && !int.TryParse(txtPrPercent.Text, out int _))
+                    throw new LocalException("", "درصد اولویت باید عدد بین 0 تا صد باشد");
+
+                if (txtSharePercent.Text.ToSafeInt() + txtEqualPercent.Text.ToSafeInt() + txtPrPercent.Text.ToSafeInt() != 100)
+                    throw new LocalException("Sum percent is wrong", "مجموع درصد ها باید 100 باشد");
 
                 UnitOfWork u = new UnitOfWork();
 
@@ -61,12 +72,15 @@ namespace Tashim
                     {
                         Type = Convert.ToByte(drpType.SelectedValue),
                         Amount = txtShareAmount.Text.ToSafeLong(),
+                        SharePercent = txtSharePercent.Text.ToSafeInt(),
+                        EqualPercent = txtEqualPercent.Text.ToSafeInt(),
+                        PriorityPercent = txtPrPercent.Text.ToSafeInt()
                     };
 
                     var memberRepo = new MemberRepository();
 
                     List<Repository.Entity.Domain.Tashim.Member> relatedMembers = null;
-                    
+
                     if (drpType.SelectedValue != "4")
                     {
                         var selectedType = Convert.ToInt32(drpType.SelectedValue);
@@ -77,10 +91,6 @@ namespace Tashim
                         relatedMembers = memberRepo.GetAll().ToList();
                     }
 
-                    var newProfit = txtShareAmount.Text.ToSafeLong();//to be divided value
-                    var sum = relatedMembers.Sum(m => m.ShareAmount);
-                    var ratio = newProfit / sum;
-
                     newShareDivision.ShareDivisionDetails = new List<Repository.Entity.Domain.Tashim.ShareDivisionDetail>();
 
                     foreach (Repository.Entity.Domain.Tashim.Member member in relatedMembers)
@@ -88,10 +98,45 @@ namespace Tashim
                         var newDetail = new Repository.Entity.Domain.Tashim.ShareDivisionDetail
                         {
                             MemberId = member.Id,
-                            ShareAmount = ratio * member.ShareAmount
+                            ShareAmount = 0
                         };
 
                         newShareDivision.ShareDivisionDetails.Add(newDetail);
+                    }
+
+                    var totalProfit = txtShareAmount.Text.ToSafeLong();//to be divided value
+                    var sumMemberShareCounts = relatedMembers.Sum(m => m.ShareCount);
+                    var relatedMembersCount = relatedMembers.Count();
+                    
+
+                    var profitForShareCountPercent = (totalProfit * txtSharePercent.Text.ToSafeInt()) / 100;
+                    var profitForEqualPercent = (totalProfit * txtEqualPercent.Text.ToSafeInt()) / 100;
+                    var profitForPriorityPercent = (totalProfit * txtPrPercent.Text.ToSafeInt()) / 100;
+
+                    var ratioBasedOnMemberShareCounts = profitForShareCountPercent / sumMemberShareCounts;
+
+                    if (profitForEqualPercent != 0)
+                        foreach (var det in newShareDivision.ShareDivisionDetails)
+                        {
+                            det.ShareAmount = profitForEqualPercent / relatedMembersCount;
+                        }
+
+                    if (profitForShareCountPercent != 0)
+                        foreach (var det in newShareDivision.ShareDivisionDetails)
+                        {
+                            det.ShareAmount += ratioBasedOnMemberShareCounts * relatedMembers.Where(a=>a.Id==det.MemberId).FirstOrDefault().ShareCount;
+                        }
+
+                    if (profitForPriorityPercent != 0)
+                    {
+                        var memberWithPr = relatedMembers.Where(a => a.HasPriority).ToList();
+                        var memberWithPrCount = memberWithPr.Count();
+
+                        foreach (var det in newShareDivision.ShareDivisionDetails)
+                        {
+                            if (memberWithPr.Select(a => a.Id).Contains(det.MemberId))
+                                det.ShareAmount += profitForPriorityPercent / memberWithPrCount;
+                        }
                     }
 
                     u.ShareDivisions.Create(newShareDivision);
@@ -130,7 +175,7 @@ namespace Tashim
 
         protected void gridList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            
+
         }
     }
 }

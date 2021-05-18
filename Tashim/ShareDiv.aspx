@@ -19,6 +19,35 @@
 
     </div>
 
+    <div class="row">
+        <div class="col-md-2" align="left">
+            درصد سهام :
+        </div>
+        <div class="col-md-10">
+            <asp:TextBox runat="server" ID="txtSharePercent" Height="23" Width="303"></asp:TextBox>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-2" align="left">
+            درصد مساوی :
+        </div>
+        <div class="col-md-10">
+            <asp:TextBox runat="server" ID="txtEqualPercent" Height="23" Width="303"></asp:TextBox>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-2" align="left">
+            درصد اولویت دار :
+        </div>
+        <div class="col-md-10">
+            <asp:TextBox runat="server" ID="txtPrPercent" Height="23" Width="303"></asp:TextBox>
+        </div>
+
+    </div>
 
     <div class="row">
         <div class="col-md-2" align="left">

@@ -32,6 +32,21 @@
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
+
+                    <asp:BoundField DataField="SharePercent" HeaderText="درصد سهام">
+                        <HeaderStyle HorizontalAlign="Center" />
+                        <ItemStyle HorizontalAlign="Center" />
+                    </asp:BoundField>
+
+                    <asp:BoundField DataField="EqualPercent" HeaderText="درصد مساوی">
+                        <HeaderStyle HorizontalAlign="Center" />
+                        <ItemStyle HorizontalAlign="Center" />
+                    </asp:BoundField> 
+                    
+                    <asp:BoundField DataField="PriorityPercent" HeaderText="درصد اولویت">
+                        <HeaderStyle HorizontalAlign="Center" />
+                        <ItemStyle HorizontalAlign="Center" />
+                    </asp:BoundField>
                                      
                     <asp:BoundField DataField="TypeDesc" HeaderText="نوع سهامدار">
                         <HeaderStyle HorizontalAlign="Center" />
@@ -56,6 +71,15 @@
                                 CommandArgument='<%# Eval("Id") %>'
                                 Text="حذف" />
                             <asp:Image runat="server" ImageUrl="Images/Delete16.png" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField ShowHeader="False">
+                        <ItemTemplate>
+                            <asp:LinkButton ID="btnPrint" runat="server" CausesValidation="false"
+                                CommandName="Print"
+                                CommandArgument='<%# Eval("Id") %>'
+                                Text="چاپ" />
+                            <asp:Image runat="server" ImageUrl="Images/print16.png" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

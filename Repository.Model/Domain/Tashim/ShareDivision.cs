@@ -12,6 +12,9 @@ namespace Repository.Entity.Domain.Tashim
         public byte Type { get; set; }
         public long Amount { get; set; }
 
+        public int SharePercent { get; set; }
+        public int EqualPercent { get; set; }
+        public int PriorityPercent { get; set; }
         public ICollection<ShareDivisionDetail> ShareDivisionDetails { get; set; }
 
     }

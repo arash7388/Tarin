@@ -20,5 +20,7 @@ namespace Repository.Entity.Domain.Tashim
         public long ShareAmount { get; set; }
         public long ShareCount { get; set; }
 
+        public bool HasPriority { get; set; }
+
     }
 }
